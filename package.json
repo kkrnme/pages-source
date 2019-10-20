@@ -1,11 +1,12 @@
 {
-  "name": "gatsby-starter-hello-world",
+  "name": "pages-gatsby",
   "private": true,
   "description": "A simplified bare-bones starter for Gatsby",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "deploy": "npm run build && gh-pages -d public -b master -r https://github.com/kkrnme/kkrnme.github.io",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
@@ -13,18 +14,15 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
+    "@emotion/core": "^10.0.21",
+    "@emotion/styled": "^10.0.17",
     "gatsby": "^2.16.1",
+    "gatsby-plugin-emotion": "^4.1.12",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"
   },
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "prettier": "^1.18.2"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
