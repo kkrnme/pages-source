@@ -1,7 +1,7 @@
 import React from "react"
 import { Global } from "@emotion/core"
 
-export default ({ children }) => (
+export default ({ children }: { children: unknown }) => (
   <div>
     <Global
       styles={{
