@@ -1,27 +1,31 @@
 import React from "react"
 import { graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import { SiteHeader } from "../components/SiteHeader"
+import { BlogStyle, Main } from "../components/style"
 
-export const Template = ({ data }) => {
-  const { markdownRemark } = data
-  const { html, frontmatter } = markdownRemark
+export default function PageTemplate({ data: { mdx } }) {
   return (
     <div>
-      <h1>{frontmatter.title}</h1>
-      <h2>{frontmatter.date}</h2>
-      <div dangerouslySetInnerHTML={{__html:html}}></div>
+      <BlogStyle />
+      <SiteHeader></SiteHeader>
+      <Main>
+        <article css={{}}>
+          <h1>{mdx.frontmatter.title}</h1>
+          <h2>{mdx.frontmatter.date}</h2>
+          <MDXRenderer>{mdx.body}</MDXRenderer>
+        </article>
+      </Main>
     </div>
   )
 }
 
-export default Template
-
 export const pageQuery = graphql`
-  query($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
+      id
+      body
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
-        path
         title
       }
     }

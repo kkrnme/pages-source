@@ -1,33 +1,40 @@
-const path = require(`path`)
-exports.createPages = async ({ actions, graphql, reporter }) => {
+const path = require("path")
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  // Destructure the createPage function from the actions object
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.jsx`)
   const result = await graphql(`
-    {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+    query {
+      allMdx {
         edges {
           node {
+            id
             frontmatter {
               path
+              date
+              title
             }
           }
         }
       }
     }
   `)
-  // Handle errors
   if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`)
+    reporter.panicOnBuild(result.errors)
     return
   }
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  // Create blog post pages.
+  const posts = result.data.allMdx.edges
+  // you'll call `createPage` for each result
+  posts.forEach(({ node }, index) => {
     createPage({
+      // This is the slug you created before
+      // (or `node.frontmatter.slug`)
       path: node.frontmatter.path,
-      component: blogPostTemplate,
-      context: {}, // additional data can be passed via context
+      // This component will wrap our MDX content
+      component: path.resolve(`./src/templates/blogTemplate.jsx`),
+      // You can use the values in this context in
+      // our page layout component
+      context: { id: node.id },
     })
   })
 }
