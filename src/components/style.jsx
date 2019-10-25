@@ -7,6 +7,7 @@ export const BlogStyle = () => (
       body: {
         backgroundColor: `#111`,
         margin: 0,
+        fontFamily: `"Noto Sans CJK JP"`,
       },
       article: {
         "h1, h2, h3, h4, h5, h6, strong": {
@@ -30,6 +31,7 @@ export const TopStyle = () => (
       body: {
         backgroundColor: `#111`,
         margin: 0,
+        fontFamily: `"Noto Sans CJK JP"`,
       },
       article: {
         "h1, h2, h3, h4, h5, h6, strong": {

@@ -4,10 +4,24 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMdx {
+      allMdx(sort: { fields: [frontmatter___date], order: ASC }) {
         edges {
           node {
             id
+            frontmatter {
+              path
+              date
+              title
+            }
+          }
+          previous {
+            frontmatter {
+              path
+              date
+              title
+            }
+          }
+          next {
             frontmatter {
               path
               date
@@ -25,7 +39,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // Create blog post pages.
   const posts = result.data.allMdx.edges
   // you'll call `createPage` for each result
-  posts.forEach(({ node }, index) => {
+  posts.forEach(({ node, previous, next }, index) => {
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
@@ -34,7 +48,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/blogTemplate.jsx`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id },
+      context: { id: node.id, previous, next },
     })
   })
 }
