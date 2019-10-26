@@ -1,14 +1,10 @@
 import React from "react"
 import { Global } from "@emotion/core"
+import kokoronome from "./kokoronome.svg"
 
 export const BlogStyle = () => (
-  <Global
+  <SharedGlobalStyle
     styles={{
-      body: {
-        backgroundColor: `#111`,
-        margin: 0,
-        fontFamily: `"Noto Sans CJK JP"`,
-      },
       article: {
         "h1, h2, h3, h4, h5, h6, strong": {
           color: `#fff`,
@@ -18,21 +14,13 @@ export const BlogStyle = () => (
         fontSize: `200%`,
         borderBottom: `1px solid #ddd`,
       },
-      a: {
-        color: `#088`,
-      },
     }}
-  ></Global>
+  />
 )
 
 export const TopStyle = () => (
-  <Global
+  <SharedGlobalStyle
     styles={{
-      body: {
-        backgroundColor: `#111`,
-        margin: 0,
-        fontFamily: `"Noto Sans CJK JP"`,
-      },
       article: {
         "h1, h2, h3, h4, h5, h6, strong": {
           color: `#fff`,
@@ -42,28 +30,43 @@ export const TopStyle = () => (
         fontSize: `200%`,
         borderBottom: `1px solid #ddd`,
       },
-      a: {
-        color: `#088`,
-      },
     }}
-  ></Global>
+  />
 )
 
-export const Main = ({ children }) => (
-  <main
-    css={{
-      backgroundColor: `#202020`,
-      color: `#ddd`,
-      margin: `8px auto`,
-      padding: `8px`,
-      width: `90%`,
-      maxWidth: `800px`,
-      "& *::selection": {
-        backgroundColor: `#40ffff60`,
-        color: `#fff`,
+const SharedGlobalStyle = ({ styles }) => (
+  <Global
+    styles={Object.assign(
+      {
+        body: {
+          margin: 0,
+          fontFamily: `"Noto Sans","Noto Sans CJK JP",sans-serif`,
+          background: `url('${kokoronome}') fixed center/contain no-repeat #111`,
+        },
+        main: {
+          backgroundColor: `#202020a0`,
+          borderRadius: `5px`,
+          color: `#ddd`,
+          letterSpacing: `0.05rem`,
+          margin: `8px auto`,
+          padding: `8px`,
+          width: `90%`,
+          maxWidth: `800px`,
+          backdropFilter: `blur(12px)`,
+          transition: `300ms all ease-in`,
+          "& *::selection": {
+            backgroundColor: `#40ffff60`,
+            color: `#fff`,
+          },
+          a: {
+            color: `#088`,
+          },
+        },
+        img: {
+          maxWidth: `80%`,
+        },
       },
-    }}
-  >
-    {children}
-  </main>
+      styles
+    )}
+  />
 )

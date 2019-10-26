@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import { Main, BlogStyle } from "../../components/style"
+import { BlogStyle } from "../../components/style"
 import { SiteHeader } from "../../components/SiteHeader"
 
 const BlogIndex = ({ data }) => {
@@ -9,19 +9,35 @@ const BlogIndex = ({ data }) => {
     <div>
       <BlogStyle />
       <SiteHeader />
-      <Main>
+      <main>
         <h1>Awesome MDX Blog</h1>
-        <ul>
+        <ul
+          css={{
+            listStyle: `none`,
+          }}
+        >
           {posts.map(({ node: post }) => (
             <li key={post.id}>
               <Link to={post.frontmatter.path}>
-                <h2>{post.frontmatter.title}</h2>
+                <h2
+                  css={{
+                    margin: `2rem auto 0rem`,
+                  }}
+                >
+                  {post.frontmatter.title}
+                </h2>
               </Link>
-              <p>{post.excerpt}</p>
+              <p
+                css={{
+                  marginTop: `0`,
+                }}
+              >
+                {post.excerpt}
+              </p>
             </li>
           ))}
         </ul>
-      </Main>
+      </main>
     </div>
   )
 }
