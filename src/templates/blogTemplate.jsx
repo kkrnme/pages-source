@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { SiteHeader } from "../components/SiteHeader"
+import { SiteHeader } from "../components/HeaderFooter"
 import { BlogStyle } from "../components/style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -46,6 +46,7 @@ export default function PageTemplate({ data: { allMdx }, pageContext }) {
           </h1>
           <MDXRenderer>{edge.node.body}</MDXRenderer>
         </article>
+        {PrevNextLink(pageContext)}
       </main>
     </div>
   )

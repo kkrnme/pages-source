@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import { BlogStyle } from "../../components/style"
-import { SiteHeader } from "../../components/SiteHeader"
+import { SiteHeader } from "../../components/HeaderFooter"
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx

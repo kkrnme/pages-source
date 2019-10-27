@@ -41,6 +41,7 @@ const SharedGlobalStyle = ({ styles }) => (
         body: {
           margin: 0,
           fontFamily: `"Noto Sans","Noto Sans CJK JP",sans-serif`,
+          fontSize: `20px`,
           background: `url('${kokoronome}') fixed center/contain no-repeat #111`,
         },
         main: {
@@ -62,8 +63,18 @@ const SharedGlobalStyle = ({ styles }) => (
             color: `#088`,
           },
         },
-        img: {
-          maxWidth: `80%`,
+        pre: {
+          backgroundColor: `#1e1e1e`,
+          //mixBlendMode: `darken`,
+          border: `1px solid #ddd5`,
+          borderRadius: `2px`,
+          fontFamily: `monospace`,
+          letterSpacing: `0`,
+          padding: `2px`,
+        },
+        ".emoji": {
+          height: `1.2em`,
+          transform: `translateY(0.2em)`,
         },
       },
       styles

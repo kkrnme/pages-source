@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { SiteHeader } from "../components/SiteHeader"
+import { SiteHeader, SiteFooter } from "../components/HeaderFooter"
 import { TopStyle } from "../components/style"
 
 export default ({ data }) => (
@@ -12,6 +12,7 @@ export default ({ data }) => (
       <p>kkrn.me</p>
       <p>{data.site.siteMetadata.discription}</p>
     </main>
+    <SiteFooter />
   </div>
 )
 
