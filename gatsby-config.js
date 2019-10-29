@@ -22,6 +22,8 @@ module.exports = {
         path: `${__dirname}/src/mdx-pages`,
       },
     },
-    `gatsby-plugin-mdx`,
+    {
+      resolve: `gatsby-plugin-mdx`,
+    },
   ],
 }

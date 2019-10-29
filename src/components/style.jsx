@@ -72,10 +72,6 @@ const SharedGlobalStyle = ({ styles }) => (
           letterSpacing: `0`,
           padding: `2px`,
         },
-        ".emoji": {
-          height: `1.2em`,
-          transform: `translateY(0.2em)`,
-        },
       },
       styles
     )}

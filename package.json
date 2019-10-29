@@ -9,6 +9,7 @@
     "deploy": "npm run build && gh-pages -d public -b master -r https://github.com/kkrnme/kkrnme.github.io",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "refresh": "rm -rfd .cache",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
