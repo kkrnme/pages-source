@@ -4,6 +4,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx"
 import { SiteHeader } from "../components/HeaderFooter"
 import { BlogStyle } from "../components/style"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Twemoji from "react-twemoji"
 import {
   faChevronLeft,
   faChevronRight,
@@ -15,39 +16,42 @@ export default function PageTemplate({ data: { allMdx }, pageContext }) {
     <div>
       <BlogStyle />
       <SiteHeader></SiteHeader>
-      <main>
-        {PrevNextLink(pageContext)}
-        <article css={{}}>
-          <h1
-            css={{
-              display: `flex`,
-              justifyContent: `space-between`,
-              width: `100%`,
-              flexWrap: `wrap`,
-              "@media (width <= 800px)": {
-                flexWrap: `wrap`,
-              },
-            }}
-          >
-            <span>{edge.node.frontmatter.title} </span>
-            <span
+      <Twemoji noWrapper>
+        <main>
+          {PrevNextLink(pageContext)}
+          <article css={{}}>
+            <h1
               css={{
-                alignSelf: `flex-end`,
-                fontSize: `75%`,
-                fontWeight: `400`,
-                //width: `100%`,
-                flexGrow: 1,
-                textAlign: `right`,
-                "@media (width <= 800px)": {},
+                fontSize: `200%`,
+                display: `flex`,
+                justifyContent: `space-between`,
+                width: `100%`,
+                flexWrap: `wrap`,
+                "@media (width <= 800px)": {
+                  flexWrap: `wrap`,
+                },
               }}
             >
-              Date:{edge.node.frontmatter.date}
-            </span>
-          </h1>
-          <MDXRenderer>{edge.node.body}</MDXRenderer>
-        </article>
-        {PrevNextLink(pageContext)}
-      </main>
+              <span>{edge.node.frontmatter.title} </span>
+              <span
+                css={{
+                  alignSelf: `flex-end`,
+                  fontSize: `75%`,
+                  fontWeight: `400`,
+                  //width: `100%`,
+                  flexGrow: 1,
+                  textAlign: `right`,
+                  "@media (width <= 800px)": {},
+                }}
+              >
+                Date:{edge.node.frontmatter.date}
+              </span>
+            </h1>
+            <MDXRenderer>{edge.node.body}</MDXRenderer>
+          </article>
+          {PrevNextLink(pageContext)}
+        </main>
+      </Twemoji>
     </div>
   )
 }
