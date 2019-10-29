@@ -11,7 +11,7 @@ export const BlogStyle = () => (
         },
       },
       h1: {
-        fontSize: `200%`,
+        fontSize: `160%`,
         borderBottom: `1px solid #ddd`,
       },
     }}
@@ -48,7 +48,7 @@ const SharedGlobalStyle = ({ styles }) => (
           backgroundColor: `#202020a0`,
           borderRadius: `5px`,
           color: `#ddd`,
-          letterSpacing: `0.05rem`,
+          letterSpacing: `0.09rem`,
           margin: `8px auto`,
           padding: `8px`,
           width: `90%`,
@@ -71,6 +71,14 @@ const SharedGlobalStyle = ({ styles }) => (
           fontFamily: `monospace`,
           letterSpacing: `0`,
           padding: `2px`,
+        },
+        "img.emoji": {
+          height: `1.2em`,
+          transform: `translateY(0.2em)`,
+          transition: `300ms all cubic-bezier(.68,-0.55,.27,1.55)`,
+          "&:hover": {
+            transform: `translateY(0.2em) scale(2)`,
+          },
         },
       },
       styles
