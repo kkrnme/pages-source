@@ -48,6 +48,9 @@ export default function PageTemplate({ data: { allMdx }, pageContext }) {
               </span>
             </h1>
             <MDXRenderer>{edge.node.body}</MDXRenderer>
+            {edge.node.frontmatter.status === "draft" ? (
+              <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
+            ) : null}
           </article>
           {PrevNextLink(pageContext)}
         </main>
@@ -102,6 +105,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
+            status
           }
         }
         previous {
