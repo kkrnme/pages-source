@@ -10,12 +10,17 @@ export const SiteFooter = () => (
       a: {
         color: `#FFF5`,
       },
+      textAlign: `center`,
     }}
   >
     <p>
-      Using: <a href="https://gatsbyjs.org">Gatsby</a>
-      <a href="https://reactjs.org">React</a>
-      <a href="https://fontawesome.com">Font Awesome</a>
+      <a href="https://github.com/kkrnme/kkrnme.github.io">
+        Hosted on GitHub Pages
+      </a>{" "}
+      and{" "}
+      <a href="https://github.com/kkrnme/pages-source">
+        here's the source code under MIT License.
+      </a>
     </p>
   </footer>
 )
