@@ -12,6 +12,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
               path
               date
               title
+              status
             }
           }
           previous {
