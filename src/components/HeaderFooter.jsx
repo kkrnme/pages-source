@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHome, faBlog } from "@fortawesome/free-solid-svg-icons"
+import LogoBlockSmall from "./logo-block-small.svg"
 
 export const SiteFooter = () => (
   <footer
@@ -28,19 +29,11 @@ export const SiteFooter = () => (
 export const SiteHeader = () => (
   <header
     style={{
-      backgroundColor: `#ddd`,
+      backgroundColor: `#111`,
       display: `flex`,
     }}
   >
-    <span
-      style={{
-        color: `#222`,
-        margin: `auto 8px`,
-        fontSize: `200%`,
-      }}
-    >
-      KKRN.ME
-    </span>
+    <img src={LogoBlockSmall} alt="KKRN.ME" />
     <ul
       style={{
         display: `flex`,
@@ -61,8 +54,9 @@ const ListLink = ({ children, to, icon }) => (
   <li style={{ margin: `1px`, display: `block` }}>
     <Link
       to={to}
-      style={{
+      css={{
         textDecoration: `none`,
+        color: `#0aa`,
       }}
     >
       <span

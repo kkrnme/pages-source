@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { SiteHeader, SiteFooter } from "../components/HeaderFooter"
 import { TopStyle } from "../components/style"
-import Logo from "../components/kkrnme_logo.svg"
+import LogoBlock from "../components/logo-block.svg"
 
 export default ({ data }) => (
   <div>
@@ -12,7 +12,7 @@ export default ({ data }) => (
       <h1>KKRN.ME</h1>
       <p>{data.site.siteMetadata.discription}</p>
       <img
-        src={Logo}
+        src={LogoBlock}
         alt="KKRN.ME"
         css={{
           width: `80%`,

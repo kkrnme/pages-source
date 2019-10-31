@@ -1,6 +1,6 @@
 import React from "react"
 import { Global, InterpolationWithTheme } from "@emotion/core"
-import kokoronome from "./kokoronome.svg"
+import LogoScript from "./logo-script.svg"
 import _ from "lodash"
 
 export const BlogStyle = () => (
@@ -46,7 +46,7 @@ const merge = (
       margin: 0,
       fontFamily: `"Noto Sans","Noto Sans CJK JP",sans-serif`,
       fontSize: `20px`,
-      background: `url('${kokoronome}') fixed center/contain no-repeat #111`,
+      background: `url('${LogoScript}') fixed center/contain no-repeat #111`,
     },
     main: {
       backgroundColor: `#202020a0`,
