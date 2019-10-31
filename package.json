@@ -8,6 +8,7 @@
     "build": "gatsby build",
     "deploy": "npm run build && gh-pages -d public -b master -r https://github.com/kkrnme/kkrnme.github.io",
     "extreme-deploy": "npm run format && npm run refresh && rm -rfd public && npm run deploy",
+    "extreme-develop": "npm run format && npm run refresh && npm run develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "refresh": "rm -rfd .cache",
