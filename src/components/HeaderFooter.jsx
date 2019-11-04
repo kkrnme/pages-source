@@ -33,7 +33,9 @@ export const SiteHeader = () => (
       display: `flex`,
     }}
   >
-    <img src={LogoBlockSmall} alt="KKRN.ME" />
+    <Link to="/">
+      <img src={LogoBlockSmall} alt="KKRN.ME" />
+    </Link>
     <ul
       style={{
         display: `flex`,

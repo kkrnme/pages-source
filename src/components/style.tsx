@@ -86,6 +86,5 @@ const merge = (
     },
   }
   const result = _.merge(SharedGlobalStyle, style)
-  console.log(result)
   return result
 }
