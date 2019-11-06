@@ -1,16 +1,15 @@
 import React from "react"
-import { graphql } from "gatsby"
 import { SiteHeader, SiteFooter } from "../components/HeaderFooter"
 import { TopStyle } from "../components/style"
 import LogoBlock from "../components/logo-block.svg"
 
-export default ({ data }) => (
+export default () => (
   <div>
     <TopStyle />
     <SiteHeader />
     <main>
       <h1>KKRN.ME</h1>
-      <p>{data.site.siteMetadata.discription}</p>
+      <p>page of mominis</p>
       <img
         src={LogoBlock}
         alt="KKRN.ME"
@@ -22,13 +21,3 @@ export default ({ data }) => (
     <SiteFooter />
   </div>
 )
-
-export const query = graphql`
-  query DescQuery {
-    site {
-      siteMetadata {
-        discription
-      }
-    }
-  }
-`

@@ -3,14 +3,14 @@ import { Link, graphql } from "gatsby"
 import { BlogStyle } from "../../components/style"
 import { SiteHeader } from "../../components/HeaderFooter"
 
-const BlogIndex = ({ data }) => {
+const BlogIndex = ({ data }: { data: data }) => {
   const { edges: posts } = data.allMdx
   return (
     <div>
       <BlogStyle />
       <SiteHeader />
       <main>
-        <h1>Awesome MDX Blog</h1>
+        <h1>いまのところundefined</h1>
         <ul
           css={{
             listStyle: `none`,
@@ -64,7 +64,10 @@ const BlogIndex = ({ data }) => {
 
 export const pageQuery = graphql`
   query blogIndex {
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { frontmatter: { status: { ne: "private" } } }
+    ) {
       edges {
         node {
           id
@@ -80,4 +83,22 @@ export const pageQuery = graphql`
     }
   }
 `
+type data = {
+  allMdx: {
+    edges: [
+      {
+        node: {
+          id: string
+          excerpt: string
+          frontmatter: {
+            title: string
+            date: string
+            path: string
+            status: string
+          }
+        }
+      }
+    ]
+  }
+}
 export default BlogIndex

@@ -1,7 +1,11 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHome, faBlog } from "@fortawesome/free-solid-svg-icons"
+import {
+  faHome,
+  faBlog,
+  IconDefinition,
+} from "@fortawesome/free-solid-svg-icons"
 import LogoBlockSmall from "./logo-block-small.svg"
 
 export const SiteFooter = () => (
@@ -15,12 +19,14 @@ export const SiteFooter = () => (
     }}
   >
     <p>
+      This website is
       <a href="https://github.com/kkrnme/kkrnme.github.io">
-        Hosted on GitHub Pages
+        {" "}
+        hosted on GitHub Pages
       </a>{" "}
       and{" "}
       <a href="https://github.com/kkrnme/pages-source">
-        here's the source code under MIT License.
+        licensed under the MIT License.
       </a>
     </p>
   </footer>
@@ -52,7 +58,15 @@ export const SiteHeader = () => (
   </header>
 )
 
-const ListLink = ({ children, to, icon }) => (
+const ListLink = ({
+  children,
+  to,
+  icon,
+}: {
+  children: ReactNode
+  to: string
+  icon: IconDefinition
+}) => (
   <li style={{ margin: `1px`, display: `block` }}>
     <Link
       to={to}
