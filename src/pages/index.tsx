@@ -1,13 +1,10 @@
 import React from "react"
-import { SiteHeader, SiteFooter } from "../components/HeaderFooter"
-import { TopStyle } from "../components/style"
+import CenterdWrapper from "../components/wrappers/CenterdWrapper"
 import LogoBlock from "../components/logo-block.svg"
 
 export default () => (
   <div>
-    <TopStyle />
-    <SiteHeader />
-    <main>
+    <CenterdWrapper>
       <h1>KKRN.ME</h1>
       <p>page of mominis</p>
       <img
@@ -17,7 +14,6 @@ export default () => (
           width: `80%`,
         }}
       />
-    </main>
-    <SiteFooter />
+    </CenterdWrapper>
   </div>
 )

@@ -8,31 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import LogoBlockSmall from "./logo-block-small.svg"
 
-export const SiteFooter = () => (
-  <footer
-    css={{
-      color: `#FFF4`,
-      a: {
-        color: `#FFF5`,
-      },
-      textAlign: `center`,
-    }}
-  >
-    <p>
-      This website is
-      <a href="https://github.com/kkrnme/kkrnme.github.io">
-        {" "}
-        hosted on GitHub Pages
-      </a>{" "}
-      and{" "}
-      <a href="https://github.com/kkrnme/pages-source">
-        licensed under the MIT License.
-      </a>
-    </p>
-  </footer>
-)
-
-export const SiteHeader = () => (
+export default () => (
   <header
     style={{
       backgroundColor: `#111`,

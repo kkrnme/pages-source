@@ -1,15 +1,11 @@
 import React from "react"
+import CenterdWrapper from "../../components/wrappers/CenterdWrapper"
 import { Link, graphql } from "gatsby"
-import { BlogStyle } from "../../components/style"
-import { SiteHeader } from "../../components/HeaderFooter"
 
 const BlogIndex = ({ data }: { data: data }) => {
   const { edges: posts } = data.allMdx
   return (
-    <div>
-      <BlogStyle />
-      <SiteHeader />
-      <main>
+    <CenterdWrapper>
         <h1>いまのところundefined</h1>
         <ul
           css={{
@@ -57,8 +53,7 @@ const BlogIndex = ({ data }: { data: data }) => {
             </li>
           ))}
         </ul>
-      </main>
-    </div>
+    </CenterdWrapper>
   )
 }
 
