@@ -1,6 +1,7 @@
 import React from "react"
 import CenterdWrapper from "../../components/wrappers/CenterdWrapper"
-import { Link, graphql } from "gatsby"
+import {  graphql } from "gatsby"
+import LinkToPost from "../../components/blog/LinkToPost"
 
 const BlogIndex = ({ data }) => {
   const { edges: posts } = data.allMdx
@@ -13,53 +14,19 @@ const BlogIndex = ({ data }) => {
         }}
       >
         {posts.map(({ node: post }) => (
-          <li key={post.id}><PostLink post={post}></PostLink></li>
+          <li key={post.id}>
+            <LinkToPost
+              to={post.frontmatter.path}
+              title={post.frontmatter.title}
+              excerpt={post.excerpt}
+              status={post.frontmatter.status}
+            ></LinkToPost>
+          </li>
         ))}
       </ul>
     </CenterdWrapper>
   )
 }
-
-const PostLink = ({post}) => (
-  <div>
-    <Link
-      to={post.frontmatter.path}
-      css={{
-        display: `flex`,
-        alignItems: `baseline`,
-        textDecoration: `none`,
-        margin: `2rem 0 0rem`,
-      }}
-    >
-      <h2
-        css={{
-          margin: 0,
-        }}
-      >
-        {post.frontmatter.title}
-      </h2>
-      {post.frontmatter.status === "draft" ? (
-        <label
-          css={{
-            backgroundColor: `#ff0050`,
-            marginLeft: `8px`,
-            borderRadius: `5px`,
-            color: `white`,
-          }}
-        >
-          draft
-        </label>
-      ) : null}
-    </Link>
-    <p
-      css={{
-        marginTop: `0`,
-      }}
-    >
-      {post.excerpt}
-    </p>
-  </div>
-)
 
 export const pageQuery = graphql`
   query blogIndex {
