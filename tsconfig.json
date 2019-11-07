@@ -3,5 +3,12 @@
     "strict": true,
     "jsx": "react",
     "esModuleInterop": true
+    /*"plugins": [
+      {
+        "name": "ts-graphql-plugin",
+        "schema": "./schema.graphql",
+        "tag": "graphql"
+      }
+    ]*/
   }
 }

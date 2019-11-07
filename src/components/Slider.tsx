@@ -16,7 +16,7 @@ export const Slider = ({
         min="0"
         max="0.2"
         step="0.001"
-        value={letterSpacing}
+        defaultValue={letterSpacing}
         onInput={onInput}
       />
       <label htmlFor="">{letterSpacing.toFixed(3)}rem</label>

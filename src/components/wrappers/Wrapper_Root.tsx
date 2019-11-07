@@ -2,7 +2,8 @@ import React from "react"
 import SiteHeader from "../Header"
 import SiteFooter from "../Footer"
 import OverrideGlobal from "./OverrideGlobal"
-const Twemoji = require("react-twemoji")
+import Twemoji from "react-twemoji"
+//import twemoji from "twemoji"
 import _ from "lodash"
 import { InterpolationWithTheme } from "@emotion/core"
 
@@ -15,8 +16,10 @@ export default ({
 }) => (
   <div>
     <OverrideGlobal styles={styles} />
-    <SiteHeader />
-    <main>{children}</main>
-    <SiteFooter />
+    <Twemoji>
+      <SiteHeader />
+      <main>{children}</main>
+      <SiteFooter />
+    </Twemoji>
   </div>
 )
