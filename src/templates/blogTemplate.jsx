@@ -1,61 +1,30 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import { SiteHeader } from "../components/HeaderFooter"
-import { BlogStyle } from "../components/style"
+import ArticleHead from "../components/blog/ArticleHead"
+import BlogWrapper from "../components/wrappers/BlogWrapper"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Twemoji from "react-twemoji"
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
 
-export default function PageTemplate({ data: { allMdx }, pageContext }) {
-  const edge = allMdx.edges[0]
+export default function PageTemplate({ pageContext }) {
+  console.log(pageContext)
+
+  const node = pageContext.node
   return (
-    <div>
-      <BlogStyle />
-      <SiteHeader></SiteHeader>
-      <Twemoji noWrapper>
-        <main>
-          {PrevNextLink(pageContext)}
-          <article css={{}}>
-            <h1
-              css={{
-                fontSize: `200%`,
-                display: `flex`,
-                justifyContent: `space-between`,
-                width: `100%`,
-                flexWrap: `wrap`,
-                "@media (width <= 800px)": {
-                  flexWrap: `wrap`,
-                },
-              }}
-            >
-              <span>{edge.node.frontmatter.title} </span>
-              <span
-                css={{
-                  alignSelf: `flex-end`,
-                  fontSize: `75%`,
-                  fontWeight: `400`,
-                  //width: `100%`,
-                  flexGrow: 1,
-                  textAlign: `right`,
-                  "@media (width <= 800px)": {},
-                }}
-              >
-                Date:{edge.node.frontmatter.date}
-              </span>
-            </h1>
-            <MDXRenderer>{edge.node.body}</MDXRenderer>
-            {edge.node.frontmatter.status === "draft" ? (
-              <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
-            ) : null}
-          </article>
-          {PrevNextLink(pageContext)}
-        </main>
-      </Twemoji>
-    </div>
+    <BlogWrapper>
+      {PrevNextLink(pageContext)}
+      <article css={{}}>
+        <ArticleHead node={node} />
+        <MDXRenderer>{node.body}</MDXRenderer>
+        {node.frontmatter.status === "draft" ? (
+          <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
+        ) : null}
+      </article>
+      {PrevNextLink(pageContext)}
+    </BlogWrapper>
   )
 }
 
@@ -94,31 +63,3 @@ const PrevNextLink = ({ next, previous }) => (
     </span>
   </div>
 )
-
-export const pageQuery = graphql`
-  query BlogPostQuery($id: String) {
-    allMdx(filter: { id: { eq: $id } }) {
-      edges {
-        node {
-          id
-          body
-          frontmatter {
-            title
-            date
-            status
-          }
-        }
-        previous {
-          frontmatter {
-            title
-          }
-        }
-        next {
-          frontmatter {
-            title
-          }
-        }
-      }
-    }
-  }
-`

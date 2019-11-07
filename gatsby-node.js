@@ -4,13 +4,18 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
   const result = await graphql(`
     query {
-      allMdx(sort: { fields: [frontmatter___date], order: ASC }) {
+      allMdx(
+        sort: { fields: [frontmatter___date], order: ASC }
+        filter: { frontmatter: { status: { ne: "private" } } }
+      ) {
         edges {
           node {
+            body
             id
             frontmatter {
               path
               date
+              tags
               title
               status
             }
@@ -49,7 +54,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       component: path.resolve(`./src/templates/blogTemplate.jsx`),
       // You can use the values in this context in
       // our page layout component
-      context: { id: node.id, previous, next },
+      context: { id: node.id, previous, next, node },
     })
   })
 }

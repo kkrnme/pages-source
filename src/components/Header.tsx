@@ -1,39 +1,23 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { Link } from "gatsby"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHome, faBlog } from "@fortawesome/free-solid-svg-icons"
+import {
+  faHome,
+  faBlog,
+  IconDefinition,
+} from "@fortawesome/free-solid-svg-icons"
 import LogoBlockSmall from "./logo-block-small.svg"
 
-export const SiteFooter = () => (
-  <footer
-    css={{
-      color: `#FFF4`,
-      a: {
-        color: `#FFF5`,
-      },
-      textAlign: `center`,
-    }}
-  >
-    <p>
-      <a href="https://github.com/kkrnme/kkrnme.github.io">
-        Hosted on GitHub Pages
-      </a>{" "}
-      and{" "}
-      <a href="https://github.com/kkrnme/pages-source">
-        here's the source code under MIT License.
-      </a>
-    </p>
-  </footer>
-)
-
-export const SiteHeader = () => (
+export default () => (
   <header
     style={{
       backgroundColor: `#111`,
       display: `flex`,
     }}
   >
-    <img src={LogoBlockSmall} alt="KKRN.ME" />
+    <Link to="/">
+      <img src={LogoBlockSmall} alt="KKRN.ME" />
+    </Link>
     <ul
       style={{
         display: `flex`,
@@ -50,7 +34,15 @@ export const SiteHeader = () => (
   </header>
 )
 
-const ListLink = ({ children, to, icon }) => (
+const ListLink = ({
+  children,
+  to,
+  icon,
+}: {
+  children: ReactNode
+  to: string
+  icon: IconDefinition
+}) => (
   <li style={{ margin: `1px`, display: `block` }}>
     <Link
       to={to}
