@@ -1,6 +1,6 @@
 import React from "react"
 import CenterdWrapper from "../../components/wrappers/CenterdWrapper"
-import {  graphql } from "gatsby"
+import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 
 const BlogIndex = ({ data }) => {

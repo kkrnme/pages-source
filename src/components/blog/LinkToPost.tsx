@@ -1,8 +1,9 @@
 import React from "react"
 import { Link } from "gatsby"
+import { InterpolationWithTheme } from "@emotion/core"
 
-export default ({ to, title, excerpt, status }: argument) => (
-  <div>
+export default ({ to, title, excerpt, status, css }: argument) => (
+  <div css={css}>
     <Link
       to={to}
       css={{
@@ -35,6 +36,7 @@ export default ({ to, title, excerpt, status }: argument) => (
     <p
       css={{
         marginTop: `0`,
+        textAlign: `left`,
       }}
     >
       {excerpt}
@@ -47,4 +49,5 @@ interface argument {
   title: string
   excerpt: string
   status: string
+  css: InterpolationWithTheme<any>
 }
