@@ -3,8 +3,6 @@ import SiteHeader from "../Header"
 import SiteFooter from "../Footer"
 import OverrideGlobal from "./OverrideGlobal"
 import Twemoji from "react-twemoji"
-//import twemoji from "twemoji"
-import _ from "lodash"
 import { InterpolationWithTheme } from "@emotion/core"
 
 export default ({
