@@ -32,6 +32,9 @@ const SharedGlobalStyle: InterpolationWithTheme<any> = {
     a: {
       color: `#088`,
     },
+    "h1, h2, h3, h4, h5, h6, strong": {
+      //color: `#fff`,
+    },
   },
   pre: {
     backgroundColor: `#1e1e1e`,
@@ -43,6 +46,8 @@ const SharedGlobalStyle: InterpolationWithTheme<any> = {
     padding: `2px`,
   },
   "img.emoji": {
+    display: `inline`,
+    verticalAlign: `baseline`,
     height: `1.2em`,
     transform: `translateY(0.2em)`,
     transition: `300ms all cubic-bezier(.68,-0.55,.27,1.55)`,

@@ -7,11 +7,7 @@ export default ({ children }: { children: React.ReactNode }) => (
       main: {
         textAlign: `center`,
       },
-      article: {
-        "h1, h2, h3, h4, h5, h6, strong": {
-          color: `#fff`,
-        },
-      },
+      article: {},
       h1: {
         fontSize: `200%`,
         borderBottom: `1px solid #ddd`,

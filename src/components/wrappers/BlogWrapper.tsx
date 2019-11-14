@@ -7,11 +7,7 @@ export default ({ children }: { children: React.ReactNode }) => (
       main: {
         textAlign: `left`, //これ消すとcenterからのページ遷移で死ぬ。舐めてんのか
       },
-      article: {
-        "h1, h2, h3, h4, h5, h6, strong": {
-          color: `#fff`,
-        },
-      },
+      article: {},
       h1: {
         fontSize: `160%`,
         borderBottom: `1px solid #ddd`,

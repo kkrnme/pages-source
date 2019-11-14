@@ -26,6 +26,7 @@ module.exports = {
         reactShadow: `#282c34`,
         graphqlBlack: `#171e26`,
         graphqlDarkWash: `#3d464f`,
+        body: "#fafafa",
       },
     },
   },
