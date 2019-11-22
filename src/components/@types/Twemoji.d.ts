@@ -13,7 +13,7 @@ declare module "react-twemoji" {
         }
       | {
           noWrapper?: false
-          options?: TwemojiOptions
+          options?: Partial<TwemojiOptions>
           tag?: string
           children: React.ReactNode
         }
