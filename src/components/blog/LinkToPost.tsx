@@ -19,5 +19,5 @@ interface argument {
   title: string
   excerpt: string
   status: string
-  css: InterpolationWithTheme<any>
+  css?: InterpolationWithTheme<any>
 }
