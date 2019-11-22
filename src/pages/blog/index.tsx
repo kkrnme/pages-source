@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
 
-const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
+const BlogIndex:React.FC<BlogIndexQuery> = (data) => {
   const { edges: posts } = data.allMdx
   return (
     <CenterdWrapper>
