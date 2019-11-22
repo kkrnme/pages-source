@@ -12,6 +12,9 @@ module.exports = {
       "3xl": "3rem",
       "4xl": "4rem",
     },
+    letterSpacing: {
+      "09": "0.09em"
+    },
     extend: {
       colors: {
         gatsbyPurple: {

@@ -8,11 +8,7 @@ const BlogIndex = ({ data }) => {
   return (
     <CenterdWrapper>
       <h1>いまのところundefined</h1>
-      <ul
-        css={{
-          listStyle: `none`,
-        }}
-      >
+      <ul>
         {posts.map(({ node: post }) => (
           <li key={post.id}>
             <LinkToPost
