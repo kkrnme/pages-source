@@ -37,5 +37,11 @@ module.exports = {
       },
     },
     { resolve: `gatsby-plugin-postcss` },
+    {
+      resolve: `gatsby-plugin-graphql-codegen`,
+      options: {
+        fileName: `types/graphqlTypes.d.ts`
+      }
+    }
   ],
 }
