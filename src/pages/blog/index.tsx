@@ -2,8 +2,9 @@ import React from "react"
 import CenterdWrapper from "../../components/wrappers/CenterdWrapper"
 import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
+import { BlogIndexQuery } from "../../../types/graphqlTypes"
 
-const BlogIndex = ({ data }) => {
+const BlogIndex:React.FC<BlogIndexQuery> = (data) => {
   const { edges: posts } = data.allMdx
   return (
     <CenterdWrapper>
@@ -12,10 +13,10 @@ const BlogIndex = ({ data }) => {
         {posts.map(({ node: post }) => (
           <li key={post.id}>
             <LinkToPost
-              to={post.frontmatter.path}
-              title={post.frontmatter.title}
+              to={post.frontmatter?.path!}
+              title={post.frontmatter?.title!}
               excerpt={post.excerpt}
-              status={post.frontmatter.status}
+              status={post.frontmatter?.status!}
             ></LinkToPost>
           </li>
         ))}
