@@ -30,7 +30,7 @@
     "@mdx-js/react": "^1.5.1",
     "@types/lodash": "^4.14.149",
     "@types/node": "^12.12.11",
-    "@types/react": "^16.9.11",
+    "@types/react": "^16.9.12",
     "@types/react-dom": "^16.9.4",
     "@types/twemoji": "^12.1.0",
     "gatsby": "^2.18.2",
