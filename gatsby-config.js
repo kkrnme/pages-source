@@ -36,5 +36,6 @@ module.exports = {
         ],
       },
     },
+    { resolve: `gatsby-plugin-postcss` },
   ],
 }

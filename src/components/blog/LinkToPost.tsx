@@ -4,43 +4,13 @@ import { InterpolationWithTheme } from "@emotion/core"
 
 export default ({ to, title, excerpt, status, css }: argument) => (
   <div css={css}>
-    <Link
-      to={to}
-      css={{
-        display: `flex`,
-        alignItems: `baseline`,
-        textDecoration: `none`,
-        margin: `2rem 0 0rem`,
-      }}
-    >
-      <h2
-        css={{
-          margin: 0,
-        }}
-      >
-        {title}
-      </h2>
+    <Link to={to} className="flex items-baseline mt-8">
+      <h2>{title}</h2>
       {status === "draft" ? (
-        <label
-          css={{
-            backgroundColor: `#ff0050`,
-            marginLeft: `8px`,
-            borderRadius: `5px`,
-            color: `white`,
-          }}
-        >
-          draft
-        </label>
+        <label className="bg-pink-500 ml-2 rounded text-white">draft</label>
       ) : null}
     </Link>
-    <p
-      css={{
-        marginTop: `0`,
-        textAlign: `left`,
-      }}
-    >
-      {excerpt}
-    </p>
+    <p className="text-left">{excerpt}</p>
   </div>
 )
 
