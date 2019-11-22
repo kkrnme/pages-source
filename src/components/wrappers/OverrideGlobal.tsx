@@ -7,7 +7,8 @@ export default ({ styles }: { styles: InterpolationWithTheme<any> }) => (
   <Global styles={_.merge(SharedGlobalStyle, styles)} />
 )
 
-const SharedGlobalStyle: InterpolationWithTheme<any> = {
+const SharedGlobalStyle: InterpolationWithTheme<any> = null
+const a = {
   body: {
     margin: 0,
     fontFamily: `"Noto Sans","Noto Sans CJK JP",sans-serif`,
