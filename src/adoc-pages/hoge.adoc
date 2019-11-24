@@ -1,0 +1,8 @@
+= Hello, Asciidoc
+
+:page-path: /adoc
+:page-date: 2019-11-24
+:page-status: public
+
+hey,*asciidoc*
+

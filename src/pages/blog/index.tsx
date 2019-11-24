@@ -4,8 +4,8 @@ import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
 
-const BlogIndex:React.FC<BlogIndexQuery> = (data) => {
-  const { edges: posts } = data.allMdx
+const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
+  const { edges: posts } = data.allAsciidoc
   return (
     <CenterdWrapper>
       <h1>いまのところundefined</h1>
@@ -13,10 +13,10 @@ const BlogIndex:React.FC<BlogIndexQuery> = (data) => {
         {posts.map(({ node: post }) => (
           <li key={post.id}>
             <LinkToPost
-              to={post.frontmatter?.path!}
-              title={post.frontmatter?.title!}
-              excerpt={post.excerpt}
-              status={post.frontmatter?.status!}
+              to={post.pageAttributes?.path ?? "404"}
+              title={post.document?.title ?? "No title"}
+              excerpt={post.document?.main ?? "No excerpt"}
+              status={post.pageAttributes?.status!}
             ></LinkToPost>
           </li>
         ))}
@@ -26,6 +26,32 @@ const BlogIndex:React.FC<BlogIndexQuery> = (data) => {
 }
 
 export const pageQuery = graphql`
+  query BlogIndex {
+    allAsciidoc(
+      sort: { fields: pageAttributes___date, order: DESC }
+      filter: { pageAttributes: { status: { ne: "private" } } }
+    ) {
+      edges {
+        node {
+          pageAttributes {
+            path
+            date
+            status
+          }
+          document {
+            main
+            subtitle
+            title
+          }
+          html
+          id
+        }
+      }
+    }
+  }
+`
+
+/*export const _pageQuery = graphql`
   query blogIndex {
     allMdx(
       sort: { fields: [frontmatter___date], order: DESC }
@@ -45,5 +71,5 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`*/
 export default BlogIndex

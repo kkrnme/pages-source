@@ -1,6 +1,7 @@
 import React from "react"
+import { post } from "../../templates/blogTemplate"
 
-export default ({ node }: { node: nodetype }) => (
+export default ({ post }: { post: post }) => (
   <h1
     css={{
       fontSize: `200%`,
@@ -10,7 +11,7 @@ export default ({ node }: { node: nodetype }) => (
       flexWrap: `wrap`,
     }}
   >
-    <span>{node.frontmatter.title}</span>
+    <span>{post.node.document?.title}</span>
     <span
       css={{
         alignSelf: `flex-end`,
@@ -20,14 +21,7 @@ export default ({ node }: { node: nodetype }) => (
         textAlign: `right`,
       }}
     >
-      Date:{node.frontmatter.date}
+      Date:{post.node.pageAttributes?.date}
     </span>
   </h1>
 )
-
-type nodetype = {
-  frontmatter: {
-    title: string
-    date: string
-  }
-}
