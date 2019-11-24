@@ -1,27 +1,21 @@
 import React from "react"
-import { post } from "../../templates/blogTemplate"
+import Post from "../../utils/PostType"
 
-export default ({ post }: { post: post }) => (
+export default ({ post }: { post: Post }) => (
   <h1
+    className="flex justify-between w-full flex-wrap"
     css={{
       fontSize: `200%`,
-      display: `flex`,
-      justifyContent: `space-between`,
-      width: `100%`,
-      flexWrap: `wrap`,
     }}
   >
-    <span>{post.node.document?.title}</span>
+    <span>{post.node.title}</span>
     <span
+      className="self-end font-normal flex-grow text-right"
       css={{
-        alignSelf: `flex-end`,
         fontSize: `75%`,
-        fontWeight: 400,
-        flexGrow: 1,
-        textAlign: `right`,
       }}
     >
-      Date:{post.node.pageAttributes?.date}
+      Date:{post.node.date}
     </span>
   </h1>
 )

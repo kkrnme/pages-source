@@ -9,25 +9,13 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
 import {
-  BlogIndexQuery,
-  Asciidoc,
+  BlogTemplateQuery,
   Maybe,
-  AsciidocPageAttributes,
-  AsciidocDocument,
+  SitePageContextPostNode,
 } from "../../types/graphqlTypes"
-
-export type pageAttributes = Maybe<
-  Pick<AsciidocPageAttributes, "path" | "date" | "status">
->
-export type node = {
-  pageAttributes: pageAttributes
-  document: Maybe<Pick<AsciidocDocument, "main" | "subtitle" | "title">>
-}
-export type post = {
-  node: Pick<Asciidoc, "html"> & node
-  previous: Maybe<node>
-  next: Maybe<node>
-}
+import Post from "../utils/PostType"
+import { MDXRenderer, MDXRendererProps } from "gatsby-plugin-mdx"
+import { merge } from "lodash"
 
 /*() => ((
   <BlogWrapper>
@@ -43,17 +31,53 @@ export type post = {
   </BlogWrapper>
 ))*/
 
-export default ({ pageContext: post }: { pageContext: post }) => {
+type NewPost = Post & {
+  previous: {
+    context: Maybe<{
+      post: Maybe<{
+        node: Maybe<Pick<SitePageContextPostNode, "path" | "title">>
+      }>
+    }>
+  }
+  next: {
+    context: Maybe<{
+      post: Maybe<{
+        node: Maybe<Pick<SitePageContextPostNode, "path" | "title">>
+      }>
+    }>
+  }
+  node: {
+    context: Maybe<{
+      post: Maybe<{
+        node: Maybe<Pick<SitePageContextPostNode, "id">>
+      }>
+    }>
+  }
+}
+
+export default ({
+  data,
+  pageContext,
+}: {
+  data: BlogTemplateQuery
+  pageContext: { id: string; post: Post }
+}) => {
+  const { id } = pageContext
+  const post: NewPost = merge(
+    pageContext.post,
+    data.allSitePage.edges.find(v => v.node.context?.post?.node?.id === id)
+  )
+
   console.log(post)
 
   const node = post.node
   return (
     <BlogWrapper>
       <PrevNextLink post={post} />
-      <article css={{}}>
+      <article>
         <ArticleHead post={post} />
-        <div dangerouslySetInnerHTML={{ __html: node.html! }} />
-        {node.pageAttributes?.status === "draft" ? (
+        <Body type={post.type}>{post.node.html}</Body>
+        {node.status === "draft" ? (
           <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
         ) : null}
       </article>
@@ -62,20 +86,24 @@ export default ({ pageContext: post }: { pageContext: post }) => {
   )
 }
 
-const PrevNextLink: React.FC<{ post: post }> = ({ post }) => {
-  const { previous, next } = post
+const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
+  type === "adoc" ? (
+    <div dangerouslySetInnerHTML={{ __html: children }} />
+  ) : (
+    <MDXRenderer>{children}</MDXRenderer>
+  )
+
+const PrevNextLink = ({ post }: { post: NewPost }) => {
+  const previous = post.previous,
+    next = post.next
+  console.log({ previous, next })
   return (
-    <div
-      css={{
-        display: `flex`,
-        justifyContent: `space-between`,
-      }}
-    >
+    <div className="flex justify-between">
       <span>
-        {previous != null ? (
-          <Link to={previous.pageAttributes?.path ?? "/"}>
+        {previous != undefined ? (
+          <Link to={previous.context?.post?.node?.path ?? "/"}>
             <FontAwesomeIcon icon={faChevronLeft} />
-            {previous.document?.title}
+            {previous.context?.post?.node?.title}
           </Link>
         ) : (
           <span>
@@ -86,8 +114,8 @@ const PrevNextLink: React.FC<{ post: post }> = ({ post }) => {
       </span>
       <span>
         {next != null ? (
-          <Link to={next.pageAttributes?.path ?? ""}>
-            {next.document?.title}
+          <Link to={next.context?.post?.node?.path ?? ""}>
+            {next.context?.post?.node?.title}
             <FontAwesomeIcon icon={faChevronRight} />
           </Link>
         ) : (
@@ -100,3 +128,43 @@ const PrevNextLink: React.FC<{ post: post }> = ({ post }) => {
     </div>
   )
 }
+export const query = graphql`
+  query BlogTemplate {
+    allSitePage(
+      sort: { fields: context___post___node___date, order: ASC }
+      filter: { path: { regex: "/^/blog/.+/" } }
+    ) {
+      edges {
+        previous {
+          context {
+            post {
+              node {
+                path
+                title
+              }
+            }
+          }
+        }
+        next {
+          context {
+            post {
+              node {
+                path
+                title
+              }
+            }
+          }
+        }
+        node {
+          context {
+            post {
+              node {
+                id
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
