@@ -25,6 +25,214 @@ export type Scalars = {
 
 
 
+export type Asciidoc = Node & {
+  id: Scalars['ID'],
+  parent?: Maybe<Node>,
+  children: Array<Node>,
+  internal: Internal,
+  html?: Maybe<Scalars['String']>,
+  document?: Maybe<AsciidocDocument>,
+  author?: Maybe<AsciidocAuthor>,
+  pageAttributes?: Maybe<AsciidocPageAttributes>,
+};
+
+export type AsciidocAuthor = {
+  lastName?: Maybe<Scalars['String']>,
+  middleName?: Maybe<Scalars['String']>,
+  authorInitials?: Maybe<Scalars['String']>,
+  email?: Maybe<Scalars['String']>,
+};
+
+export type AsciidocAuthorFilterInput = {
+  lastName?: Maybe<StringQueryOperatorInput>,
+  middleName?: Maybe<StringQueryOperatorInput>,
+  authorInitials?: Maybe<StringQueryOperatorInput>,
+  email?: Maybe<StringQueryOperatorInput>,
+};
+
+export type AsciidocConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<AsciidocEdge>,
+  nodes: Array<Asciidoc>,
+  pageInfo: PageInfo,
+  distinct: Array<Scalars['String']>,
+  group: Array<AsciidocGroupConnection>,
+};
+
+
+export type AsciidocConnectionDistinctArgs = {
+  field: AsciidocFieldsEnum
+};
+
+
+export type AsciidocConnectionGroupArgs = {
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>,
+  field: AsciidocFieldsEnum
+};
+
+export type AsciidocDocument = {
+  title?: Maybe<Scalars['String']>,
+  subtitle?: Maybe<Scalars['String']>,
+  main?: Maybe<Scalars['String']>,
+};
+
+export type AsciidocDocumentFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  subtitle?: Maybe<StringQueryOperatorInput>,
+  main?: Maybe<StringQueryOperatorInput>,
+};
+
+export type AsciidocEdge = {
+  next?: Maybe<Asciidoc>,
+  node: Asciidoc,
+  previous?: Maybe<Asciidoc>,
+};
+
+export type AsciidocFieldsEnum = 
+  'id' |
+  'parent___id' |
+  'parent___parent___id' |
+  'parent___parent___parent___id' |
+  'parent___parent___parent___children' |
+  'parent___parent___children' |
+  'parent___parent___children___id' |
+  'parent___parent___children___children' |
+  'parent___parent___internal___content' |
+  'parent___parent___internal___contentDigest' |
+  'parent___parent___internal___description' |
+  'parent___parent___internal___fieldOwners' |
+  'parent___parent___internal___ignoreType' |
+  'parent___parent___internal___mediaType' |
+  'parent___parent___internal___owner' |
+  'parent___parent___internal___type' |
+  'parent___children' |
+  'parent___children___id' |
+  'parent___children___parent___id' |
+  'parent___children___parent___children' |
+  'parent___children___children' |
+  'parent___children___children___id' |
+  'parent___children___children___children' |
+  'parent___children___internal___content' |
+  'parent___children___internal___contentDigest' |
+  'parent___children___internal___description' |
+  'parent___children___internal___fieldOwners' |
+  'parent___children___internal___ignoreType' |
+  'parent___children___internal___mediaType' |
+  'parent___children___internal___owner' |
+  'parent___children___internal___type' |
+  'parent___internal___content' |
+  'parent___internal___contentDigest' |
+  'parent___internal___description' |
+  'parent___internal___fieldOwners' |
+  'parent___internal___ignoreType' |
+  'parent___internal___mediaType' |
+  'parent___internal___owner' |
+  'parent___internal___type' |
+  'children' |
+  'children___id' |
+  'children___parent___id' |
+  'children___parent___parent___id' |
+  'children___parent___parent___children' |
+  'children___parent___children' |
+  'children___parent___children___id' |
+  'children___parent___children___children' |
+  'children___parent___internal___content' |
+  'children___parent___internal___contentDigest' |
+  'children___parent___internal___description' |
+  'children___parent___internal___fieldOwners' |
+  'children___parent___internal___ignoreType' |
+  'children___parent___internal___mediaType' |
+  'children___parent___internal___owner' |
+  'children___parent___internal___type' |
+  'children___children' |
+  'children___children___id' |
+  'children___children___parent___id' |
+  'children___children___parent___children' |
+  'children___children___children' |
+  'children___children___children___id' |
+  'children___children___children___children' |
+  'children___children___internal___content' |
+  'children___children___internal___contentDigest' |
+  'children___children___internal___description' |
+  'children___children___internal___fieldOwners' |
+  'children___children___internal___ignoreType' |
+  'children___children___internal___mediaType' |
+  'children___children___internal___owner' |
+  'children___children___internal___type' |
+  'children___internal___content' |
+  'children___internal___contentDigest' |
+  'children___internal___description' |
+  'children___internal___fieldOwners' |
+  'children___internal___ignoreType' |
+  'children___internal___mediaType' |
+  'children___internal___owner' |
+  'children___internal___type' |
+  'internal___content' |
+  'internal___contentDigest' |
+  'internal___description' |
+  'internal___fieldOwners' |
+  'internal___ignoreType' |
+  'internal___mediaType' |
+  'internal___owner' |
+  'internal___type' |
+  'html' |
+  'document___title' |
+  'document___subtitle' |
+  'document___main' |
+  'author___lastName' |
+  'author___middleName' |
+  'author___authorInitials' |
+  'author___email' |
+  'pageAttributes___path' |
+  'pageAttributes___date' |
+  'pageAttributes___status';
+
+export type AsciidocFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  document?: Maybe<AsciidocDocumentFilterInput>,
+  author?: Maybe<AsciidocAuthorFilterInput>,
+  pageAttributes?: Maybe<AsciidocPageAttributesFilterInput>,
+};
+
+export type AsciidocGroupConnection = {
+  totalCount: Scalars['Int'],
+  edges: Array<AsciidocEdge>,
+  nodes: Array<Asciidoc>,
+  pageInfo: PageInfo,
+  field: Scalars['String'],
+  fieldValue?: Maybe<Scalars['String']>,
+};
+
+export type AsciidocPageAttributes = {
+  path?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+  status?: Maybe<Scalars['String']>,
+};
+
+
+export type AsciidocPageAttributesDateArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+export type AsciidocPageAttributesFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  status?: Maybe<StringQueryOperatorInput>,
+};
+
+export type AsciidocSortInput = {
+  fields?: Maybe<Array<Maybe<AsciidocFieldsEnum>>>,
+  order?: Maybe<Array<Maybe<SortOrderEnum>>>,
+};
+
 export type BooleanQueryOperatorInput = {
   eq?: Maybe<Scalars['Boolean']>,
   ne?: Maybe<Scalars['Boolean']>,
@@ -391,6 +599,7 @@ export type File = Node & {
   children: Array<Node>,
   internal: Internal,
   childMdx?: Maybe<Mdx>,
+  childAsciidoc?: Maybe<Asciidoc>,
 };
 
 
@@ -653,7 +862,56 @@ export type FileFieldsEnum =
   'childMdx___internal___ignoreType' |
   'childMdx___internal___mediaType' |
   'childMdx___internal___owner' |
-  'childMdx___internal___type';
+  'childMdx___internal___type' |
+  'childAsciidoc___id' |
+  'childAsciidoc___parent___id' |
+  'childAsciidoc___parent___parent___id' |
+  'childAsciidoc___parent___parent___children' |
+  'childAsciidoc___parent___children' |
+  'childAsciidoc___parent___children___id' |
+  'childAsciidoc___parent___children___children' |
+  'childAsciidoc___parent___internal___content' |
+  'childAsciidoc___parent___internal___contentDigest' |
+  'childAsciidoc___parent___internal___description' |
+  'childAsciidoc___parent___internal___fieldOwners' |
+  'childAsciidoc___parent___internal___ignoreType' |
+  'childAsciidoc___parent___internal___mediaType' |
+  'childAsciidoc___parent___internal___owner' |
+  'childAsciidoc___parent___internal___type' |
+  'childAsciidoc___children' |
+  'childAsciidoc___children___id' |
+  'childAsciidoc___children___parent___id' |
+  'childAsciidoc___children___parent___children' |
+  'childAsciidoc___children___children' |
+  'childAsciidoc___children___children___id' |
+  'childAsciidoc___children___children___children' |
+  'childAsciidoc___children___internal___content' |
+  'childAsciidoc___children___internal___contentDigest' |
+  'childAsciidoc___children___internal___description' |
+  'childAsciidoc___children___internal___fieldOwners' |
+  'childAsciidoc___children___internal___ignoreType' |
+  'childAsciidoc___children___internal___mediaType' |
+  'childAsciidoc___children___internal___owner' |
+  'childAsciidoc___children___internal___type' |
+  'childAsciidoc___internal___content' |
+  'childAsciidoc___internal___contentDigest' |
+  'childAsciidoc___internal___description' |
+  'childAsciidoc___internal___fieldOwners' |
+  'childAsciidoc___internal___ignoreType' |
+  'childAsciidoc___internal___mediaType' |
+  'childAsciidoc___internal___owner' |
+  'childAsciidoc___internal___type' |
+  'childAsciidoc___html' |
+  'childAsciidoc___document___title' |
+  'childAsciidoc___document___subtitle' |
+  'childAsciidoc___document___main' |
+  'childAsciidoc___author___lastName' |
+  'childAsciidoc___author___middleName' |
+  'childAsciidoc___author___authorInitials' |
+  'childAsciidoc___author___email' |
+  'childAsciidoc___pageAttributes___path' |
+  'childAsciidoc___pageAttributes___date' |
+  'childAsciidoc___pageAttributes___status';
 
 export type FileFilterInput = {
   birthtime?: Maybe<DateQueryOperatorInput>,
@@ -695,6 +953,7 @@ export type FileFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   childMdx?: Maybe<MdxFilterInput>,
+  childAsciidoc?: Maybe<AsciidocFilterInput>,
 };
 
 export type FileGroupConnection = {
@@ -1063,6 +1322,8 @@ export type Query = {
   allSite: SiteConnection,
   directory?: Maybe<Directory>,
   allDirectory: DirectoryConnection,
+  asciidoc?: Maybe<Asciidoc>,
+  allAsciidoc: AsciidocConnection,
 };
 
 
@@ -1105,7 +1366,8 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  childMdx?: Maybe<MdxFilterInput>
+  childMdx?: Maybe<MdxFilterInput>,
+  childAsciidoc?: Maybe<AsciidocFilterInput>
 };
 
 
@@ -1202,8 +1464,6 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
@@ -1264,6 +1524,26 @@ export type QueryAllDirectoryArgs = {
   limit?: Maybe<Scalars['Int']>
 };
 
+
+export type QueryAsciidocArgs = {
+  id?: Maybe<StringQueryOperatorInput>,
+  parent?: Maybe<NodeFilterInput>,
+  children?: Maybe<NodeFilterListInput>,
+  internal?: Maybe<InternalFilterInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  document?: Maybe<AsciidocDocumentFilterInput>,
+  author?: Maybe<AsciidocAuthorFilterInput>,
+  pageAttributes?: Maybe<AsciidocPageAttributesFilterInput>
+};
+
+
+export type QueryAllAsciidocArgs = {
+  filter?: Maybe<AsciidocFilterInput>,
+  sort?: Maybe<AsciidocSortInput>,
+  skip?: Maybe<Scalars['Int']>,
+  limit?: Maybe<Scalars['Int']>
+};
+
 export type Site = Node & {
   id: Scalars['ID'],
   parent?: Maybe<Node>,
@@ -1272,8 +1552,6 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
-  polyfill?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
 };
 
@@ -1403,8 +1681,6 @@ export type SiteFieldsEnum =
   'siteMetadata___discription' |
   'port' |
   'host' |
-  'polyfill' |
-  'pathPrefix' |
   'buildTime';
 
 export type SiteFilterInput = {
@@ -1415,8 +1691,6 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
 };
 
@@ -1467,84 +1741,74 @@ export type SitePageConnectionGroupArgs = {
 };
 
 export type SitePageContext = {
+  post?: Maybe<SitePageContextPost>,
   id?: Maybe<Scalars['String']>,
-  previous?: Maybe<SitePageContextPrevious>,
-  next?: Maybe<SitePageContextNext>,
-  node?: Maybe<SitePageContextNode>,
 };
 
 export type SitePageContextFilterInput = {
+  post?: Maybe<SitePageContextPostFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
-  previous?: Maybe<SitePageContextPreviousFilterInput>,
-  next?: Maybe<SitePageContextNextFilterInput>,
-  node?: Maybe<SitePageContextNodeFilterInput>,
 };
 
-export type SitePageContextNext = {
-  frontmatter?: Maybe<SitePageContextNextFrontmatter>,
+export type SitePageContextPost = {
+  node?: Maybe<SitePageContextPostNode>,
+  previous?: Maybe<SitePageContextPostPrevious>,
+  next?: Maybe<SitePageContextPostNext>,
+  type?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextNextFilterInput = {
-  frontmatter?: Maybe<SitePageContextNextFrontmatterFilterInput>,
+export type SitePageContextPostFilterInput = {
+  node?: Maybe<SitePageContextPostNodeFilterInput>,
+  previous?: Maybe<SitePageContextPostPreviousFilterInput>,
+  next?: Maybe<SitePageContextPostNextFilterInput>,
+  type?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextNextFrontmatter = {
+export type SitePageContextPostNext = {
   path?: Maybe<Scalars['String']>,
-  date?: Maybe<Scalars['Date']>,
   title?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextNextFrontmatterFilterInput = {
+export type SitePageContextPostNextFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextNode = {
-  body?: Maybe<Scalars['String']>,
-  id?: Maybe<Scalars['String']>,
-  frontmatter?: Maybe<SitePageContextNodeFrontmatter>,
-};
-
-export type SitePageContextNodeFilterInput = {
-  body?: Maybe<StringQueryOperatorInput>,
-  id?: Maybe<StringQueryOperatorInput>,
-  frontmatter?: Maybe<SitePageContextNodeFrontmatterFilterInput>,
-};
-
-export type SitePageContextNodeFrontmatter = {
+export type SitePageContextPostNode = {
   path?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
-  title?: Maybe<Scalars['String']>,
   status?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  excerpt?: Maybe<Scalars['String']>,
+  html?: Maybe<Scalars['String']>,
+  id?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextNodeFrontmatterFilterInput = {
+
+export type SitePageContextPostNodeDateArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
+};
+
+export type SitePageContextPostNodeFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
-  tags?: Maybe<StringQueryOperatorInput>,
-  title?: Maybe<StringQueryOperatorInput>,
   status?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  html?: Maybe<StringQueryOperatorInput>,
+  id?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextPrevious = {
-  frontmatter?: Maybe<SitePageContextPreviousFrontmatter>,
-};
-
-export type SitePageContextPreviousFilterInput = {
-  frontmatter?: Maybe<SitePageContextPreviousFrontmatterFilterInput>,
-};
-
-export type SitePageContextPreviousFrontmatter = {
+export type SitePageContextPostPrevious = {
   path?: Maybe<Scalars['String']>,
-  date?: Maybe<Scalars['Date']>,
   title?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextPreviousFrontmatterFilterInput = {
+export type SitePageContextPostPreviousFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
-  date?: Maybe<DateQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
 };
 
@@ -1646,20 +1910,19 @@ export type SitePageFieldsEnum =
   'component' |
   'componentChunkName' |
   'isCreatedByStatefulCreatePages' |
+  'context___post___node___path' |
+  'context___post___node___date' |
+  'context___post___node___status' |
+  'context___post___node___title' |
+  'context___post___node___excerpt' |
+  'context___post___node___html' |
+  'context___post___node___id' |
+  'context___post___previous___path' |
+  'context___post___previous___title' |
+  'context___post___next___path' |
+  'context___post___next___title' |
+  'context___post___type' |
   'context___id' |
-  'context___previous___frontmatter___path' |
-  'context___previous___frontmatter___date' |
-  'context___previous___frontmatter___title' |
-  'context___next___frontmatter___path' |
-  'context___next___frontmatter___date' |
-  'context___next___frontmatter___title' |
-  'context___node___body' |
-  'context___node___id' |
-  'context___node___frontmatter___path' |
-  'context___node___frontmatter___date' |
-  'context___node___frontmatter___tags' |
-  'context___node___frontmatter___title' |
-  'context___node___frontmatter___status' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |
@@ -2081,7 +2344,12 @@ export type StringQueryOperatorInput = {
 export type BlogIndexQueryVariables = {};
 
 
-export type BlogIndexQuery = { allMdx: { edges: Array<{ node: (
-        Pick<Mdx, 'id' | 'excerpt'>
-        & { frontmatter: Maybe<Pick<MdxFrontmatter, 'title' | 'date' | 'path' | 'status'>> }
-      ) }> } };
+export type BlogIndexQuery = { allSitePage: { edges: Array<{ node: { context: Maybe<{ post: Maybe<(
+            Pick<SitePageContextPost, 'type'>
+            & { node: Maybe<Pick<SitePageContextPostNode, 'date' | 'excerpt' | 'path' | 'title' | 'status' | 'id'>> }
+          )> }> } }> } };
+
+export type BlogTemplateQueryVariables = {};
+
+
+export type BlogTemplateQuery = { allSitePage: { edges: Array<{ previous: Maybe<{ context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'path' | 'title'>> }> }> }>, next: Maybe<{ context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'path' | 'title'>> }> }> }>, node: { context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'id'>> }> }> } }> } };

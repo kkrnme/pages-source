@@ -23,7 +23,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/src/mdx-pages`,
+        path: `${__dirname}/src/posts`,
       },
     },
     {
@@ -40,8 +40,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
-        fileName: `types/graphqlTypes.d.ts`
-      }
-    }
+        fileName: `types/graphqlTypes.d.ts`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-asciidoc`,
+      options: {},
+    },
   ],
 }

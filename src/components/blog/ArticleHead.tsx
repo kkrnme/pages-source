@@ -1,33 +1,16 @@
 import React from "react"
+import Post from "../../utils/PostType"
 
-export default ({ node }: { node: nodetype }) => (
-  <h1
-    css={{
-      fontSize: `200%`,
-      display: `flex`,
-      justifyContent: `space-between`,
-      width: `100%`,
-      flexWrap: `wrap`,
-    }}
-  >
-    <span>{node.frontmatter.title}</span>
+export default ({ post }: { post: Post }) => (
+  <h1 className="flex justify-between w-full flex-wrap text-2.5xl">
+    <span>{post.node.title}</span>
     <span
+      className="self-end font-normal flex-grow text-right"
       css={{
-        alignSelf: `flex-end`,
         fontSize: `75%`,
-        fontWeight: 400,
-        flexGrow: 1,
-        textAlign: `right`,
       }}
     >
-      Date:{node.frontmatter.date}
+      Date:{post.node.date}
     </span>
   </h1>
 )
-
-type nodetype = {
-  frontmatter: {
-    title: string
-    date: string
-  }
-}
