@@ -113,42 +113,67 @@ const PrevNextLink = ({
   return (
     <div
       className={
-        `flex justify-between   bg-fluentGray-70 ` +
-        (type === "top" ? "mb-4" : "mt-6 mt-2 border-gray-500 border-t")
+        `flex justify-between   bg-fluentGray-50 ` +
+        (type === "top" ? "mb-4" : "mt-6 mt-2 border-gray-500")
       }
     >
       {previous != undefined ? (
-        <Link
+        <PrevNextLinkButton
+          enabled
+          align="left"
           to={previous.context?.post?.node?.path ?? "/"}
-          className="block py-2 px-3 w-1/2 hover:bg-fluentMagentaPink-10 hover:text-white transition"
         >
-          <FontAwesomeIcon icon={faChevronLeft} />
           {previous.context?.post?.node?.title}
-        </Link>
+        </PrevNextLinkButton>
       ) : (
-        <span className="opacity-75 block py-2 px-3 w-1/2">
-          <FontAwesomeIcon icon={faChevronLeft} />
+        <PrevNextLinkButton enabled={false} align="left">
           ＊これ以上前の記録は見つからない。
-        </span>
+        </PrevNextLinkButton>
       )}
 
       {next != null ? (
-        <Link
+        <PrevNextLinkButton
+          enabled
           to={next.context?.post?.node?.path ?? ""}
-          className="block py-2 px-3 w-1/2 hover:bg-fluentGreenCyan-10 hover:text-white transition text-right"
+          align="right"
         >
           {next.context?.post?.node?.title}
-          <FontAwesomeIcon icon={faChevronRight} />
-        </Link>
+        </PrevNextLinkButton>
       ) : (
-        <span className="text-right opacity-75 block py-2 px-3 w-1/2">
+        <PrevNextLinkButton enabled={false} align="right">
           ＊記録はここで途切れている。
-          <FontAwesomeIcon icon={faChevronRight} />
-        </span>
+        </PrevNextLinkButton>
       )}
     </div>
   )
 }
+
+const PrevNextLinkButton: React.FC<{
+  align: "left" | "right"
+} & ({ enabled: true; to: string } | { enabled: false })> = props => {
+  const children =
+    props.align === "left"
+      ? [<FontAwesomeIcon icon={faChevronLeft} />, props.children]
+      : [props.children, <FontAwesomeIcon icon={faChevronRight} />]
+  return (
+    <div
+      className={`transition  w-1/2 ${
+        props.enabled
+          ? "hover:bg-fluentBlue-10 hover:text-white"
+          : "hover:bg-fluentGray-50 text-fluentGray-120 hover:text-fluentGray-100"
+      } text-${props.align}`}
+    >
+      {props.enabled ? (
+        <Link className="block py-2 px-3" to={props.to}>
+          {children}
+        </Link>
+      ) : (
+        <span className="block py-2 px-3">{children}</span>
+      )}
+    </div>
+  )
+}
+
 export const query = graphql`
   query BlogTemplate {
     allSitePage(
