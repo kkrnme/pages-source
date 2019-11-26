@@ -25,17 +25,24 @@ module.exports = {
         fluentRed: {
           10: `#d13438`,
         },
+        fluentBlue: {
+          10: `#4f6bed`
+        },
         fluentGreenCyan: {
           10: `#00ad56`,
         },
         fluentGray: {
           10: `#faf9f8`,
+          20:`#f3f2f1`,
           30: `#edebe9`,
           40: `#e1dfdd`,
           50: `#d2d0ce`,
           70: `#bebbb8`,
           90: `#a19f9d`,
           100: `#979593`,
+          120: `#797775`,
+          140: `#484644`,
+          160: "#323130",
           180: `#252423`,
         },
       },
