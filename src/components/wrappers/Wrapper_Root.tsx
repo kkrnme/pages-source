@@ -12,15 +12,17 @@ export default ({
   children: React.ReactNode
   styles: InterpolationWithTheme<any>
 }) => (
-  <Twemoji options={{ className: "wrapperRoot emoji" }}>
-    <SiteHeader />
-    <Main>{children}</Main>
-    <SiteFooter />
-  </Twemoji>
+  <div className="bg-fluentGray-10 min-h-screen h-full w-full pb-2 transition">
+    <Twemoji>
+      <SiteHeader />
+      <Main>{children}</Main>
+      <SiteFooter />
+    </Twemoji>
+  </div>
 )
 
 const Main = ({ children }: { children: React.ReactNode }) => (
-  <main className="bg-fluentGray-40 mx-auto my-2 w-10/12 max-w-4xl overflow-hidden rounded-lg text-gray-800 text-base tracking-09">
+  <main className="transition bg-white mx-auto my-2 w-10/12 max-w-4xl overflow-hidden rounded-lg text-fluentGray-160 text-base tracking-09 shadow-md">
     {children}
   </main>
 )

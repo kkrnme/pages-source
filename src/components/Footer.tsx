@@ -1,24 +1,24 @@
 import React from "react"
 export default () => (
-  <footer
-    css={{
-      color: `#FFF4`,
-      a: {
-        color: `#FFF5`,
-      },
-      textAlign: `center`,
-    }}
-  >
+  <footer className="text-fluentGray-120 text-center">
     <p>
-      This website is
-      <a href="https://github.com/kkrnme/kkrnme.github.io">
-        {" "}
-        hosted on GitHub Pages
-      </a>{" "}
-      and{" "}
-      <a href="https://github.com/kkrnme/pages-source">
-        licensed under the MIT License.
-      </a>
+      {"Hosted on "}
+      <Anchor href="https://github.com/kkrnme/kkrnme.github.io">
+        GitHub Pages
+      </Anchor>
+      {", licensed under "}
+      <Anchor href="https://github.com/kkrnme/pages-source">
+        the MIT License.
+      </Anchor>
     </p>
   </footer>
+)
+
+const Anchor: React.FC<{ href?: string }> = props => (
+  <a
+    href={props.href}
+    className="transition hover:underline hover:text-fluentRed-10"
+  >
+    {props.children}
+  </a>
 )
