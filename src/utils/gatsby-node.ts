@@ -64,6 +64,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
           node {
             id
             body
+            excerpt
             frontmatter {
               path
               status
@@ -165,7 +166,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const posts: Post[] = []
   asciiPosts.forEach(v => posts.push(v))
   mdxPosts.forEach(v => posts.push(v))
-  console.log(posts)
   posts.forEach(post => {
     createPage({
       path: post.node.path,

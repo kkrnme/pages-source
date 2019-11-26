@@ -15,6 +15,7 @@ import {
 } from "../../types/graphqlTypes"
 import Post from "../utils/PostType"
 import { MDXRenderer, MDXRendererProps } from "gatsby-plugin-mdx"
+import { MDXProvider } from "@mdx-js/react"
 import { merge } from "lodash"
 
 /*() => ((
@@ -68,20 +69,18 @@ export default ({
     data.allSitePage.edges.find(v => v.node.context?.post?.node?.id === id)
   )
 
-  console.log(post)
-
   const node = post.node
   return (
     <BlogWrapper>
-      <PrevNextLink post={post} />
-      <article>
+      <PrevNextLink post={post} type="top" />
+      <article className="m-5">
         <ArticleHead post={post} />
         <Body type={post.type}>{post.node.html}</Body>
         {node.status === "draft" ? (
           <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
         ) : null}
       </article>
-      <PrevNextLink post={post} />
+      <PrevNextLink post={post} type="bottom" />
     </BlogWrapper>
   )
 }
@@ -90,41 +89,63 @@ const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
   type === "adoc" ? (
     <div dangerouslySetInnerHTML={{ __html: children }} />
   ) : (
-    <MDXRenderer>{children}</MDXRenderer>
+    <MDXProvider components={components}>
+      <MDXRenderer>{children}</MDXRenderer>
+    </MDXProvider>
   )
 
-const PrevNextLink = ({ post }: { post: NewPost }) => {
+const components = {
+  h1: (props: any) => (
+    <h1 className="border-b border-gray-600 text-2xl" {...props}></h1>
+  ),
+  p: (props: any) => <p className="mx-1" {...props} />,
+}
+
+const PrevNextLink = ({
+  post,
+  type,
+}: {
+  post: NewPost
+  type: "top" | "bottom"
+}) => {
   const previous = post.previous,
     next = post.next
-  console.log({ previous, next })
   return (
-    <div className="flex justify-between">
-      <span>
-        {previous != undefined ? (
-          <Link to={previous.context?.post?.node?.path ?? "/"}>
-            <FontAwesomeIcon icon={faChevronLeft} />
-            {previous.context?.post?.node?.title}
-          </Link>
-        ) : (
-          <span>
-            <FontAwesomeIcon icon={faChevronLeft} />
-            ＊これ以上前の記録は見つからない。
-          </span>
-        )}
-      </span>
-      <span>
-        {next != null ? (
-          <Link to={next.context?.post?.node?.path ?? ""}>
-            {next.context?.post?.node?.title}
-            <FontAwesomeIcon icon={faChevronRight} />
-          </Link>
-        ) : (
-          <span>
-            ＊記録はここで途切れている。
-            <FontAwesomeIcon icon={faChevronRight} />
-          </span>
-        )}
-      </span>
+    <div
+      className={
+        `flex justify-between   bg-fluentGray-70 ` +
+        (type === "top" ? "mb-4" : "mt-6 mt-2 border-gray-500 border-t")
+      }
+    >
+      {previous != undefined ? (
+        <Link
+          to={previous.context?.post?.node?.path ?? "/"}
+          className="block py-2 px-3 w-1/2 hover:bg-fluentMagentaPink-10 hover:text-white transition"
+        >
+          <FontAwesomeIcon icon={faChevronLeft} />
+          {previous.context?.post?.node?.title}
+        </Link>
+      ) : (
+        <span className="opacity-75 block py-2 px-3 w-1/2">
+          <FontAwesomeIcon icon={faChevronLeft} />
+          ＊これ以上前の記録は見つからない。
+        </span>
+      )}
+
+      {next != null ? (
+        <Link
+          to={next.context?.post?.node?.path ?? ""}
+          className="block py-2 px-3 w-1/2 hover:bg-fluentGreenCyan-10 hover:text-white transition text-right"
+        >
+          {next.context?.post?.node?.title}
+          <FontAwesomeIcon icon={faChevronRight} />
+        </Link>
+      ) : (
+        <span className="text-right opacity-75 block py-2 px-3 w-1/2">
+          ＊記録はここで途切れている。
+          <FontAwesomeIcon icon={faChevronRight} />
+        </span>
+      )}
     </div>
   )
 }

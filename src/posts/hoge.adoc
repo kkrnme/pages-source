@@ -3,6 +3,13 @@
 :page-path: adoc
 :page-date: 2019-11-24
 :page-status: public
+:toc: left
+:sectlinks:
 
-hey,*asciidoc*
+== Asciidocとは
+
+
+* 軽量マークアップ言語
+* Markdownより表現力がめっちゃ高い
+* 構文覚えコストも高い
 

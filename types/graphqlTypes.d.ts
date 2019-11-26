@@ -1464,8 +1464,6 @@ export type QuerySiteArgs = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
 };
 
@@ -1554,8 +1552,6 @@ export type Site = Node & {
   siteMetadata?: Maybe<SiteSiteMetadata>,
   port?: Maybe<Scalars['Int']>,
   host?: Maybe<Scalars['String']>,
-  polyfill?: Maybe<Scalars['Boolean']>,
-  pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
 };
 
@@ -1685,8 +1681,6 @@ export type SiteFieldsEnum =
   'siteMetadata___discription' |
   'port' |
   'host' |
-  'polyfill' |
-  'pathPrefix' |
   'buildTime';
 
 export type SiteFilterInput = {
@@ -1697,8 +1691,6 @@ export type SiteFilterInput = {
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
   port?: Maybe<IntQueryOperatorInput>,
   host?: Maybe<StringQueryOperatorInput>,
-  polyfill?: Maybe<BooleanQueryOperatorInput>,
-  pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
 };
 
@@ -1790,6 +1782,14 @@ export type SitePageContextPostNode = {
   excerpt?: Maybe<Scalars['String']>,
   html?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+};
+
+
+export type SitePageContextPostNodeDateArgs = {
+  formatString?: Maybe<Scalars['String']>,
+  fromNow?: Maybe<Scalars['Boolean']>,
+  difference?: Maybe<Scalars['String']>,
+  locale?: Maybe<Scalars['String']>
 };
 
 export type SitePageContextPostNodeFilterInput = {
@@ -2344,10 +2344,10 @@ export type StringQueryOperatorInput = {
 export type BlogIndexQueryVariables = {};
 
 
-export type BlogIndexQuery = { allAsciidoc: { edges: Array<{ node: (
-        Pick<Asciidoc, 'html' | 'id'>
-        & { pageAttributes: Maybe<Pick<AsciidocPageAttributes, 'path' | 'date' | 'status'>>, document: Maybe<Pick<AsciidocDocument, 'main' | 'subtitle' | 'title'>> }
-      ) }> } };
+export type BlogIndexQuery = { allSitePage: { edges: Array<{ node: { context: Maybe<{ post: Maybe<(
+            Pick<SitePageContextPost, 'type'>
+            & { node: Maybe<Pick<SitePageContextPostNode, 'date' | 'excerpt' | 'path' | 'title' | 'status' | 'id'>> }
+          )> }> } }> } };
 
 export type BlogTemplateQueryVariables = {};
 

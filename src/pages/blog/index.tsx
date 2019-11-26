@@ -5,18 +5,19 @@ import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
 
 const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
-  const { edges: posts } = data.allAsciidoc
+  const posts = data.allSitePage.edges
   return (
     <CenterdWrapper>
       <h1>いまのところundefined</h1>
       <ul>
         {posts.map(({ node: post }) => (
-          <li key={post.id}>
+          <li key={post.context?.post?.node?.id ?? undefined}>
             <LinkToPost
-              to={post.pageAttributes?.path ?? "404"}
-              title={post.document?.title ?? "No title"}
-              excerpt={post.document?.main ?? "No excerpt"}
-              status={post.pageAttributes?.status!}
+              to={post.context?.post?.node?.path ?? err}
+              title={post.context?.post?.node?.title ?? err}
+              excerpt={post.context?.post?.node?.excerpt ?? err}
+              status={post.context?.post?.node?.status ?? err}
+              type={post.context?.post?.type as "adoc" | "mdx"}
             ></LinkToPost>
           </li>
         ))}
@@ -24,27 +25,29 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
     </CenterdWrapper>
   )
 }
+const err = `Recieved null/undefined in ${__filename}`
 
 export const pageQuery = graphql`
   query BlogIndex {
-    allAsciidoc(
-      sort: { fields: pageAttributes___date, order: DESC }
-      filter: { pageAttributes: { status: { ne: "private" } } }
+    allSitePage(
+      sort: { fields: context___post___node___date, order: ASC }
+      filter: { path: { regex: "/^/blog/.+/" } }
     ) {
       edges {
         node {
-          pageAttributes {
-            path
-            date
-            status
+          context {
+            post {
+              node {
+                date
+                excerpt
+                path
+                title
+                status
+                id
+              }
+              type
+            }
           }
-          document {
-            main
-            subtitle
-            title
-          }
-          html
-          id
         }
       }
     }

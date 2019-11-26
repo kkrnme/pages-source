@@ -13,7 +13,6 @@ export default ({
   styles: InterpolationWithTheme<any>
 }) => (
   <Twemoji options={{ className: "wrapperRoot emoji" }}>
-    <OverrideGlobal styles={styles} />
     <SiteHeader />
     <Main>{children}</Main>
     <SiteFooter />
@@ -21,7 +20,7 @@ export default ({
 )
 
 const Main = ({ children }: { children: React.ReactNode }) => (
-  <main className="bg-gray-800 mx-auto my-2 w-10/12 max-w-4xl p-4 rounded text-gray-200 text-base tracking-09">
+  <main className="bg-fluentGray-40 mx-auto my-2 w-10/12 max-w-4xl overflow-hidden rounded-lg text-gray-800 text-base tracking-09">
     {children}
   </main>
 )
