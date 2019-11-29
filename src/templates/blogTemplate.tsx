@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 //import { MDXRenderer } from "gatsby-plugin-mdx"
 import ArticleHead from "../components/blog/ArticleHead"
-import BlogWrapper from "../components/wrappers/BlogWrapper"
+import WrapperRoot from "../components/wrappers/Wrapper"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faChevronLeft,
@@ -17,20 +17,6 @@ import Post from "../utils/PostType"
 import { MDXRenderer, MDXRendererProps } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 import { merge } from "lodash"
-
-/*() => ((
-  <BlogWrapper>
-    {PrevNextLink(post)}
-    <article css={{}}>
-      <ArticleHead node={node} />
-      <MDXRenderer>{node.body}</MDXRenderer>
-      {node.frontmatter.status === "draft" ? (
-        <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
-      ) : null}
-    </article>
-    {PrevNextLink(post)}
-  </BlogWrapper>
-))*/
 
 type NewPost = Post & {
   previous: {
@@ -71,7 +57,7 @@ export default ({
 
   const node = post.node
   return (
-    <BlogWrapper>
+    <WrapperRoot>
       <PrevNextLink post={post} type="top" />
       <article className="m-5">
         <ArticleHead post={post} />
@@ -81,7 +67,7 @@ export default ({
         ) : null}
       </article>
       <PrevNextLink post={post} type="bottom" />
-    </BlogWrapper>
+    </WrapperRoot>
   )
 }
 
@@ -96,7 +82,7 @@ const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
 
 const components = {
   h1: (props: any) => (
-    <h1 className="border-b border-gray-600 text-200" {...props}></h1>
+    <h1 className="border-b border-gray-600 text-150" {...props}></h1>
   ),
   p: (props: any) => <p className="mx-1" {...props} />,
 }
@@ -163,7 +149,7 @@ const PrevNextLinkButton: React.FC<{
         ]
   return (
     <div
-      className={`transition  w-1/2 ${
+      className={`transition no-underline w-1/2 ${
         props.enabled
           ? "hover:bg-fluentBlue-10 hover:text-white"
           : "hover:bg-fluentGray-50 text-fluentGray-120 hover:text-fluentGray-100"

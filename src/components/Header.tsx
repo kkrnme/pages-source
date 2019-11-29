@@ -7,7 +7,6 @@ import {
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons"
 import Logo from "../resources/meyend.svg"
-import Script from "../resources/logo-script.svg"
 
 export default () => (
   <header className="flex bg-fluentRed-10 items-center">

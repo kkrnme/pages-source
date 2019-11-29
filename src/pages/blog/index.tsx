@@ -1,5 +1,5 @@
 import React from "react"
-import CenterdWrapper from "../../components/wrappers/CenterdWrapper"
+import WrapperRoot from "../../components/wrappers/Wrapper"
 import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
@@ -7,7 +7,7 @@ import { BlogIndexQuery } from "../../../types/graphqlTypes"
 const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
   const posts = data.allSitePage.edges
   return (
-    <CenterdWrapper>
+    <WrapperRoot>
       <h1 className="text-center text-200 font-bold">kkrnme-blog</h1>
       <article className="p-1">
         <ul className="list-none p-0">
@@ -24,7 +24,7 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
           ))}
         </ul>
       </article>
-    </CenterdWrapper>
+    </WrapperRoot>
   )
 }
 const err = `Recieved null/undefined in ${__filename}`

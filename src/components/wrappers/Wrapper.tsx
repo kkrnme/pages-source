@@ -1,7 +1,6 @@
 import React from "react"
 import SiteHeader from "../Header"
 import SiteFooter from "../Footer"
-import OverrideGlobal from "./OverrideGlobal"
 import Twemoji from "react-twemoji"
 import { InterpolationWithTheme } from "@emotion/core"
 
@@ -10,9 +9,9 @@ export default ({
   styles,
 }: {
   children: React.ReactNode
-  styles: InterpolationWithTheme<any>
+  styles?: InterpolationWithTheme<any>
 }) => (
-  <div className="bg-fluentGray-10 min-h-screen h-full w-full pb-2 transition">
+  <div className="bg-fluentGray-10 min-h-screen h-full w-full pb-2  transition ">
     <Twemoji>
       <SiteHeader />
       <Main>{children}</Main>
