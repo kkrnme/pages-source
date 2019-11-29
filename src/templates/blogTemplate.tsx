@@ -82,7 +82,7 @@ const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
 
 const components = {
   h1: (props: any) => (
-    <h1 className="border-b border-gray-600 text-150" {...props}></h1>
+    <h1 className="border-b border-fluentGray-70 text-150 mt-4" {...props}></h1>
   ),
   p: (props: any) => <p className="mx-1" {...props} />,
 }
@@ -100,7 +100,7 @@ const PrevNextLink = ({
     <div
       className={
         `flex justify-between   bg-fluentGray-50 ` +
-        (type === "top" ? "mb-4" : "mt-6 mt-2 border-gray-500")
+        (type === "top" ? "mb-4" : "mt-6 mt-2")
       }
     >
       {previous != undefined ? (
