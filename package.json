@@ -11,7 +11,7 @@
     "extreme-develop": "npm run format && npm run refresh && npm run develop",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,pcss}\"",
-    "watch": "onchange 'src/**/*.js' 'src/**/*.jsx' 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.pcss'  -- prettier --write {{changed}}",
+    "watch": "npm run format && onchange 'src/**/*.js' 'src/**/*.jsx' 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.pcss'  -- prettier --write {{changed}}",
     "refresh": "rm -rfd .cache public",
     "start": "npm run develop",
     "serve": "gatsby serve",
