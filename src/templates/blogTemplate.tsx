@@ -96,7 +96,7 @@ const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
 
 const components = {
   h1: (props: any) => (
-    <h1 className="border-b border-gray-600 text-2xl" {...props}></h1>
+    <h1 className="border-b border-gray-600 text-200" {...props}></h1>
   ),
   p: (props: any) => <p className="mx-1" {...props} />,
 }

@@ -1,17 +1,17 @@
 module.exports = {
   theme: {
     fontSize: {
-      xs: "0.75rem",
-      sm: "0.875rem",
-      xs: "1rem",
-      sm: "1.125rem",
-      base: "1.25rem",
-      lg: "1.5rem",
-      xl: "1.875rem",
-      "2xl": "2rem",
-      "2.5xl": "2.5rem",
-      "3xl": "3rem",
-      "4xl": "4rem",
+      20: "0.2rem",
+      25: "0.25rem",
+      50: "0.5rem",
+      75: "0.75rem",
+      100: "1rem", //20px
+      120: "1.2rem", //24
+      150: "1.5rem",
+      200: "2rem",
+      250: "2.5rem",
+      300: "3rem",
+      400: "4rem",
     },
 
     extend: {
@@ -26,14 +26,14 @@ module.exports = {
           10: `#d13438`,
         },
         fluentBlue: {
-          10: `#4f6bed`
+          10: `#4f6bed`,
         },
         fluentGreenCyan: {
           10: `#00ad56`,
         },
         fluentGray: {
           10: `#faf9f8`,
-          20:`#f3f2f1`,
+          20: `#f3f2f1`,
           30: `#edebe9`,
           40: `#e1dfdd`,
           50: `#d2d0ce`,

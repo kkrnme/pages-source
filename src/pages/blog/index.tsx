@@ -8,7 +8,7 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
   const posts = data.allSitePage.edges
   return (
     <CenterdWrapper>
-      <h1 className="text-center text-2xl font-bold">kkrnme-blog</h1>
+      <h1 className="text-center text-200 font-bold">kkrnme-blog</h1>
       <article className="p-1">
         <ul className="list-none p-0">
           {posts.map(({ node: post }) => (
