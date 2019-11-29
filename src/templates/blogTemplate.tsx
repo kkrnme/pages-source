@@ -153,8 +153,14 @@ const PrevNextLinkButton: React.FC<{
 } & ({ enabled: true; to: string } | { enabled: false })> = props => {
   const children =
     props.align === "left"
-      ? [<FontAwesomeIcon icon={faChevronLeft} />, props.children]
-      : [props.children, <FontAwesomeIcon icon={faChevronRight} />]
+      ? [
+          <FontAwesomeIcon icon={faChevronLeft} key="faChevronLeft" />,
+          props.children,
+        ]
+      : [
+          props.children,
+          <FontAwesomeIcon icon={faChevronRight} key="faChevronRight" />,
+        ]
   return (
     <div
       className={`transition  w-1/2 ${

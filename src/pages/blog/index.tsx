@@ -8,20 +8,22 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
   const posts = data.allSitePage.edges
   return (
     <CenterdWrapper>
-      <h1>いまのところundefined</h1>
-      <ul>
-        {posts.map(({ node: post }) => (
-          <li key={post.context?.post?.node?.id ?? undefined}>
-            <LinkToPost
-              to={post.context?.post?.node?.path ?? err}
-              title={post.context?.post?.node?.title ?? err}
-              excerpt={post.context?.post?.node?.excerpt ?? err}
-              status={post.context?.post?.node?.status ?? err}
-              type={post.context?.post?.type as "adoc" | "mdx"}
-            ></LinkToPost>
-          </li>
-        ))}
-      </ul>
+      <h1 className="text-center text-2xl font-bold">kkrnme-blog</h1>
+      <article className="p-1">
+        <ul className="list-none p-0">
+          {posts.map(({ node: post }) => (
+            <li key={post.context?.post?.node?.id ?? undefined}>
+              <LinkToPost
+                to={post.context?.post?.node?.path ?? err}
+                title={post.context?.post?.node?.title ?? err}
+                excerpt={post.context?.post?.node?.excerpt ?? err}
+                status={post.context?.post?.node?.status ?? err}
+                type={post.context?.post?.type as "adoc" | "mdx"}
+              />
+            </li>
+          ))}
+        </ul>
+      </article>
     </CenterdWrapper>
   )
 }
@@ -54,25 +56,4 @@ export const pageQuery = graphql`
   }
 `
 
-/*export const _pageQuery = graphql`
-  query blogIndex {
-    allMdx(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { frontmatter: { status: { ne: "private" } } }
-    ) {
-      edges {
-        node {
-          id
-          excerpt
-          frontmatter {
-            title
-            date
-            path
-            status
-          }
-        }
-      }
-    }
-  }
-`*/
 export default BlogIndex

@@ -22,7 +22,7 @@ export default ({
 )
 
 const Main = ({ children }: { children: React.ReactNode }) => (
-  <main className="transition bg-white mx-auto my-2 w-10/12 max-w-4xl overflow-hidden rounded-lg text-fluentGray-160 text-base tracking-09 shadow-md">
+  <main className="bg-white text-base text-fluentGray-160 tracking-09 w-11/12 md:w-10/12 max-w-4xl mx-auto my-2 overflow-hidden rounded-lg shadow-md">
     {children}
   </main>
 )
