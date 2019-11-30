@@ -9,18 +9,20 @@ import {
 import Logo from "../resources/meyend.svg"
 
 export default () => (
-  <header className="flex bg-fluentRed-10 items-center">
-    <Link to="/" className="w-10 m-1">
-      <img src={Logo} alt="KKRN.ME" />
-    </Link>
-    <ul className="list-none flex">
-      <ListLink to="/" icon={faHome}>
-        HOME
-      </ListLink>
-      <ListLink to="/blog/" icon={faBlog}>
-        BLOG
-      </ListLink>
-    </ul>
+  <header className="bg-fluentRed-10 px-4">
+    <div className="flex bg-fluentRed-10 items-center  mx-auto w-full md:w-10/12 max-w-4xl px-2 shadow-md transition">
+      <Link to="/" className="w-10">
+        <img src={Logo} alt="KKRN.ME" />
+      </Link>
+      <ul className="list-none flex p-0 self-start ">
+        <ListLink to="/" icon={faHome}>
+          HOME
+        </ListLink>
+        <ListLink to="/blog/" icon={faBlog}>
+          BLOG
+        </ListLink>
+      </ul>
+    </div>
   </header>
 )
 
