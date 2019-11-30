@@ -1,8 +1,4 @@
 @tailwind base;
-:root{
-  font-size: 20px;
-  scrollbar-color:  #00ad56 #f3f2f1
-}
 body {
   margin: 0;
   font-family: "Noto Sans", "Noto Sans CJK JP", "sans-serif";
@@ -20,9 +16,6 @@ pre > code{
 ul, ol {
   padding-left: 2rem;
   list-style-type: disc;
-}
-a{
-  text-underline-offset: .3rem
 }
 @tailwind components;
 @tailwind utilities;

@@ -54,7 +54,17 @@ module.exports = {
   },
   variants: {},
   plugins: [
-    ({ addUtilities }) =>
+    ({ addBase, addUtilities, config }) => {
+      addBase({
+        ":root": {
+          fontSize: "inherit",
+          scrollbarColor: "#00ad56 #f3f2f1",
+          "@media (min-width: 640px)": {
+            //sm
+          fontSize: "20px",
+          },
+        },
+      })
       addUtilities({
         ".emoji": {
           display: `inline`,
@@ -77,6 +87,14 @@ module.exports = {
         ".transition": {
           transition: `150ms all ease-in`,
         },
-      }),
+        ".underline-anchor": {
+          textDecoration: "underline solid #4f6beda0 .1em",
+          transition: `150ms all ease-in`,
+          "&:hover": {
+            textDecoration: "underline #4f6bedff .2em",
+          },
+        },
+      })
+    },
   ],
 }

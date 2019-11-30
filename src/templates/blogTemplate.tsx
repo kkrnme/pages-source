@@ -59,7 +59,7 @@ export default ({
   return (
     <WrapperRoot>
       <PrevNextLink post={post} type="top" />
-      <article className="m-5">
+      <article className="m-3 md:m-5">
         <ArticleHead post={post} />
         <Body type={post.type}>{post.node.html}</Body>
         {node.status === "draft" ? (
@@ -85,6 +85,7 @@ const components = {
     <h1 className="border-b border-fluentGray-70 text-150 mt-4" {...props}></h1>
   ),
   p: (props: any) => <p className="mx-1" {...props} />,
+  a: (props: any) => <a className="underline-anchor" {...props}></a>,
 }
 
 const PrevNextLink = ({
@@ -156,7 +157,7 @@ const PrevNextLinkButton: React.FC<{
       } text-${props.align}`}
     >
       {props.enabled ? (
-        <Link className="block py-2 px-3" to={props.to}>
+        <Link className="block py-2 px-3 h-full" to={props.to}>
           {children}
         </Link>
       ) : (
