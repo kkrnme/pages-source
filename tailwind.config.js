@@ -46,6 +46,9 @@ module.exports = {
           180: `#252423`,
         },
       },
+      maxWidth: {
+        "1000px": "1000px",
+      },
     },
     letterSpacing: {
       "09": "0.09em",
@@ -61,7 +64,7 @@ module.exports = {
           scrollbarColor: "#00ad56 #f3f2f1",
           "@media (min-width: 640px)": {
             //sm
-          fontSize: "20px",
+            fontSize: "20px",
           },
         },
       })
@@ -88,10 +91,14 @@ module.exports = {
           transition: `150ms all ease-in`,
         },
         ".underline-anchor": {
-          textDecoration: "underline solid #4f6beda0 .1em",
+          textDecoration: "underline solid",
+          textDecorationColor: "#4f6beda0",
+          textDecorationThickness: ".1em",
           transition: `150ms all ease-in`,
           "&:hover": {
-            textDecoration: "underline #4f6bedff .2em",
+            textDecoration: "underline",
+            textDecorationColor: "#4f6bedff",
+            textDecorationThickness: ".2em",
           },
         },
       })
