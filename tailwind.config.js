@@ -1,17 +1,17 @@
 module.exports = {
   theme: {
     fontSize: {
-      xs: "0.75rem",
-      sm: "0.875rem",
-      xs: "1rem",
-      sm: "1.125rem",
-      base: "1.25rem",
-      lg: "1.5rem",
-      xl: "1.875rem",
-      "2xl": "2rem",
-      "2.5xl": "2.5rem",
-      "3xl": "3rem",
-      "4xl": "4rem",
+      20: "0.2rem",
+      25: "0.25rem",
+      50: "0.5rem",
+      75: "0.75rem",
+      100: "1rem", //20px
+      120: "1.2rem", //24
+      150: "1.5rem",
+      200: "2rem",
+      250: "2.5rem",
+      300: "3rem",
+      400: "4rem",
     },
 
     extend: {
@@ -25,19 +25,29 @@ module.exports = {
         fluentRed: {
           10: `#d13438`,
         },
+        fluentBlue: {
+          10: `#4f6bed`,
+        },
         fluentGreenCyan: {
           10: `#00ad56`,
         },
         fluentGray: {
           10: `#faf9f8`,
+          20: `#f3f2f1`,
           30: `#edebe9`,
           40: `#e1dfdd`,
           50: `#d2d0ce`,
           70: `#bebbb8`,
           90: `#a19f9d`,
           100: `#979593`,
+          120: `#797775`,
+          140: `#484644`,
+          160: "#323130",
           180: `#252423`,
         },
+      },
+      maxWidth: {
+        "1000px": "1000px",
       },
     },
     letterSpacing: {
@@ -47,7 +57,17 @@ module.exports = {
   },
   variants: {},
   plugins: [
-    ({ addUtilities }) =>
+    ({ addBase, addUtilities, config }) => {
+      addBase({
+        ":root": {
+          fontSize: "inherit",
+          scrollbarColor: "#00ad56 #f3f2f1",
+          "@media (min-width: 640px)": {
+            //sm
+            fontSize: "20px",
+          },
+        },
+      })
       addUtilities({
         ".emoji": {
           display: `inline`,
@@ -70,6 +90,23 @@ module.exports = {
         ".transition": {
           transition: `150ms all ease-in`,
         },
-      }),
+        ".underline-anchor": {
+          textDecoration: "underline solid",
+          textDecorationColor: "#4f6beda0",
+          textDecorationThickness: ".1em",
+          transition: `150ms all ease-in`,
+          "&:hover": {
+            textDecoration: "underline",
+            textDecorationColor: "#4f6bedff",
+            textDecorationThickness: ".2em",
+          },
+        },
+        ".selection-green": {
+          "::selection": {
+            backgroundColor: "#00ad5670",
+          },
+        },
+      })
+    },
   ],
 }

@@ -6,31 +6,23 @@ import {
   faBlog,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons"
-import LogoBlockSmall from "./logo-block-small.svg"
+import Logo from "../resources/meyend.svg"
 
 export default () => (
-  <header
-    style={{
-      backgroundColor: `#111`,
-      display: `flex`,
-    }}
-  >
-    <Link to="/">
-      <img src={LogoBlockSmall} alt="KKRN.ME" />
-    </Link>
-    <ul
-      style={{
-        display: `flex`,
-        listStyle: `none`,
-      }}
-    >
-      <ListLink to="/" icon={faHome}>
-        HOME
-      </ListLink>
-      <ListLink to="/blog/" icon={faBlog}>
-        BLOG
-      </ListLink>
-    </ul>
+  <header className="bg-fluentRed-10 px-4">
+    <div className="flex bg-fluentRed-10 items-center  mx-auto w-full md:w-10/12 max-w-4xl px-2 shadow-md transition">
+      <Link to="/" className="w-10">
+        <img src={Logo} alt="KKRN.ME" />
+      </Link>
+      <ul className="list-none flex p-0 self-start ">
+        <ListLink to="/" icon={faHome}>
+          HOME
+        </ListLink>
+        <ListLink to="/blog/" icon={faBlog}>
+          BLOG
+        </ListLink>
+      </ul>
+    </div>
   </header>
 )
 
@@ -43,30 +35,11 @@ const ListLink = ({
   to: string
   icon: IconDefinition
 }) => (
-  <li style={{ margin: `1px`, display: `block` }}>
-    <Link
-      to={to}
-      css={{
-        textDecoration: `none`,
-        color: `#0aa`,
-      }}
-    >
-      <span
-        css={{
-          "@media (width <= 400px)": {
-            svg: {
-              height: `1.5em!important`,
-              width: `1.5em!important`,
-              margin: `0 2px`,
-            },
-            span: {
-              display: `none`,
-            },
-          },
-        }}
-      >
-        <FontAwesomeIcon icon={icon} />
-        <span css={{}}>{children}</span>
+  <li className="m-1 block">
+    <Link to={to} className="no-underline text-white">
+      <span className="">
+        <FontAwesomeIcon icon={icon} className="text-150" />
+        <span>{children}</span>
       </span>
     </Link>
   </li>

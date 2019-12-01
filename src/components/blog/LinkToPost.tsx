@@ -4,15 +4,18 @@ import { InterpolationWithTheme } from "@emotion/core"
 import Post from "../../utils/PostType"
 
 export default ({ to, title, excerpt, status, type }: LinkToPostProps) => (
-  <div>
-    <Link to={to} className="flex items-baseline mt-8">
+  <div className="shadow-md mt-8 rounded overflow-hidden">
+    <Link
+      to={to}
+      className="flex items-baseline no-underline flex-wrap bg-fluentBlue-10 text-white p-1  shadow transition"
+    >
       <h2 className="font-bold text-lg">{title}</h2>
       {status === "draft" ? (
         <TagLabel className="bg-pink-500">draft</TagLabel>
       ) : null}
       <TagLabel className={`label-${type}`}>{type.toUpperCase()}</TagLabel>
     </Link>
-    <p className="text-left">{excerpt}</p>
+    <p className="text-left p-2">{excerpt}</p>
   </div>
 )
 
@@ -27,7 +30,7 @@ interface LinkToPostProps {
 
 const TagLabel: React.FC<TagLabelProps> = props => (
   <label
-    className={`ml-2 px-2 rounded  font-semibold tracking-none ${props.className}`}
+    className={`ml-2 px-2 rounded font-semibold tracking-none ${props.className}`}
   >
     {props.children}
   </label>
