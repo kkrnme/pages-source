@@ -7,7 +7,6 @@ import script from "../resources/logo-script.svg"
 export default () => (
   <WrapperRoot>
     <div className="p-5 md:p-5">
-      <ScreenSize />
       <p className="text-center text-150 sm:text-200">＼夜なべして作ってる／</p>
       <img className="m-auto" src={meyend} alt="" />
       <img src={script} alt="Kokorono.me" className="m-auto w-3/4" />

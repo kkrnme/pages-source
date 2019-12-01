@@ -101,6 +101,11 @@ module.exports = {
             textDecorationThickness: ".2em",
           },
         },
+        ".selection-green": {
+          "::selection": {
+            backgroundColor: "#00ad5670",
+          },
+        },
       })
     },
   ],
