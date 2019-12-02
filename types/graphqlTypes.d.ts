@@ -598,8 +598,8 @@ export type File = Node & {
   parent?: Maybe<Node>,
   children: Array<Node>,
   internal: Internal,
-  childAsciidoc?: Maybe<Asciidoc>,
   childMdx?: Maybe<Mdx>,
+  childAsciidoc?: Maybe<Asciidoc>,
 };
 
 
@@ -806,55 +806,6 @@ export type FileFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
-  'childAsciidoc___id' |
-  'childAsciidoc___parent___id' |
-  'childAsciidoc___parent___parent___id' |
-  'childAsciidoc___parent___parent___children' |
-  'childAsciidoc___parent___children' |
-  'childAsciidoc___parent___children___id' |
-  'childAsciidoc___parent___children___children' |
-  'childAsciidoc___parent___internal___content' |
-  'childAsciidoc___parent___internal___contentDigest' |
-  'childAsciidoc___parent___internal___description' |
-  'childAsciidoc___parent___internal___fieldOwners' |
-  'childAsciidoc___parent___internal___ignoreType' |
-  'childAsciidoc___parent___internal___mediaType' |
-  'childAsciidoc___parent___internal___owner' |
-  'childAsciidoc___parent___internal___type' |
-  'childAsciidoc___children' |
-  'childAsciidoc___children___id' |
-  'childAsciidoc___children___parent___id' |
-  'childAsciidoc___children___parent___children' |
-  'childAsciidoc___children___children' |
-  'childAsciidoc___children___children___id' |
-  'childAsciidoc___children___children___children' |
-  'childAsciidoc___children___internal___content' |
-  'childAsciidoc___children___internal___contentDigest' |
-  'childAsciidoc___children___internal___description' |
-  'childAsciidoc___children___internal___fieldOwners' |
-  'childAsciidoc___children___internal___ignoreType' |
-  'childAsciidoc___children___internal___mediaType' |
-  'childAsciidoc___children___internal___owner' |
-  'childAsciidoc___children___internal___type' |
-  'childAsciidoc___internal___content' |
-  'childAsciidoc___internal___contentDigest' |
-  'childAsciidoc___internal___description' |
-  'childAsciidoc___internal___fieldOwners' |
-  'childAsciidoc___internal___ignoreType' |
-  'childAsciidoc___internal___mediaType' |
-  'childAsciidoc___internal___owner' |
-  'childAsciidoc___internal___type' |
-  'childAsciidoc___html' |
-  'childAsciidoc___document___title' |
-  'childAsciidoc___document___subtitle' |
-  'childAsciidoc___document___main' |
-  'childAsciidoc___author___lastName' |
-  'childAsciidoc___author___middleName' |
-  'childAsciidoc___author___authorInitials' |
-  'childAsciidoc___author___email' |
-  'childAsciidoc___pageAttributes___path' |
-  'childAsciidoc___pageAttributes___date' |
-  'childAsciidoc___pageAttributes___status' |
   'childMdx___rawBody' |
   'childMdx___fileAbsolutePath' |
   'childMdx___frontmatter___title' |
@@ -911,7 +862,56 @@ export type FileFieldsEnum =
   'childMdx___internal___ignoreType' |
   'childMdx___internal___mediaType' |
   'childMdx___internal___owner' |
-  'childMdx___internal___type';
+  'childMdx___internal___type' |
+  'childAsciidoc___id' |
+  'childAsciidoc___parent___id' |
+  'childAsciidoc___parent___parent___id' |
+  'childAsciidoc___parent___parent___children' |
+  'childAsciidoc___parent___children' |
+  'childAsciidoc___parent___children___id' |
+  'childAsciidoc___parent___children___children' |
+  'childAsciidoc___parent___internal___content' |
+  'childAsciidoc___parent___internal___contentDigest' |
+  'childAsciidoc___parent___internal___description' |
+  'childAsciidoc___parent___internal___fieldOwners' |
+  'childAsciidoc___parent___internal___ignoreType' |
+  'childAsciidoc___parent___internal___mediaType' |
+  'childAsciidoc___parent___internal___owner' |
+  'childAsciidoc___parent___internal___type' |
+  'childAsciidoc___children' |
+  'childAsciidoc___children___id' |
+  'childAsciidoc___children___parent___id' |
+  'childAsciidoc___children___parent___children' |
+  'childAsciidoc___children___children' |
+  'childAsciidoc___children___children___id' |
+  'childAsciidoc___children___children___children' |
+  'childAsciidoc___children___internal___content' |
+  'childAsciidoc___children___internal___contentDigest' |
+  'childAsciidoc___children___internal___description' |
+  'childAsciidoc___children___internal___fieldOwners' |
+  'childAsciidoc___children___internal___ignoreType' |
+  'childAsciidoc___children___internal___mediaType' |
+  'childAsciidoc___children___internal___owner' |
+  'childAsciidoc___children___internal___type' |
+  'childAsciidoc___internal___content' |
+  'childAsciidoc___internal___contentDigest' |
+  'childAsciidoc___internal___description' |
+  'childAsciidoc___internal___fieldOwners' |
+  'childAsciidoc___internal___ignoreType' |
+  'childAsciidoc___internal___mediaType' |
+  'childAsciidoc___internal___owner' |
+  'childAsciidoc___internal___type' |
+  'childAsciidoc___html' |
+  'childAsciidoc___document___title' |
+  'childAsciidoc___document___subtitle' |
+  'childAsciidoc___document___main' |
+  'childAsciidoc___author___lastName' |
+  'childAsciidoc___author___middleName' |
+  'childAsciidoc___author___authorInitials' |
+  'childAsciidoc___author___email' |
+  'childAsciidoc___pageAttributes___path' |
+  'childAsciidoc___pageAttributes___date' |
+  'childAsciidoc___pageAttributes___status';
 
 export type FileFilterInput = {
   birthtime?: Maybe<DateQueryOperatorInput>,
@@ -952,8 +952,8 @@ export type FileFilterInput = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  childAsciidoc?: Maybe<AsciidocFilterInput>,
   childMdx?: Maybe<MdxFilterInput>,
+  childAsciidoc?: Maybe<AsciidocFilterInput>,
 };
 
 export type FileGroupConnection = {
@@ -1366,8 +1366,8 @@ export type QueryFileArgs = {
   parent?: Maybe<NodeFilterInput>,
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
-  childAsciidoc?: Maybe<AsciidocFilterInput>,
-  childMdx?: Maybe<MdxFilterInput>
+  childMdx?: Maybe<MdxFilterInput>,
+  childAsciidoc?: Maybe<AsciidocFilterInput>
 };
 
 
@@ -1481,6 +1481,8 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -1550,6 +1552,8 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
+  port?: Maybe<Scalars['Int']>,
+  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -1679,6 +1683,8 @@ export type SiteFieldsEnum =
   'internal___type' |
   'siteMetadata___title' |
   'siteMetadata___discription' |
+  'port' |
+  'host' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -1689,6 +1695,8 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
+  port?: Maybe<IntQueryOperatorInput>,
+  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -1960,8 +1968,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___allExtensions' |
   'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___path' |
-  'pluginCreator___pluginOptions___gatsbyRemarkPlugins' |
-  'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve' |
   'pluginCreator___pluginOptions___fileName' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
@@ -2153,8 +2159,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___allExtensions' |
   'pluginOptions___name' |
   'pluginOptions___path' |
-  'pluginOptions___gatsbyRemarkPlugins' |
-  'pluginOptions___gatsbyRemarkPlugins___resolve' |
   'pluginOptions___fileName' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
@@ -2273,7 +2277,6 @@ export type SitePluginPluginOptions = {
   allExtensions?: Maybe<Scalars['Boolean']>,
   name?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
-  gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>,
   fileName?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
@@ -2283,21 +2286,8 @@ export type SitePluginPluginOptionsFilterInput = {
   allExtensions?: Maybe<BooleanQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
-  gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>,
   fileName?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
-};
-
-export type SitePluginPluginOptionsGatsbyRemarkPlugins = {
-  resolve?: Maybe<Scalars['String']>,
-};
-
-export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput = {
-  resolve?: Maybe<StringQueryOperatorInput>,
-};
-
-export type SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput = {
-  elemMatch?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterInput>,
 };
 
 export type SitePluginSortInput = {
