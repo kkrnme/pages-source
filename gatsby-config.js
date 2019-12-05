@@ -28,8 +28,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-mdx`,
-      options: {
-      },
+      options: {},
     },
     { resolve: `gatsby-plugin-postcss` },
     {
