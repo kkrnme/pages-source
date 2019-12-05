@@ -1,3 +1,5 @@
+import { Maybe, SitePageContextPostNode } from "../../types/graphqlTypes"
+
 export default interface Post {
   node: {
     path: string
@@ -15,4 +17,27 @@ export default interface Post {
 type pn = {
   path: string
   title: string
+}
+export type NewPost = Post & {
+  previous: {
+    context: Maybe<{
+      post: Maybe<{
+        node: Maybe<Pick<SitePageContextPostNode, "path" | "title">>
+      }>
+    }>
+  }
+  next: {
+    context: Maybe<{
+      post: Maybe<{
+        node: Maybe<Pick<SitePageContextPostNode, "path" | "title">>
+      }>
+    }>
+  }
+  node: {
+    context: Maybe<{
+      post: Maybe<{
+        node: Maybe<Pick<SitePageContextPostNode, "id">>
+      }>
+    }>
+  }
 }
