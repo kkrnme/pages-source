@@ -2,22 +2,40 @@ import React from "react"
 import { Link } from "gatsby"
 import { InterpolationWithTheme } from "@emotion/core"
 import Post from "../../utils/PostType"
+import GeoPattern from "geopattern"
 
-export default ({ to, title, excerpt, status, type }: LinkToPostProps) => (
-  <div className="shadow-md mt-8 rounded overflow-hidden">
-    <Link
-      to={to}
-      className="flex items-baseline no-underline flex-wrap bg-fluentBlue-10 text-white p-1  shadow transition"
-    >
-      <h2 className="font-bold text-lg">{title}</h2>
-      {status === "draft" ? (
-        <TagLabel className="bg-pink-500">draft</TagLabel>
-      ) : null}
-      <TagLabel className={`label-${type}`}>{type.toUpperCase()}</TagLabel>
-    </Link>
-    <p className="text-left p-2">{excerpt}</p>
-  </div>
-)
+export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
+  const pattern = GeoPattern.generate(title)
+  return (
+    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full">
+      <Link
+        to={to}
+        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1  shadow transition text-fluentGray-10"
+        css={{
+          backgroundImage: pattern.toDataUrl(),
+        }}
+      >
+        <h2 className="font-bold text-lg">
+          {title}
+          {status === "draft" ? (
+            <TagLabel className="inline bg-pink-500">draft</TagLabel>
+          ) : null}
+          <TagLabel className={`label-${type}`}>{type.toUpperCase()}</TagLabel>
+        </h2>
+      </Link>
+      <p
+        className="text-left p-2 text-fluentGray-120"
+        css={{
+          background: "linear-gradient(#323130, #0000)",
+          backgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+        }}
+      >
+        {excerpt}
+      </p>
+    </div>
+  )
+}
 
 interface LinkToPostProps {
   to: string

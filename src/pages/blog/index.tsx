@@ -10,9 +10,12 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
     <WrapperRoot>
       <h1 className="text-center text-200 font-bold">kkrnme-blog</h1>
       <article className="p-1">
-        <ul className="list-none p-0">
+        <ul className="list-none p-0 sm:flex-wrap sm:flex ">
           {posts.map(({ node: post }) => (
-            <li key={post.context?.post?.node?.id ?? undefined}>
+            <li
+              className="w-full sm:w-1/2 p-1 sm:flex-grow"
+              key={post.context?.post?.node?.id ?? undefined}
+            >
               <LinkToPost
                 to={post.context?.post?.node?.path ?? err}
                 title={post.context?.post?.node?.title ?? err}

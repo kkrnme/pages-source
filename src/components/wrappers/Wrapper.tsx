@@ -21,7 +21,13 @@ export default ({
 )
 
 const Main = ({ children }: { children: React.ReactNode }) => (
-  <main className="bg-white text-base text-fluentGray-160 tracking-09 w-full md:w-10/12 max-w-4xl mx-auto my-2 overflow-hidden rounded-lg shadow-md transition selection-green">
+  <main
+    className="bg-white text-fluentGray-160 
+  text-base tracking-09 rounded-lg
+  container overflow-hidden
+  mx-auto my-2 shadow-md 
+  transition selection-green"
+  >
     {children}
   </main>
 )

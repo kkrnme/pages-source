@@ -41,6 +41,7 @@
     "gatsby-plugin-typescript": "^2.1.20",
     "gatsby-source-filesystem": "^2.1.40",
     "gatsby-transformer-asciidoc": "^1.1.18",
+    "geopattern": "^1.2.3",
     "lodash": "^4.17.15",
     "postcss-scss": "^2.0.0",
     "react": "^16.12.0",

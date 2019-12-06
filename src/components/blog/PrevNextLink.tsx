@@ -6,7 +6,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { Link } from "gatsby"
 import { NewPost } from "../../utils/PostType"
-export default PrevNextLink
 export const PrevNextLink = ({
   post,
   type,
@@ -53,6 +52,8 @@ export const PrevNextLink = ({
     </div>
   )
 }
+
+export default PrevNextLink
 
 export const PrevNextLinkButton: React.FC<{
   align: "left" | "right"
