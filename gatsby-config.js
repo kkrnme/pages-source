@@ -39,9 +39,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-asciidoc`,
-      options: {
-        converterFactory: Converter,
-      },
+      options: {},
     },
   ],
 }
