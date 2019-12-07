@@ -144,14 +144,14 @@ module.exports = {
           },
         },
         ".backdrop-blur": {
-          backdropFilter: `blur(1px)`
+          backdropFilter: `blur(1px)`,
         },
         ".backdrop-blur-xl": {
-          backdropFilter: `blur(100%)`
+          backdropFilter: `blur(100%)`,
         },
         ".hyphens": {
-          hyphens: `auto`
-        }
+          hyphens: `auto`,
+        },
       })
     },
   ],
