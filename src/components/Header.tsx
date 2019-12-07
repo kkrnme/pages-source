@@ -9,12 +9,12 @@ import {
 import Logo from "../resources/meyend.svg"
 
 export default () => (
-  <header className="bg-fluentRed-10 px-4">
+  <header className="bg-fluentRed-10 px-4 shadow-md">
     <div
       className="
     flex items-center 
     mx-auto w-full sm:w-10/12  px-2
-    shadow-md transition"
+     transition"
     >
       <Link to="/" className="w-10">
         <img src={Logo} alt="KKRN.ME" />
