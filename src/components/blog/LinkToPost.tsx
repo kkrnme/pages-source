@@ -24,7 +24,7 @@ export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
         </h2>
       </Link>
       <p
-        className="text-left p-2 text-fluentGray-120"
+        className="text-left p-2 text-fluentGray-120 "
         css={{
           background: "linear-gradient(#323130, #0000)",
           backgroundClip: "text",

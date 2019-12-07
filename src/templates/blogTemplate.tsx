@@ -1,7 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-//import { MDXRenderer } from "gatsby-plugin-mdx"
-import ArticleHead from "../components/blog/ArticleHead"
+import BlogPostHead from "../components/blog/BlogPostHead"
 import WrapperRoot from "../components/wrappers/Wrapper"
 import { BlogTemplateQuery } from "../../types/graphqlTypes"
 import Post, { NewPost } from "../utils/PostType"
@@ -26,9 +25,8 @@ export default ({
   const node = post.node
   return (
     <WrapperRoot>
-      <PrevNextLink post={post} type="top" />
-      <article className="m-3 md:m-5">
-        <ArticleHead post={post} />
+      <BlogPostHead post={post} />
+      <article className="p-3 md:p-5">
         <Body type={post.type}>{post.node.html}</Body>
         {node.status === "draft" ? (
           <p>(この記事は未完成、まだ更新中なんだ。すまない)</p>
@@ -43,17 +41,26 @@ const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
   type === "adoc" ? (
     <div dangerouslySetInnerHTML={{ __html: children }} />
   ) : (
-    <MDXProvider components={components}>
-      <MDXRenderer>{children}</MDXRenderer>
-    </MDXProvider>
+    <div>
+      <MDXProvider components={components}>
+        <MDXRenderer>{children}</MDXRenderer>
+      </MDXProvider>
+    </div>
   )
 
 const components = {
   h1: (props: any) => (
     <h1 className="border-b border-fluentGray-70 text-150 mt-4" {...props}></h1>
   ),
-  p: (props: any) => <p className="mx-1" {...props} />,
+  h2: (props: any) => (
+    <h2
+      className="border-b border-fluentGray-70 font-medium text-120 px-1 pt-2"
+      {...props}
+    />
+  ),
+  p: (props: any) => <p className="py-1 px-2" {...props} />,
   a: (props: any) => <a className="underline-anchor" {...props}></a>,
+  ul: (props: any) => <ul className="list-disc py-1 px-2 pl-8" {...props} />,
 }
 
 export const query = graphql`

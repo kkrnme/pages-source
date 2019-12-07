@@ -13,9 +13,5 @@ h1 + p {
 pre > code{
   letter-spacing: 0
 }
-ul, ol {
-  padding-left: 2rem;
-  list-style-type: disc;
-}
 @tailwind components;
 @tailwind utilities;

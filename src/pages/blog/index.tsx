@@ -13,7 +13,7 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
         <ul className="list-none p-0 sm:flex-wrap sm:flex ">
           {posts.map(({ node: post }) => (
             <li
-              className="w-full sm:w-1/2 p-1 sm:flex-grow"
+              className="w-full sm:w-1/2 lg:w-1/3 p-1"
               key={post.context?.post?.node?.id ?? undefined}
             >
               <LinkToPost

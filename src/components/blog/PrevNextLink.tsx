@@ -16,12 +16,7 @@ export const PrevNextLink = ({
   const previous = post.previous,
     next = post.next
   return (
-    <div
-      className={
-        `flex justify-between   bg-fluentGray-50 ` +
-        (type === "top" ? "mb-4" : "mt-6 mt-2")
-      }
-    >
+    <div className={`flex justify-between    `}>
       {previous != undefined ? (
         <PrevNextLinkButton
           enabled
@@ -72,8 +67,8 @@ export const PrevNextLinkButton: React.FC<{
     <div
       className={`transition no-underline w-1/2 ${
         props.enabled
-          ? "hover:bg-fluentBlue-10 hover:text-white"
-          : "hover:bg-fluentGray-50 text-fluentGray-120 hover:text-fluentGray-100"
+          ? "backdrop-blur bg-transparentBlack-8 hover:bg-fluentBlue-10  text-fluentGray-40  hover:text-white"
+          : "backdrop-blur bg-transparentBlack-8 hover:bg-fluentGray-180 text-fluentGray-90 hover:text-fluentGray-90"
       } text-${props.align}`}
     >
       {props.enabled ? (
