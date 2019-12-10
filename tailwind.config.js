@@ -31,6 +31,9 @@ module.exports = {
         fluentGreenCyan: {
           10: `#00ad56`,
         },
+        fluentOrange: {
+          10: `#ffaa44`,
+        },
         fluentGray: {
           10: `#faf9f8`,
           20: `#f3f2f1`,
