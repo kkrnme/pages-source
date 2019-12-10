@@ -30,14 +30,20 @@ export default ({
       <BlogPostHead post={post} />
       <article className="p-3 md:p-5">
         {node.status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
-        <Body type={post.type}>{post.node.html}</Body>
+        <BlogArticleBody type={post.type}>{post.node.html}</BlogArticleBody>
       </article>
       <PrevNextLink post={post} type="bottom" />
     </WrapperRoot>
   )
 }
 
-const Body = ({ type, children }: { type: Post["type"]; children: string }) =>
+const BlogArticleBody = ({
+  type,
+  children,
+}: {
+  type: Post["type"]
+  children: string
+}) =>
   type === "adoc" ? (
     <div dangerouslySetInnerHTML={{ __html: children }} />
   ) : (

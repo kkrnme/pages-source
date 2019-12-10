@@ -8,10 +8,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export interface NoteProps {
   icon: IconDefinition
-  className?: string
+  color?: string
 }
-export const Note: FC<NoteProps> = ({ className, icon, children }) => (
-  <div className={className + " p-2"}>
+export const Note: FC<NoteProps> = ({ color, icon, children }) => (
+  <div className={color + " p-2 flex"}>
     <div>
       <FontAwesomeIcon icon={icon} />
     </div>
@@ -19,12 +19,12 @@ export const Note: FC<NoteProps> = ({ className, icon, children }) => (
   </div>
 )
 export const Warn: FC<{}> = ({ children }) => (
-  <Note className="bg-fluentOrange-10" icon={faExclamationTriangle}>
+  <Note color="bg-fluentOrange-10" icon={faExclamationTriangle}>
     {children}
   </Note>
 )
 export const Info: FC<{}> = ({ children }) => (
-  <Note className="bg-fluentBlue-10" icon={faInfo}>
+  <Note color="bg-fluentBlue-10" icon={faInfo}>
     {children}
   </Note>
 )
