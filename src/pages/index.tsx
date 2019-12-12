@@ -1,19 +1,16 @@
-import React from "react"
-import CenterdWrapper from "../components/wrappers/CenterdWrapper"
-import LogoBlock from "../components/logo-block.svg"
+import React, { useState, useEffect } from "react"
+import WrapperRoot from "../components/wrappers/Wrapper"
+import "../styles/tailwind.css"
+import meyend from "../resources/meyend.svg"
+import script from "../resources/logo-script.svg"
 
 export default () => (
-  <div>
-    <CenterdWrapper>
-      <h1>KKRN.ME</h1>
-      <p>page of mominis</p>
-      <img
-        src={LogoBlock}
-        alt="KKRN.ME"
-        css={{
-          width: `80%`,
-        }}
-      />
-    </CenterdWrapper>
-  </div>
+  <WrapperRoot>
+    <div className="p-5 md:p-5">
+      <p className="text-center text-150 sm:text-200">＼夜なべして作ってる／</p>
+      <img className="m-auto" src={meyend} alt="" />
+      <img src={script} alt="Kokorono.me" className="m-auto w-3/4" />
+      <br />
+    </div>
+  </WrapperRoot>
 )

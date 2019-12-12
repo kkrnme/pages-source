@@ -2,7 +2,7 @@ declare module "react-twemoji" {
   import React from "react"
   import { ParseObject } from "twemoji"
 
-  class ReactTwemoji extends React.Component<ReactTwemoji.TwemojiProps> {}
+  class ReactTwemoji extends React.Component<ReactTwemoji.TwemojiProps, any> {}
 
   namespace ReactTwemoji {
     type TwemojiProps =
@@ -13,7 +13,7 @@ declare module "react-twemoji" {
         }
       | {
           noWrapper?: false
-          options?: TwemojiOptions
+          options?: Partial<TwemojiOptions>
           tag?: string
           children: React.ReactNode
         }
