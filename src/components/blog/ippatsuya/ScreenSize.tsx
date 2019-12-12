@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react"
 
 export const ScreenSize: React.FC = () => {
-  const [height, setHeight] = useState(document.documentElement.clientHeight),
-    [width, setWidth] = useState(document.documentElement.clientWidth)
+  const [height, setHeight] = useState(0),
+    [width, setWidth] = useState(0)
   useEffect(() =>
     window.addEventListener("resize", () => {
       setHeight(document.documentElement.clientHeight)
