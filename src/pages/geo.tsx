@@ -1,5 +1,6 @@
 import React from "react"
 import GeoPattern from "geopattern"
+import "../styles/tailwind.css"
 
 export default () => {
   const [date, setDate] = React.useState(GeoPattern.generate(String(90)))

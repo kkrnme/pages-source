@@ -2,5 +2,5 @@ module.exports = {
   devServer: {
     disableHostCheck: true,
   },
-	node: { Buffer: false }, 
+  node: { Buffer: false },
 }
