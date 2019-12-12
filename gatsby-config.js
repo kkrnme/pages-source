@@ -11,6 +11,7 @@ module.exports = {
     discription: `page of Mominis`,
   },
   plugins: [
+    `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
     {
       resolve: `gatsby-plugin-typescript`,
@@ -28,7 +29,16 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-mdx`,
-      options: {},
+      options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+            },
+          },
+        ],
+      },
     },
     { resolve: `gatsby-plugin-postcss` },
     {
