@@ -18,6 +18,9 @@ const components = {
       <a
         className="block"
         css={css({
+          transition: "color .5s ease-in-out",
+          color: "#323130",
+          textDecoration: "underline #4f6bed 2px",
           "&::before": {
             display: "block",
             content: `""`,
@@ -25,7 +28,7 @@ const components = {
             backgroundColor: "#4f6bed00",
             position: "absolute",
             top: 0,
-            transition: "400ms color ease-in-out",
+            transition: "background-color 400ms ease-in-out",
             left: 0,
             right: 0,
             zIndex: -1,
@@ -33,7 +36,8 @@ const components = {
           "&:hover": {
             color: "white",
             "&::before": {
-              animation: `${anchorWipe} .4s ease-out both`,
+              animation: `${anchorWipe} .5s ease-out both`,
+              backgroundColor: "#4f6bedff",
             },
           },
         })}
@@ -52,6 +56,5 @@ const anchorWipe = keyframes`
   100% {
     left: 0;
     right: 0;
-    background-color:#4f6bedff;
   }`
 export default components
