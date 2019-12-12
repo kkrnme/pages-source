@@ -14,19 +14,3 @@ export default () => (
     </div>
   </WrapperRoot>
 )
-
-const ScreenSize: React.FC = () => {
-  const [height, setHeight] = useState(screen.height),
-    [width, setWidth] = useState(screen.width)
-  useEffect(() =>
-    window.addEventListener("resize", () => {
-      setHeight(screen.height)
-      setWidth(screen.width)
-    })
-  )
-  return (
-    <p>
-      width:{width}, height:{height}
-    </p>
-  )
-}
