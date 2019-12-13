@@ -169,7 +169,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   posts.forEach(post => {
     createPage({
       path: post.node.path,
-      component: Path.resolve(`./src/templates/blogTemplate.tsx`),
+      component: Path.resolve(`./src/components/blog/blogTemplate.tsx`),
       context: { post, id: post.node.id },
     })
   })

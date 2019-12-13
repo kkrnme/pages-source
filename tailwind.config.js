@@ -30,7 +30,8 @@ module.exports = {
           10: `#d13438`,
         },
         fluentBlue: {
-          10: `#4f6bed`,
+          90:"#758bf0",
+          100: `#4f6bed`,
         },
         fluentGreenCyan: {
           10: `#00ad56`,

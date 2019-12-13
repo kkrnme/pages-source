@@ -1,15 +1,15 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import BlogPostHead from "../components/blog/BlogPostHead"
-import WrapperRoot from "../components/wrappers/Wrapper"
-import { BlogTemplateQuery } from "../../types/graphqlTypes"
-import Post, { NewPost } from "../utils/PostType"
-import PrevNextLink from "../components/blog/PrevNextLink"
+import BlogPostHead from "./BlogPostHead"
+import WrapperRoot from "../wrappers/Wrapper"
+import { BlogTemplateQuery } from "../../../types/graphqlTypes"
+import Post, { NewPost } from "../../utils/PostType"
+import PrevNextLink from "./PrevNextLink"
 import { MDXRenderer, MDXRendererProps } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
 import { merge } from "lodash"
 import blogArticleComponents from "./blogArticleComponents"
-import { Warn } from "../components/blog/Notes"
+import { Warn } from "./Notes"
 
 export default ({
   data,

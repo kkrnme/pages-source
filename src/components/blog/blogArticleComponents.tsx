@@ -1,6 +1,7 @@
 import React from "react"
 import { css, keyframes } from "@emotion/core"
-import { Info } from "../components/blog/Notes"
+import { Info } from "./Notes"
+import tw from "tailwind.macro"
 
 const components = {
   h1: (props: any) => (
@@ -19,7 +20,7 @@ const components = {
         className="block"
         css={css({
           transition: "color .5s ease-in-out",
-          color: "#323130",
+          color: "inherit",
           textDecoration: "underline #4f6bed 2px",
           "&::before": {
             display: "block",
@@ -35,10 +36,10 @@ const components = {
             borderRadius: "1px",
           },
           "&:hover": {
-            color: "white",
+            color: "black",
             "&::before": {
               animation: `${anchorWipe} .5s ease-out both`,
-              backgroundColor: "#4f6bedff",
+              backgroundColor: "#758bf0ff",
             },
           },
         })}

@@ -2377,6 +2377,11 @@ export type StringQueryOperatorInput = {
   glob?: Maybe<Scalars['String']>,
 };
 
+export type BlogTemplateQueryVariables = {};
+
+
+export type BlogTemplateQuery = { allSitePage: { edges: Array<{ previous: Maybe<{ context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'path' | 'title'>> }> }> }>, next: Maybe<{ context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'path' | 'title'>> }> }> }>, node: { context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'id'>> }> }> } }> } };
+
 export type BlogIndexQueryVariables = {};
 
 
@@ -2384,8 +2389,3 @@ export type BlogIndexQuery = { allSitePage: { edges: Array<{ node: { context: Ma
             Pick<SitePageContextPost, 'type'>
             & { node: Maybe<Pick<SitePageContextPostNode, 'date' | 'excerpt' | 'path' | 'title' | 'status' | 'id'>> }
           )> }> } }> } };
-
-export type BlogTemplateQueryVariables = {};
-
-
-export type BlogTemplateQuery = { allSitePage: { edges: Array<{ previous: Maybe<{ context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'path' | 'title'>> }> }> }>, next: Maybe<{ context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'path' | 'title'>> }> }> }>, node: { context: Maybe<{ post: Maybe<{ node: Maybe<Pick<SitePageContextPostNode, 'id'>> }> }> } }> } };

@@ -9,7 +9,7 @@ export const Wrapper: React.FC<WrapperProps> = ({
   styles,
   className,
 }) => (
-  <div className="bg-fluentGray-10 min-h-screen h-full w-full pb-2 transition">
+  <div className="bg-gray-900 min-h-screen h-full w-full pb-2 transition">
     <Twemoji>
       <SiteHeader />
       <Main styles={styles} className={className}>
@@ -22,11 +22,11 @@ export const Wrapper: React.FC<WrapperProps> = ({
 
 const Main: React.FC<WrapperProps> = ({ children, styles, className }) => (
   <main
-    className={`bg-white text-fluentGray-160 
-  text-base tracking-09 rounded-none sm:rounded-lg 
-  container overflow-hidden
-  mx-auto sm:my-2 my-0 shadow-md 
-  transition selection-green ${className ?? ""}`}
+    className={"bg-fluentGray-180 text-fluentGray-70 \
+  text-base tracking-09 rounded-none sm:rounded-lg \
+  container overflow-hidden \
+  mx-auto sm:my-2 my-0 shadow-md \
+  transition selection-green "+ className ?? ""}
     css={styles}
   >
     {children}
