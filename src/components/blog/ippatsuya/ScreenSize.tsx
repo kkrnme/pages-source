@@ -3,12 +3,16 @@ import React, { useState, useEffect } from "react"
 export const ScreenSize: React.FC = () => {
   const [height, setHeight] = useState(document.documentElement.clientHeight),
     [width, setWidth] = useState(document.documentElement.clientWidth)
-  useEffect(() =>
+  useEffect(() => {
     window.addEventListener("resize", () => {
       setHeight(document.documentElement.clientHeight)
       setWidth(document.documentElement.clientWidth)
     })
-  )
+    window.addEventListener("load", () => {
+      setHeight(document.documentElement.clientHeight)
+      setWidth(document.documentElement.clientWidth)
+    })
+  })
   return (
     <p>
       width:{width}, height:{height}, {size(width)}

@@ -9,7 +9,7 @@ export const Wrapper: React.FC<WrapperProps> = ({
   styles,
   className,
 }) => (
-  <div className="bg-fluentGray-10 min-h-screen h-full w-full pb-2  transition ">
+  <div className="bg-fluentGray-10 min-h-screen h-full w-full pb-2 transition">
     <Twemoji>
       <SiteHeader />
       <Main styles={styles} className={className}>
