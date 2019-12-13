@@ -1,4 +1,71 @@
 "use strict"
+const colors = {
+  body: "#fafafa",
+  adoc: "#E40046",
+  mdx: "#F9AC00",
+  fluentMagentaPink: {
+    10: `#e3008c`,
+  },
+  fluentRed: {
+    10: `#d13438`,
+  },
+  fluentBlue: {
+    90: "#758bf0",
+    100: `#4f6bed`,
+  },
+  fluentGreenCyan: {
+    10: `#00ad56`,
+  },
+  fluentOrange: {
+    10: `#ffaa44`,
+  },
+  fluentGray: {
+    10: `#faf9f8`,
+    20: `#f3f2f1`,
+    30: `#edebe9`,
+    40: `#e1dfdd`,
+    50: `#d2d0ce`,
+    70: `#bebbb8`,
+    90: `#a19f9d`,
+    100: `#979593`,
+    120: `#797775`,
+    140: `#484644`,
+    160: "#323130",
+    180: `#252423`,
+  },
+  monochrome: {
+    1: `#111`,
+    2: `#222`,
+    3: `#333`,
+    4: `#444`,
+    5: `#555`,
+    6: `#666`,
+    7: `#777`,
+    8: `#888`,
+    9: `#999`,
+    a: `#aaa`,
+    b: `#bbb`,
+    c: `#ccc`,
+    d: `#ddd`,
+    e: `#eee`,
+  },
+  transparentBlack: {
+    1: `#0001`,
+    2: `#0002`,
+    3: `#0003`,
+    4: `#0004`,
+    5: `#0005`,
+    6: `#0006`,
+    7: `#0007`,
+    8: `#0008`,
+    9: `#0009`,
+    a: `#000a`,
+    b: `#000b`,
+    c: `#000c`,
+    d: `#000d`,
+    e: `#000e`,
+  },
+}
 module.exports = {
   theme: {
     fontSize: {
@@ -19,73 +86,7 @@ module.exports = {
       none: "0",
     },
     extend: {
-      colors: {
-        body: "#fafafa",
-        adoc: "#E40046",
-        mdx: "#F9AC00",
-        fluentMagentaPink: {
-          10: `#e3008c`,
-        },
-        fluentRed: {
-          10: `#d13438`,
-        },
-        fluentBlue: {
-          90:"#758bf0",
-          100: `#4f6bed`,
-        },
-        fluentGreenCyan: {
-          10: `#00ad56`,
-        },
-        fluentOrange: {
-          10: `#ffaa44`,
-        },
-        fluentGray: {
-          10: `#faf9f8`,
-          20: `#f3f2f1`,
-          30: `#edebe9`,
-          40: `#e1dfdd`,
-          50: `#d2d0ce`,
-          70: `#bebbb8`,
-          90: `#a19f9d`,
-          100: `#979593`,
-          120: `#797775`,
-          140: `#484644`,
-          160: "#323130",
-          180: `#252423`,
-        },
-        monochrome: {
-          1: `#111`,
-          2: `#222`,
-          3: `#333`,
-          4: `#444`,
-          5: `#555`,
-          6: `#666`,
-          7: `#777`,
-          8: `#888`,
-          9: `#999`,
-          a: `#aaa`,
-          b: `#bbb`,
-          c: `#ccc`,
-          d: `#ddd`,
-          e: `#eee`,
-        },
-        transparentBlack: {
-          1: `#0001`,
-          2: `#0002`,
-          3: `#0003`,
-          4: `#0004`,
-          5: `#0005`,
-          6: `#0006`,
-          7: `#0007`,
-          8: `#0008`,
-          9: `#0009`,
-          a: `#000a`,
-          b: `#000b`,
-          c: `#000c`,
-          d: `#000d`,
-          e: `#000e`,
-        },
-      },
+      colors,
       maxWidth: {
         "1000px": "1000px",
       },
@@ -128,15 +129,7 @@ module.exports = {
           transition: `150ms all ease-in`,
         },
         ".underline-anchor": {
-          textDecoration: "underline solid",
-          textDecorationColor: "#4f6beda0",
-          textDecorationThickness: ".1em",
-          transition: `150ms all ease-in`,
-          "&:hover": {
-            textDecoration: "underline",
-            textDecorationColor: "#4f6bedff",
-            textDecorationThickness: ".2em",
-          },
+          textDecoration: "underline #4f6bed 2px"
         },
         ".selection-green": {
           "::selection": {
@@ -152,6 +145,9 @@ module.exports = {
         ".hyphens": {
           hyphens: `auto`,
         },
+        ".swipe-anchor": {
+          
+        }
       })
     },
   ],

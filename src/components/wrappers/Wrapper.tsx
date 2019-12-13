@@ -22,11 +22,14 @@ export const Wrapper: React.FC<WrapperProps> = ({
 
 const Main: React.FC<WrapperProps> = ({ children, styles, className }) => (
   <main
-    className={"bg-fluentGray-180 text-fluentGray-70 \
+    className={
+      "bg-fluentGray-180 text-fluentGray-70 \
   text-base tracking-09 rounded-none sm:rounded-lg \
   container overflow-hidden \
   mx-auto sm:my-2 my-0 shadow-md \
-  transition selection-green "+ className ?? ""}
+  transition selection-green " +
+        className ?? ""
+    }
     css={styles}
   >
     {children}
