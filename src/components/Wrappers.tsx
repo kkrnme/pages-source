@@ -18,29 +18,43 @@ export const Background: React.FC<WrapperProps> = props => (
   />
 )
 
-export const Wrapper: React.FC<WrapperProps> = ({ children, className }) => (
-  <Background>
-    <Twemoji>
-      <SiteHeader />
-      <Main className={className}>{children}</Main>
-      <SiteFooter />
-    </Twemoji>
-  </Background>
-)
-
-export const Main: React.FC<WrapperProps> = ({ children, className }) => (
+/**
+ * Centerd empty container.
+ * @param props
+ */
+export const Container = (props: WrapperProps) => (
   <main
     className={
-      "bg-fluentGray-180 text-fluentGray-70 \
-  text-base tracking-09 rounded-none sm:rounded-lg \
+      "container mx-auto overflow-hidden selection-green " +
+      (props.className ?? "")
+    }
+    children={props.children}
+  />
+)
+
+export const BlogMain: React.FC<WrapperProps> = ({ children, className }) => (
+  <main
+    className={
+      "text-base tracking-09 rounded-none sm:rounded-lg \
   container overflow-hidden \
   mx-auto sm:my-2 my-0 shadow-md \
   transition selection-green " +
-        className ?? ""
+      (className ?? "bg-monochrome-4")
     }
   >
     {children}
   </main>
+)
+
+export const BlogLikeWrapper: React.FC<WrapperProps> = ({
+  children,
+  className,
+}) => (
+  <Background>
+    <SiteHeader />
+    <BlogMain className={className}>{children}</BlogMain>
+    <SiteFooter />
+  </Background>
 )
 
 export interface WrapperProps {
