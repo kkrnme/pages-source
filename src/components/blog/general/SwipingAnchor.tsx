@@ -1,33 +1,34 @@
 import React from "react"
 import { css, keyframes } from "@emotion/core"
+import styled from "@emotion/styled"
 import tw from "tailwind.macro"
 
 export const SwipingAnchor: React.FC<{}> = props => (
   <span className="inline-block relative z-0">
     <a
       className="swipe-anchor"
-      css={css(tw``, {
-        "&::before": {
-          display: "block",
-          content: `""`,
-          height: "100%",
-          backgroundColor: "#4f6bed00",
-          position: "absolute",
-          top: 0,
-          transition: "background-color 400ms ease-in-out",
-          left: 0,
-          right: 0,
-          zIndex: -1,
-          borderRadius: "1px",
-        },
-        "&:hover": {
-          color: "black",
-          "&::before": {
-            animation: `${anchorWipe} .5s ease-out both`,
-            backgroundColor: "#758bf0ff",
-          },
-        },
-      })}
+      css={css`
+        &::before {
+          display: block;
+          content: "";
+          height: 100%;
+          background-color: ${tw``};
+          position: absolute;
+          top: 0;
+          transition: background-color 0.4s ease-in-out;
+          left: 0;
+          right: 0;
+          z-index: -1;
+          border-radius: 1px;
+        }
+        &:hover {
+          color: black;
+          &::before {
+            animation: ${anchorWipe} 0.5s ease-out both;
+            background-color: #758bf0ff;
+          }
+        }
+      `}
       {...props}
     />
   </span>

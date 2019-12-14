@@ -59,6 +59,7 @@
     "gh-pages": "^2.1.1",
     "graphql": "^14.5.8",
     "onchange": "^6.1.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "typescript-styled-plugin": "^0.15.0"
   }
 }

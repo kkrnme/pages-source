@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import BlogPostHead from "../BlogPostHead"
-import WrapperRoot from "../../wrappers/Wrapper"
+import { Wrapper } from "../../Wrappers"
 import { BlogTemplateQuery } from "../../../../types/graphqlTypes"
 import Post, { NewPost } from "../../../utils/PostType"
 import PrevNextLink from "../PrevNextLink"
@@ -26,14 +26,14 @@ export default ({
 
   const node = post.node
   return (
-    <WrapperRoot>
+    <Wrapper>
       <BlogPostHead post={post} />
       <article className="p-3 md:p-5">
         {node.status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
         <BlogArticleBody type={post.type}>{post.node.html}</BlogArticleBody>
       </article>
       <PrevNextLink post={post} type="bottom" />
-    </WrapperRoot>
+    </Wrapper>
   )
 }
 
