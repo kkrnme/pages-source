@@ -13,5 +13,6 @@ h1 + p {
 pre > code{
   letter-spacing: 0
 }
+
 @tailwind components;
 @tailwind utilities;

@@ -145,9 +145,6 @@ module.exports = {
         ".hyphens": {
           hyphens: `auto`,
         },
-        ".swipe-anchor": {
-          
-        }
       })
     },
   ],

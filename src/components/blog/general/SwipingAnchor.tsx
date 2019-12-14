@@ -5,12 +5,8 @@ import tw from "tailwind.macro"
 export const SwipingAnchor: React.FC<{}> = props => (
   <span className="inline-block relative z-0">
     <a
-      className="block"
+      className="swipe-anchor"
       css={css(tw``, {
-        transition: "color .5s ease-in-out",
-
-        color: "inherit",
-        textDecoration: "underline #4f6bed 2px",
         "&::before": {
           display: "block",
           content: `""`,
