@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react"
 import { Background, Container } from "../components/Wrappers"
 import { css } from "@emotion/core"
+import { getContrastRatio, Color, CheckContrast } from "../utils/color"
+import { round } from "../utils/tinyUtils"
 
 export default () => (
   <Background>
     <Container className="bg-monochrome-2 p-4">
-      <Color></Color>
+      <Picker></Picker>
     </Container>
   </Background>
 )
@@ -18,22 +20,24 @@ export interface color {
   relativeLuminance: number
 }
 
-const Color = () => {
-  const [bg, setBg] = useState(onInput("#111")),
-    [tx, setTx] = useState(onInput("#eee")),
+const Picker = () => {
+  const [bg, setBg] = useState(onInput("0")),
+    [tx, setTx] = useState(onInput("90")),
     [contrastRatio, setContrastRatio] = useState(
-      rt(bg.relativeLuminance, tx.relativeLuminance)
+      getContrastRatio(bg.getRelativeLuminance(), tx.getRelativeLuminance())
     )
   useEffect(() =>
-    setContrastRatio(rt(tx.relativeLuminance, bg.relativeLuminance))
+    setContrastRatio(
+      getContrastRatio(tx.getRelativeLuminance(), bg.getRelativeLuminance())
+    )
   )
   return (
     <div>
       <div
         className="p-8 text-150"
         css={css`
-          background-color: #${bg.hex};
-          color: #${tx.hex};
+          background-color: #${bg.getHex()};
+          color: #${tx.getHex()};
         `}
       >
         <p>
@@ -61,8 +65,8 @@ const Color = () => {
           </tr>
           <tr>
             <th>#HEX</th>
-            <td>{tx.hex}</td>
-            <td>{bg.hex}</td>
+            <td>{tx.getHex()}</td>
+            <td>{bg.getHex()}</td>
           </tr>
           <tr>
             <th>Red</th>
@@ -81,23 +85,23 @@ const Color = () => {
           </tr>
           <tr>
             <th>Hue</th>
-            <td>{tx.hsl.hue}</td>
-            <td>{bg.hsl.hue}</td>
+            <td>{tx.getHSL().hue}</td>
+            <td>{bg.getHSL().hue}</td>
           </tr>
           <tr>
             <th>Saturation</th>
-            <td>{tx.hsl.saturation}</td>
-            <td>{bg.hsl.saturation}</td>
+            <td>{tx.getHSL().saturation}</td>
+            <td>{bg.getHSL().saturation}</td>
           </tr>
           <tr>
             <th>Lightness</th>
-            <td>{tx.hsl.lightness}</td>
-            <td>{bg.hsl.lightness}</td>
+            <td>{tx.getHSL().lightness}</td>
+            <td>{bg.getHSL().lightness}</td>
           </tr>
           <tr>
             <th>Relative Luminance</th>
-            <td>{round(tx.relativeLuminance, 4)}</td>
-            <td>{round(bg.relativeLuminance, 4)}</td>
+            <td>{round(tx.getRelativeLuminance(), 4)}</td>
+            <td>{round(bg.getRelativeLuminance(), 4)}</td>
           </tr>
           <tr
             css={css`
@@ -106,9 +110,7 @@ const Color = () => {
           >
             <th>Contrast Ratio</th>
             <td>{round(contrastRatio, 2)}:1</td>
-            <td>
-              {contrastRatio > 7 ? "AAA" : contrastRatio > 4 ? "AA" : "NG"}
-            </td>
+            <td>{CheckContrast(contrastRatio)}</td>
           </tr>
         </tbody>
       </table>
@@ -141,6 +143,9 @@ const Color = () => {
     </div>
   )
 }
+
+const onInput = (hue: string) => new Color(Number.parseInt(hue))
+/*
 const onInput = (hex: string): color => {
   try {
     const desharpedHex = hex.replace(/\s|#/g, "").toLowerCase()
@@ -181,4 +186,4 @@ const onInput = (hex: string): color => {
       relativeLuminance: e.message,
     }
   }
-}
+}*/

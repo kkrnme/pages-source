@@ -3,19 +3,16 @@ import Twemoji from "react-twemoji"
 import SiteHeader from "./Header"
 import SiteFooter from "./Footer"
 
-const defaultStyle = "bg-monochrome-1 text-monochrome-e"
-
 /**
  * Background
  * @param props
  */
 export const Background: React.FC<WrapperProps> = props => (
-  <Twemoji
-    className={
-      "min-h-screen h-full w-full " + (props.className ?? defaultStyle)
-    }
-    {...props}
-  />
+  <Twemoji>
+    <div className={"min-h-screen h-full w-full " + (props.className ?? "")}>
+      {props.children}
+    </div>
+  </Twemoji>
 )
 
 /**

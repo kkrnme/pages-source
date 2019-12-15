@@ -18,6 +18,7 @@ const colors = {
     d: `#ddd`,
     e: `#eee`,
   },
+  red: `hsl(0, 90%, 75%)`,
   transparentBlack: {
     1: `#0001`,
     2: `#0002`,
