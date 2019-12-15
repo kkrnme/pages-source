@@ -8,24 +8,26 @@ export const SwipingAnchor: React.FC<{}> = props => (
     <a
       className="underline-anchor"
       css={css`
+        color: inherit;
+        transition: all 0.4s ease-in-out;
         &::before {
           display: block;
           content: "";
           height: 100%;
-          background-color: ${tw``};
+          ${tw`bg-blue`};
           position: absolute;
+          transition: all 0.4s ease-in-out;
           top: 0;
-          transition: background-color 0.4s ease-in-out;
           left: 0;
-          right: 0;
+          right: 100%;
           z-index: -1;
           border-radius: 1px;
         }
         &:hover {
           color: black;
           &::before {
-            animation: ${anchorWipe} 0.5s ease-out both;
-            background-color: #758bf0ff;
+            left: 0;
+            right: 0;
           }
         }
       `}

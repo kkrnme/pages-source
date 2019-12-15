@@ -67,8 +67,8 @@ export const PrevNextLinkButton: React.FC<{
     <div
       className={`transition no-underline w-1/2 ${
         props.enabled
-          ? "backdrop-blur bg-transparentBlack-8 hover:bg-fluentBlue-10  text-fluentGray-40  hover:text-white"
-          : "backdrop-blur bg-transparentBlack-8 hover:bg-fluentGray-180 text-fluentGray-90 hover:text-fluentGray-90"
+          ? "backdrop-blur bg-transparentBlack-8 hover:bg-blue text-monochrome-e  hover:text-monochrome-2"
+          : "backdrop-blur bg-transparentBlack-8 text-monochrome-a hover:text-fluentGray-90"
       } text-${props.align}`}
     >
       {props.enabled ? (

@@ -1,4 +1,4 @@
-"use strict"
+
 const colors = {
   black: "#000",
   white: "#fff",
@@ -20,6 +20,12 @@ const colors = {
   },
   red: `hsl(0, 90%, 75%)`,
   orange: `hsl(30, 90%, 67%)`,
+  yellow: `hsl(60, 90%, 67%)`,
+  greenapple: `hsl(75, 90%, 67%)`,
+  green: `hsl(90, 90%, 70%)`,
+  blue: `hsl(210, 90%, 70%)`,
+  ultramarine: `hsl(230, 90%, 75%)`,
+  purple: `hsl(270, 90%, 70%)`,
   transparentBlack: {
     1: `#0001`,
     2: `#0002`,
@@ -37,7 +43,6 @@ const colors = {
     e: `#000e`,
   },
 }
-
 module.exports = {
   theme: {
     fontSize: {
@@ -84,11 +89,11 @@ module.exports = {
       })
       addUtilities({
         ".emoji": {
-          display: `inline`,
-          verticalAlign: `baseline`,
-          height: `1.2em`,
-          transform: `translateY(0.2em)`,
-        },
+          display: "inline",
+          verticalAlign: "baseline",
+          height: "1.2em",
+          transform: "translateY(0.2em)",
+      },
         ".label-adoc": {
           backgroundColor: `#d13438`,
           color: "white",
@@ -101,7 +106,7 @@ module.exports = {
           transition: `150ms all ease-in`,
         },
         ".underline-anchor": {
-          textDecoration: "underline #4f6bed",
+          textDecoration: `underline ${colors.blue}`,
         textDecorationThickness: "2px"
         },
         ".selection-green": {
