@@ -6,7 +6,7 @@ import tw from "tailwind.macro"
 export const SwipingAnchor: React.FC<{}> = props => (
   <span className="inline-block relative z-0">
     <a
-      className="swipe-anchor"
+      className="underline-anchor"
       css={css`
         &::before {
           display: block;

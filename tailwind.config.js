@@ -101,7 +101,8 @@ module.exports = {
           transition: `150ms all ease-in`,
         },
         ".underline-anchor": {
-          textDecoration: "underline #4f6bed 2px",
+          textDecoration: "underline #4f6bed",
+        textDecorationThickness: "2px"
         },
         ".selection-green": {
           "::selection": {
