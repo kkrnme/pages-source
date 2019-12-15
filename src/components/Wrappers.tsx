@@ -34,9 +34,9 @@ export const BlogMain: React.FC<WrapperProps> = ({ children, className }) => (
     className={
       "text-base tracking-09 rounded-none sm:rounded-lg \
   container overflow-hidden \
-  mx-auto sm:my-2 my-0 shadow-md \
-  transition selection-green " +
-      (className ?? "bg-monochrome-3")
+  mx-auto sm:my-2 my-0 \
+  transition selection-green border-r border-l border-monochrome-5 " +
+      (className ?? "")
     }
   >
     {children}
@@ -47,7 +47,7 @@ export const BlogLikeWrapper: React.FC<WrapperProps> = ({
   children,
   className,
 }) => (
-  <Background className="bg-monochrome-1 text-monochrome-e">
+  <Background className="bg-monochrome-2 text-monochrome-e">
     <SiteHeader />
     <BlogMain className={className}>{children}</BlogMain>
     <SiteFooter />
