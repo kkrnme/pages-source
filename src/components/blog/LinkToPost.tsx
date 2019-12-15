@@ -10,12 +10,12 @@ export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
     <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full">
       <Link
         to={to}
-        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1  shadow transition text-fluentGray-10"
+        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1 text-shadow shadow transition text-fluentGray-10"
         css={{
           backgroundImage: pattern.toDataUrl(),
         }}
       >
-        <h2 className="font-bold text-lg">
+        <h2 className="text-lg">
           {title}
           {status === "draft" ? (
             <TagLabel className="inline bg-pink-500">draft</TagLabel>

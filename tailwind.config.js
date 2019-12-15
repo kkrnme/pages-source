@@ -116,6 +116,9 @@ module.exports = {
         ".hyphens": {
           hyphens: `auto`,
         },
+        ".text-shadow": {
+          textShadow: `#0008 2px 2px 3px`
+        }
       })
     },
   ],

@@ -9,7 +9,7 @@ export const BlogPostHead: React.FC<ArticleHeadProps> = ({ post }) => (
       backgroundImage: GeoPattern.generate(post.node.title).toDataUrl(),
     }}
   >
-    <h1 className="flex justify-between w-full flex-wrap text-white px-2 py-1">
+    <h1 className="flex justify-between w-full flex-wrap text-white px-2 py-1 text-shadow">
       <span className="text-200">{post.node.title}</span>
       <span className="self-end font-normal flex-grow text-right text-150">
         {post.node.date}
