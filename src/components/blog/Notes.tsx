@@ -10,8 +10,12 @@ export interface NoteProps {
   icon: IconDefinition
   color?: string
 }
+
+/**
+ * 背景色つきでいろいろな情報を書くとこ。i.e. Warn, Info
+ */
 export const Note: FC<NoteProps> = ({ color, icon, children }) => (
-  <div className={color + " p-2 flex"}>
+  <div className={color + " p-2 flex rounded"}>
     <div>
       <FontAwesomeIcon icon={icon} />
     </div>
@@ -19,7 +23,7 @@ export const Note: FC<NoteProps> = ({ color, icon, children }) => (
   </div>
 )
 export const Warn: FC<{}> = ({ children }) => (
-  <Note color="bg-fluentOrange-10" icon={faExclamationTriangle}>
+  <Note color="bg-orange text-monochrome-2" icon={faExclamationTriangle}>
     {children}
   </Note>
 )

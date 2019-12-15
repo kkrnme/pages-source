@@ -19,6 +19,7 @@ const colors = {
     e: `#eee`,
   },
   red: `hsl(0, 90%, 75%)`,
+  orange: `hsl(30, 90%, 67%)`,
   transparentBlack: {
     1: `#0001`,
     2: `#0002`,

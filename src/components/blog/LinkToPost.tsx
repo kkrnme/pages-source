@@ -7,32 +7,23 @@ import GeoPattern from "geopattern"
 export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
   const pattern = GeoPattern.generate(title)
   return (
-    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full">
+    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full bg-monochrome-c">
       <Link
         to={to}
-        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1 text-shadow shadow transition text-fluentGray-10"
+        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1 shadow transition text-fluentGray-10"
         css={{
           backgroundImage: pattern.toDataUrl(),
         }}
       >
         <h2 className="text-lg">
-          {title}
+          <span className="text-shadow">{title}</span>
           {status === "draft" ? (
-            <TagLabel className="inline bg-pink-500">draft</TagLabel>
+            <TagLabel className="inline bg-pink">draft</TagLabel>
           ) : null}
           <TagLabel className={`label-${type}`}>{type.toUpperCase()}</TagLabel>
         </h2>
       </Link>
-      <p
-        className="text-left p-2 text-fluentGray-120 "
-        css={{
-          background: "linear-gradient(#323130, #0000)",
-          backgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        {excerpt}
-      </p>
+      <p className="text-left p-2 text-monochrome-4 ">{excerpt}</p>
     </div>
   )
 }
