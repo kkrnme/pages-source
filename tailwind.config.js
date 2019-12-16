@@ -1,4 +1,3 @@
-
 const colors = {
   black: "#000",
   white: "#fff",
@@ -93,7 +92,7 @@ module.exports = {
           verticalAlign: "baseline",
           height: "1.2em",
           transform: "translateY(0.2em)",
-      },
+        },
         ".label-adoc": {
           backgroundColor: `#d13438`,
           color: "white",
@@ -107,7 +106,7 @@ module.exports = {
         },
         ".underline-anchor": {
           textDecoration: `underline ${colors.blue}`,
-        textDecorationThickness: "2px"
+          textDecorationThickness: "2px",
         },
         ".selection-green": {
           "::selection": {
@@ -124,8 +123,8 @@ module.exports = {
           hyphens: `auto`,
         },
         ".text-shadow": {
-          textShadow: `#0008 2px 2px 3px`
-        }
+          textShadow: `#0008 2px 2px 3px`,
+        },
       })
     },
   ],

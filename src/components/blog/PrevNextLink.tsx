@@ -56,12 +56,20 @@ export const PrevNextLinkButton: React.FC<{
   const children =
     props.align === "left"
       ? [
-          <FontAwesomeIcon icon={faChevronLeft} key="faChevronLeft" className="mr-1" />,
+          <FontAwesomeIcon
+            icon={faChevronLeft}
+            key="faChevronLeft"
+            className="mr-1"
+          />,
           props.children,
         ]
       : [
           props.children,
-          <FontAwesomeIcon icon={faChevronRight} key="faChevronRight" className="ml-1" />,
+          <FontAwesomeIcon
+            icon={faChevronRight}
+            key="faChevronRight"
+            className="ml-1"
+          />,
         ]
   return (
     <div

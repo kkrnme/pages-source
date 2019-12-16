@@ -803,8 +803,8 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___title' |
   'childMdx___frontmatter___path' |
   'childMdx___frontmatter___date' |
-  'childMdx___frontmatter___tags' |
   'childMdx___frontmatter___status' |
+  'childMdx___frontmatter___tags' |
   'childMdx___body' |
   'childMdx___excerpt' |
   'childMdx___headings' |
@@ -1090,8 +1090,8 @@ export type MdxFieldsEnum =
   'frontmatter___title' |
   'frontmatter___path' |
   'frontmatter___date' |
-  'frontmatter___tags' |
   'frontmatter___status' |
+  'frontmatter___tags' |
   'body' |
   'excerpt' |
   'headings' |
@@ -1213,8 +1213,8 @@ export type MdxFrontmatter = {
   title: Scalars['String'],
   path?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
-  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
   status?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
 
@@ -1229,8 +1229,8 @@ export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
-  tags?: Maybe<StringQueryOperatorInput>,
   status?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MdxGroupConnection = {
@@ -1963,6 +1963,11 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___gatsbyRemarkPlugins' |
   'pluginCreator___pluginOptions___gatsbyRemarkPlugins___resolve' |
   'pluginCreator___pluginOptions___fileName' |
+  'pluginCreator___pluginOptions___content' |
+  'pluginCreator___pluginOptions___printRejected' |
+  'pluginCreator___pluginOptions___develop' |
+  'pluginCreator___pluginOptions___tailwind' |
+  'pluginCreator___pluginOptions___whitelist' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
@@ -2168,6 +2173,11 @@ export type SitePluginFieldsEnum =
   'pluginOptions___gatsbyRemarkPlugins___options___disableBgImageOnAlpha' |
   'pluginOptions___gatsbyRemarkPlugins___options___disableBgImage' |
   'pluginOptions___fileName' |
+  'pluginOptions___content' |
+  'pluginOptions___printRejected' |
+  'pluginOptions___develop' |
+  'pluginOptions___tailwind' |
+  'pluginOptions___whitelist' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
   'browserAPIs' |
@@ -2287,6 +2297,11 @@ export type SitePluginPluginOptions = {
   path?: Maybe<Scalars['String']>,
   gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>,
   fileName?: Maybe<Scalars['String']>,
+  content?: Maybe<Array<Maybe<Scalars['String']>>>,
+  printRejected?: Maybe<Scalars['Boolean']>,
+  develop?: Maybe<Scalars['Boolean']>,
+  tailwind?: Maybe<Scalars['Boolean']>,
+  whitelist?: Maybe<Array<Maybe<Scalars['String']>>>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
 
@@ -2297,6 +2312,11 @@ export type SitePluginPluginOptionsFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>,
   fileName?: Maybe<StringQueryOperatorInput>,
+  content?: Maybe<StringQueryOperatorInput>,
+  printRejected?: Maybe<BooleanQueryOperatorInput>,
+  develop?: Maybe<BooleanQueryOperatorInput>,
+  tailwind?: Maybe<BooleanQueryOperatorInput>,
+  whitelist?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
 

@@ -35,7 +35,7 @@ export const BlogMain: React.FC<WrapperProps> = ({ children, className }) => (
       "text-base tracking-09 rounded-none sm:rounded-lg \
   container overflow-hidden \
   mx-auto sm:my-2 my-0 \
-  transition selection-green border-r border-l border-monochrome-5 " +
+  transition selection-green border-0 sm:border border-monochrome-5 " +
       (className ?? "")
     }
   >
