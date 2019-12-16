@@ -24,7 +24,7 @@ export default () => (
     >
       <h1 className="text-400">KKRN.ME</h1>
       <h2 className="text-300">
-        <Link to="blog">BLOG</Link>
+        <Link to="/blog/">BLOG</Link>
       </h2>
     </Container>
   </Background>

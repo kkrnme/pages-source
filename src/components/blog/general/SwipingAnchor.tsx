@@ -1,11 +1,12 @@
+import { css } from "@emotion/core"
 import React from "react"
-import { css, keyframes } from "@emotion/core"
-import styled from "@emotion/styled"
 import tw from "tailwind.macro"
+import { AnchorOrLink } from "../../AnchorOrLink"
+import { GatsbyLinkProps } from "gatsby"
 
-export const SwipingAnchor: React.FC<{}> = props => (
+export const SwipingAnchor: React.FC<GatsbyLinkProps<unknown>> = props => (
   <span className="inline-block relative z-0">
-    <a
+    <AnchorOrLink
       className="underline-anchor"
       css={css`
         color: inherit;
@@ -35,14 +36,5 @@ export const SwipingAnchor: React.FC<{}> = props => (
     />
   </span>
 )
-const anchorWipe = keyframes`
-  0% {
-    left: 0;
-    right: 100%;
-  }
-  100% {
-    left: 0;
-    right: 0;
-  }
-`
+
 export default SwipingAnchor

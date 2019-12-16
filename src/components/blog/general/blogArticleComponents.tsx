@@ -15,7 +15,7 @@ const components = {
     />
   ),
   p: (props: any) => <p className="py-1 px-2" {...props} />,
-  a: (props: any) => <SwipingAnchor {...props} />,
+  a: (props: any) => <SwipingAnchor to={props.href} {...props} />,
   ul: (props: any) => <ul className="list-disc py-1 px-2 pl-8" {...props} />,
 }
 
