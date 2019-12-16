@@ -13,9 +13,15 @@ export default () => (
       background-image: url(${bg});
       background-attachment: fixed;
       background-size: cover;
+      filter: grayscale(0.2);
     `}
   >
-    <Container className="p-5 md:p-5 min-h-screen text-monochrome-e text-center text-shadow bg-transparentBlack-7">
+    <Container
+      className="p-5 md:p-5 min-h-screen text-monochrome-e text-center text-shadow bg-transparentBlack-7"
+      css={css`
+        backdrop-filter: grayscale(1);
+      `}
+    >
       <h1 className="text-400">KKRN.ME</h1>
       <h2 className="text-300">
         <Link to="blog">BLOG</Link>
