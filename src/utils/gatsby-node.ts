@@ -1,6 +1,6 @@
 import { GatsbyNode } from "gatsby"
 import Path from "path"
-import { MdxConnection } from "../../types/graphqlTypes"
+import { MdxConnection, MdxEdge } from "../../types/graphqlTypes"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -55,50 +55,16 @@ export const createPages: GatsbyNode["createPages"] = async ({
   if (!result.data) return
   const data = result.data
 
-  const posts: Post[] = data.allMdx.edges.map(edge => {
-    const { node, previous, next } = edge,
-      { frontmatter } = node
-
-    if (frontmatter == null) {
-      console.error("frontmatter is null")
-      throw new Error()
+  data.allMdx.edges.forEach(post => {
+    if (post.node.frontmatter == null) {
+      throw new Error("frontmatter is null")
     }
 
-    if (frontmatter.path == null) {
+    if (post.node.frontmatter.path == null) {
       throw new Error("path is null")
     }
-
-    return {
-      node: {
-        path: "/blog/" + frontmatter.path,
-        date: frontmatter.date,
-        status: frontmatter.status ?? "public",
-        title: frontmatter.title,
-        excerpt: node.excerpt,
-        body: node.body,
-        id: node.id,
-        description: frontmatter.description ?? node.excerpt,
-      },
-      previous:
-        previous == null
-          ? undefined
-          : {
-              path: "/blog/" + previous.frontmatter?.path ?? "/404",
-              title: previous.frontmatter?.title ?? "no title",
-            },
-      next:
-        next == null
-          ? undefined
-          : {
-              path: "/blog/" + next?.frontmatter?.path ?? "/404",
-              title: next?.frontmatter?.title ?? "no title",
-            },
-      type: "mdx",
-    }
-  })
-  posts.forEach(post => {
     createPage({
-      path: post.node.path,
+      path: post.node.frontmatter?.path,
       component: Path.resolve(`./src/components/blog/general/blogTemplate.tsx`),
       context: { post, id: post.node.id },
     })
