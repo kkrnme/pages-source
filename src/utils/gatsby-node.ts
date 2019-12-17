@@ -71,6 +71,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               tags
               title
               date
+              description
             }
           }
           next {
@@ -144,6 +145,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             excerpt: node.excerpt ?? "no excerpt",
             html: node.body ?? "<span>Error: HTML is nully</span>",
             id: node.id,
+            description: frontmatter?.description ?? undefined,
           },
           previous:
             previous == null

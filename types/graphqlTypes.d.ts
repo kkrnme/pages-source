@@ -804,6 +804,7 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___path' |
   'childMdx___frontmatter___date' |
   'childMdx___frontmatter___status' |
+  'childMdx___frontmatter___description' |
   'childMdx___frontmatter___tags' |
   'childMdx___body' |
   'childMdx___excerpt' |
@@ -1091,6 +1092,7 @@ export type MdxFieldsEnum =
   'frontmatter___path' |
   'frontmatter___date' |
   'frontmatter___status' |
+  'frontmatter___description' |
   'frontmatter___tags' |
   'body' |
   'excerpt' |
@@ -1214,6 +1216,7 @@ export type MdxFrontmatter = {
   path?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
   status?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
 };
 
@@ -1230,6 +1233,7 @@ export type MdxFrontmatterFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
   status?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
 };
 
@@ -1782,6 +1786,7 @@ export type SitePageContextPostNode = {
   excerpt?: Maybe<Scalars['String']>,
   html?: Maybe<Scalars['String']>,
   id?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
 };
 
 export type SitePageContextPostNodeFilterInput = {
@@ -1792,6 +1797,7 @@ export type SitePageContextPostNodeFilterInput = {
   excerpt?: Maybe<StringQueryOperatorInput>,
   html?: Maybe<StringQueryOperatorInput>,
   id?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePageContextPostPrevious = {
@@ -1909,6 +1915,7 @@ export type SitePageFieldsEnum =
   'context___post___node___excerpt' |
   'context___post___node___html' |
   'context___post___node___id' |
+  'context___post___node___description' |
   'context___post___previous___path' |
   'context___post___previous___title' |
   'context___post___next___path' |

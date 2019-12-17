@@ -54,7 +54,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-purgecss`,
       options: {
-        content: [require('path').join(process.cwd(), 'src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}')],
+        content: [
+          require("path").join(
+            process.cwd(),
+            "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"
+          ),
+        ],
         printRejected: true, // Print removed selectors and processed file names
         develop: true, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support

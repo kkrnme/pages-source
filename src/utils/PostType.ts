@@ -9,6 +9,7 @@ export default interface Post {
     excerpt: string
     html: string
     id: string
+    description?: string
   }
   previous?: pn
   next?: pn

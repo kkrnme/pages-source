@@ -10,7 +10,7 @@ import { MDXProvider } from "@mdx-js/react"
 import { merge } from "lodash"
 import blogArticleComponents from "./blogArticleComponents"
 import { Warn } from "../Notes"
-import {Helmet} from "react-helmet"
+import { Helmet } from "react-helmet"
 
 export const BlogTemplate = ({
   data,
@@ -28,7 +28,10 @@ export const BlogTemplate = ({
   const node = post.node
   return (
     <BlogLikeWrapper>
-      <Helmet/>
+      <Helmet>
+        <title>{node.title}</title>
+        <meta name="description" content={node.description ?? node.excerpt} />
+      </Helmet>
       <BlogPostHead post={post} />
       <article className="p-3 md:p-5">
         {node.status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
