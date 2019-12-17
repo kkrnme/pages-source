@@ -1,11 +1,6 @@
 import { GatsbyNode } from "gatsby"
 import Path from "path"
-import GQTypes, {
-  AsciidocConnection,
-  MdxConnection,
-} from "../../types/graphqlTypes"
-import { merge } from "lodash"
-import Post from "./PostType"
+import { MdxConnection } from "../../types/graphqlTypes"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -13,49 +8,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   reporter,
 }) => {
   type Data = {
-    allAsciidoc: AsciidocConnection
     allMdx: MdxConnection
   }
   const { createPage } = actions
   const result = await graphql<Data>(`
     query gatsbyNode {
-      allAsciidoc(
-        sort: { fields: pageAttributes___date, order: ASC }
-        filter: { pageAttributes: { status: { ne: "private" } } }
-      ) {
-        edges {
-          node {
-            pageAttributes {
-              path
-              date
-              status
-            }
-            document {
-              main
-              subtitle
-              title
-            }
-            id
-            html
-          }
-          previous {
-            pageAttributes {
-              path
-            }
-            document {
-              title
-            }
-          }
-          next {
-            pageAttributes {
-              path
-            }
-            document {
-              title
-            }
-          }
-        }
-      }
       allMdx(
         sort: { fields: frontmatter___date, order: ASC }
         filter: { frontmatter: { status: { ne: "private" } } }
@@ -98,76 +55,47 @@ export const createPages: GatsbyNode["createPages"] = async ({
   if (!result.data) return
   const data = result.data
 
-  const asciiPosts = data.allAsciidoc.edges.map(
-      (post): Post => {
-        const { node, previous, next } = post,
-          { pageAttributes, document } = node
+  const posts: Post[] = data.allMdx.edges.map(edge => {
+    const { node, previous, next } = edge,
+      { frontmatter } = node
 
-        return {
-          node: {
-            path: "/blog/" + pageAttributes?.path ?? "/404",
-            date: pageAttributes?.date,
-            status: pageAttributes?.status ?? "private",
-            title: document?.title ?? "no title",
-            excerpt: document?.main ?? "no excerpt",
-            html: node.html ?? "<span>Error: HTML is nully</span>",
-            id: node.id,
-          },
-          previous:
-            previous == null
-              ? undefined
-              : {
-                  path: "/blog/" + previous?.pageAttributes?.path ?? "/404",
-                  title: previous?.document?.title ?? "no title",
-                },
-          next:
-            next == null
-              ? undefined
-              : {
-                  path: "/blog/" + next?.pageAttributes?.path ?? "/404",
-                  title: next?.document?.title ?? "no title",
-                },
-          type: "adoc",
-        }
-      }
-    ),
-    mdxPosts = data.allMdx.edges.map(
-      (post): Post => {
-        const { node, previous, next } = post,
-          { frontmatter } = node
+    if (frontmatter == null) {
+      console.error("frontmatter is null")
+      throw new Error()
+    }
 
-        return {
-          node: {
-            path: "/blog/" + frontmatter?.path ?? "/404",
-            date: frontmatter?.date,
-            status: frontmatter?.status ?? "public",
-            title: frontmatter?.title ?? "no title",
-            excerpt: node.excerpt ?? "no excerpt",
-            html: node.body ?? "<span>Error: HTML is nully</span>",
-            id: node.id,
-            description: frontmatter?.description ?? undefined,
-          },
-          previous:
-            previous == null
-              ? undefined
-              : {
-                  path: "/blog/" + previous.frontmatter?.path ?? "/404",
-                  title: previous.frontmatter?.title ?? "no title",
-                },
-          next:
-            next == null
-              ? undefined
-              : {
-                  path: "/blog/" + next?.frontmatter?.path ?? "/404",
-                  title: next?.frontmatter?.title ?? "no title",
-                },
-          type: "mdx",
-        }
-      }
-    )
-  const posts: Post[] = []
-  asciiPosts.forEach(v => posts.push(v))
-  mdxPosts.forEach(v => posts.push(v))
+    if (frontmatter.path == null) {
+      throw new Error("path is null")
+    }
+
+    return {
+      node: {
+        path: "/blog/" + frontmatter.path,
+        date: frontmatter.date,
+        status: frontmatter.status ?? "public",
+        title: frontmatter.title,
+        excerpt: node.excerpt,
+        body: node.body,
+        id: node.id,
+        description: frontmatter.description ?? node.excerpt,
+      },
+      previous:
+        previous == null
+          ? undefined
+          : {
+              path: "/blog/" + previous.frontmatter?.path ?? "/404",
+              title: previous.frontmatter?.title ?? "no title",
+            },
+      next:
+        next == null
+          ? undefined
+          : {
+              path: "/blog/" + next?.frontmatter?.path ?? "/404",
+              title: next?.frontmatter?.title ?? "no title",
+            },
+      type: "mdx",
+    }
+  })
   posts.forEach(post => {
     createPage({
       path: post.node.path,

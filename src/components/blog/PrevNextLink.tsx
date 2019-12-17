@@ -1,16 +1,15 @@
-import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
-import { NewPost } from "../../utils/PostType"
+import React from "react"
+import { MdxEdge } from "../../../types/graphqlTypes"
 export const PrevNextLink = ({
   post,
-  type,
 }: {
-  post: NewPost
+  post: MdxEdge
   type: "top" | "bottom"
 }) => {
   const previous = post.previous,
@@ -21,9 +20,9 @@ export const PrevNextLink = ({
         <PrevNextLinkButton
           enabled
           align="left"
-          to={previous.context?.post?.node?.path ?? "/"}
+          to={previous.frontmatter?.path ?? "/"}
         >
-          {previous.context?.post?.node?.title}
+          {previous.frontmatter?.title}
         </PrevNextLinkButton>
       ) : (
         <PrevNextLinkButton enabled={false} align="left">
@@ -34,10 +33,10 @@ export const PrevNextLink = ({
       {next != null ? (
         <PrevNextLinkButton
           enabled
-          to={next.context?.post?.node?.path ?? ""}
+          to={next.frontmatter?.path ?? "/"}
           align="right"
         >
-          {next.context?.post?.node?.title}
+          {next.frontmatter?.title}
         </PrevNextLinkButton>
       ) : (
         <PrevNextLinkButton enabled={false} align="right">

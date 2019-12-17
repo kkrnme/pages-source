@@ -48,10 +48,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-asciidoc`,
-      options: {},
-    },
-    {
       resolve: `gatsby-plugin-purgecss`,
       options: {
         content: [
