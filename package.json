@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
+    "build-serve-open": "npm run build && npm run serve",
     "deploy": "npm run build && gh-pages -d public -b master -r https://github.com/kkrnme/kkrnme.github.io",
     "extreme-deploy": "npm run format && npm run refresh  && npm run deploy",
     "extreme-develop": "npm run format && npm run refresh && npm run develop",
@@ -14,7 +15,7 @@
     "watch": "npm run format && onchange 'src/**/*.js' 'src/**/*.jsx' 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.pcss'  -- prettier --write {{changed}}",
     "refresh": "rm -rfd .cache public",
     "start": "npm run develop",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve -p 8000 -o",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
   "dependencies": {
