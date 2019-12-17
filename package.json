@@ -33,6 +33,7 @@
     "@types/node": "^12.12.18",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "@types/react-helmet": "^5.0.14",
     "@types/twemoji": "^12.1.0",
     "csstype": "^2.6.8",
     "gatsby": "^2.18.12",

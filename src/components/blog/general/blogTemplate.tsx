@@ -10,8 +10,9 @@ import { MDXProvider } from "@mdx-js/react"
 import { merge } from "lodash"
 import blogArticleComponents from "./blogArticleComponents"
 import { Warn } from "../Notes"
+import {Helmet} from "react-helmet"
 
-export default ({
+export const BlogTemplate = ({
   data,
   pageContext,
 }: {
@@ -27,6 +28,7 @@ export default ({
   const node = post.node
   return (
     <BlogLikeWrapper>
+      <Helmet/>
       <BlogPostHead post={post} />
       <article className="p-3 md:p-5">
         {node.status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
@@ -94,3 +96,5 @@ export const query = graphql`
     }
   }
 `
+
+export default BlogTemplate
