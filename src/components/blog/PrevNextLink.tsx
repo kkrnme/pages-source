@@ -20,7 +20,7 @@ export const PrevNextLink = ({
         <PrevNextLinkButton
           enabled
           align="left"
-          to={previous.frontmatter?.path ?? "/"}
+          to={"/blog/" + previous.frontmatter?.path ?? "path-not-found"}
         >
           {previous.frontmatter?.title}
         </PrevNextLinkButton>
@@ -33,7 +33,7 @@ export const PrevNextLink = ({
       {next != null ? (
         <PrevNextLinkButton
           enabled
-          to={next.frontmatter?.path ?? "/"}
+          to={"/blog/" + next.frontmatter?.path ?? "/"}
           align="right"
         >
           {next.frontmatter?.title}

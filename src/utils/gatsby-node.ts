@@ -64,7 +64,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       throw new Error("path is null")
     }
     createPage({
-      path: post.node.frontmatter?.path,
+      path: "/blog/" + post.node.frontmatter.path,
       component: Path.resolve(`./src/components/blog/general/blogTemplate.tsx`),
       context: { post, id: post.node.id },
     })

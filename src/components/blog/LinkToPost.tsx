@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import { InterpolationWithTheme } from "@emotion/core"
-import Post from "../../utils/PostType"
 import GeoPattern from "geopattern"
 
 export default ({ to, title, excerpt, status }: LinkToPostProps) => {

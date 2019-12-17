@@ -20,7 +20,7 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
               key={post.id ?? undefined}
             >
               <LinkToPost
-                to={post.frontmatter?.path ?? err}
+                to={"/blog/" + post.frontmatter?.path ?? err}
                 title={post.frontmatter?.title ?? err}
                 excerpt={post.excerpt ?? err}
                 status={post.frontmatter?.status ?? err}
