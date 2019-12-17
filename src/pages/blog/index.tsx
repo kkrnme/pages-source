@@ -7,7 +7,10 @@ import { BlogIndexQuery } from "../../../types/graphqlTypes"
 const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
   const posts = data.allMdx.edges
   return (
-    <BlogLikeWrapper>
+    <BlogLikeWrapper
+      title="BLOG"
+      description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
+    >
       <h1 className="text-center text-200 font-bold">kkrnme-blog</h1>
       <article className="p-1">
         <ul className="list-none p-0 sm:flex-wrap sm:flex ">

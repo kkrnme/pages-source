@@ -1,7 +1,6 @@
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
-import { Helmet } from "react-helmet"
 import { MdxEdge } from "../../../../types/graphqlTypes"
 import { BlogLikeWrapper } from "../../Wrappers"
 import BlogPostHead from "../BlogPostHead"
@@ -18,14 +17,10 @@ export const BlogTemplate = ({
 
   const node = post.node
   return (
-    <BlogLikeWrapper>
-      <Helmet>
-        <title>{`${node.frontmatter?.title} - KKRN.ME`}</title>
-        <meta
-          name="description"
-          content={node.frontmatter?.description ?? node.excerpt}
-        />
-      </Helmet>
+    <BlogLikeWrapper
+      title={`${node.frontmatter?.title} - KKRN.ME`}
+      description={node.frontmatter?.description ?? node.excerpt}
+    >
       <BlogPostHead post={post} />
       {node.frontmatter?.status === "draft" ? (
         <Warn>この記事は書きかけです。</Warn>

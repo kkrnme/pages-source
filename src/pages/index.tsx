@@ -15,6 +15,8 @@ export default () => (
       background-size: cover;
       filter: grayscale(0.2);
     `}
+    description="KKRN.ME, もみにすのサイトです。プログラミングしたりしなかったり。"
+    title="HOME - KKRN.ME"
   >
     <Container
       className="p-5 md:p-5 min-h-screen text-monochrome-e text-center text-shadow bg-transparentBlack-7"

@@ -1,29 +1,32 @@
 import React from "react"
 import Twemoji from "react-twemoji"
-import SiteHeader from "./Header"
+import { Stylable } from "./Components"
 import SiteFooter from "./Footer"
-import { InterpolationWithTheme } from "@emotion/core"
+import SiteHeader from "./Header"
+import Helmet from "react-helmet"
 
+export interface Meta {
+  description: string
+  title: string
+}
 /**
  * Background
  * @param props
  */
-export const Background: React.FC<Stylable> = props => (
+export const Background: React.FC<Stylable & Meta> = props => (
   <Twemoji>
     <div
       className={"min-h-screen h-full w-full " + (props.className ?? "")}
       css={props.css}
     >
+      <Helmet>
+        <meta name="description" content={props.description} />
+        <title>{props.title}</title>
+      </Helmet>
       {props.children}
     </div>
   </Twemoji>
 )
-
-export interface Stylable {
-  children: React.ReactNode
-  className?: string
-  css?: InterpolationWithTheme<any>
-}
 
 /**
  * Centerd empty container.
@@ -54,11 +57,17 @@ export const BlogMain: React.FC<WrapperProps> = ({ children, className }) => (
   </main>
 )
 
-export const BlogLikeWrapper: React.FC<WrapperProps> = ({
+export const BlogLikeWrapper: React.FC<WrapperProps & Meta> = ({
   children,
   className,
+  description,
+  title,
 }) => (
-  <Background className="bg-monochrome-2 text-monochrome-e">
+  <Background
+    description={description}
+    title={title}
+    className="bg-monochrome-2 text-monochrome-e"
+  >
     <SiteHeader />
     <BlogMain className={className}>{children}</BlogMain>
     <SiteFooter />
