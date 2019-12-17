@@ -4,7 +4,7 @@ import { InterpolationWithTheme } from "@emotion/core"
 import Post from "../../utils/PostType"
 import GeoPattern from "geopattern"
 
-export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
+export default ({ to, title, excerpt, status }: LinkToPostProps) => {
   const pattern = GeoPattern.generate(title)
   return (
     <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full bg-monochrome-c">
@@ -20,7 +20,6 @@ export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
           {status === "draft" ? (
             <TagLabel className="inline bg-pink">draft</TagLabel>
           ) : null}
-          <TagLabel className={`label-${type}`}>{type.toUpperCase()}</TagLabel>
         </h2>
       </Link>
       <p className="text-left p-2 text-monochrome-4 ">{excerpt}</p>
@@ -33,7 +32,6 @@ interface LinkToPostProps {
   title: string
   excerpt: string
   status: string
-  type: Post["type"]
   css?: InterpolationWithTheme<any>
 }
 

@@ -1,103 +1,43 @@
-import React from "react"
-import { Link, graphql } from "gatsby"
-import BlogPostHead from "../BlogPostHead"
-import { BlogLikeWrapper } from "../../Wrappers"
-import { BlogTemplateQuery } from "../../../../types/graphqlTypes"
-import Post, { NewPost } from "../../../utils/PostType"
-import PrevNextLink from "../PrevNextLink"
-import { MDXRenderer, MDXRendererProps } from "gatsby-plugin-mdx"
 import { MDXProvider } from "@mdx-js/react"
-import { merge } from "lodash"
-import blogArticleComponents from "./blogArticleComponents"
-import { Warn } from "../Notes"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+import React from "react"
 import { Helmet } from "react-helmet"
+import { MdxEdge } from "../../../../types/graphqlTypes"
+import { BlogLikeWrapper } from "../../Wrappers"
+import BlogPostHead from "../BlogPostHead"
+import { Warn } from "../Notes"
+import PrevNextLink from "../PrevNextLink"
+import blogArticleComponents from "./blogArticleComponents"
 
 export const BlogTemplate = ({
-  data,
   pageContext,
 }: {
-  data: BlogTemplateQuery
-  pageContext: { id: string; post: Post }
+  pageContext: { post: MdxEdge }
 }) => {
-  const { id } = pageContext
-  const post: NewPost = merge(
-    pageContext.post,
-    data.allSitePage.edges.find(v => v.node.context?.post?.node?.id === id)
-  )
+  const { post } = pageContext
 
   const node = post.node
   return (
     <BlogLikeWrapper>
       <Helmet>
-        <title>{node.title}</title>
-        <meta name="description" content={node.description ?? node.excerpt} />
+        <title>{`${node.frontmatter?.title} - KKRN.ME`}</title>
+        <meta
+          name="description"
+          content={node.frontmatter?.description ?? node.excerpt}
+        />
       </Helmet>
       <BlogPostHead post={post} />
+      {node.frontmatter?.status === "draft" ? (
+        <Warn>この記事は書きかけです。</Warn>
+      ) : null}
       <article className="p-3 md:p-5">
-        {node.status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
-        <BlogArticleBody type={post.type}>{post.node.html}</BlogArticleBody>
+        <MDXProvider components={blogArticleComponents}>
+          <MDXRenderer>{post.node.body}</MDXRenderer>
+        </MDXProvider>
       </article>
       <PrevNextLink post={post} type="bottom" />
     </BlogLikeWrapper>
   )
 }
-
-const BlogArticleBody = ({
-  type,
-  children,
-}: {
-  type: Post["type"]
-  children: string
-}) =>
-  type === "adoc" ? (
-    <div dangerouslySetInnerHTML={{ __html: children }} />
-  ) : (
-    <div>
-      <MDXProvider components={blogArticleComponents}>
-        <MDXRenderer>{children}</MDXRenderer>
-      </MDXProvider>
-    </div>
-  )
-
-export const query = graphql`
-  query BlogTemplate {
-    allSitePage(
-      sort: { fields: context___post___node___date, order: ASC }
-      filter: { path: { regex: "/^/blog/.+/" } }
-    ) {
-      edges {
-        previous {
-          context {
-            post {
-              node {
-                path
-                title
-              }
-            }
-          }
-        }
-        next {
-          context {
-            post {
-              node {
-                path
-                title
-              }
-            }
-          }
-        }
-        node {
-          context {
-            post {
-              node {
-                id
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`
 
 export default BlogTemplate
