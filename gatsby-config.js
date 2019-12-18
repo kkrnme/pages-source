@@ -6,10 +6,7 @@
 
 module.exports = {
   /* Your site config here */
-  siteMetadata: {
-    title: `kkrn.me`,
-    discription: `page of Mominis`,
-  },
+  siteMetadata: require("./config/site"),
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,

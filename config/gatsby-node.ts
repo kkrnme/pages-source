@@ -1,6 +1,6 @@
 import { GatsbyNode } from "gatsby"
 import Path from "path"
-import { MdxConnection, MdxEdge } from "../../types/graphqlTypes"
+import { MdxConnection, MdxEdge } from "../types/graphqlTypes"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
