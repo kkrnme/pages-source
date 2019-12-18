@@ -22,10 +22,11 @@ export const BlogTemplate = ({
       description={node.frontmatter?.description ?? node.excerpt}
     >
       <BlogPostHead post={post} />
-      {node.frontmatter?.status === "draft" ? (
-        <Warn>この記事は書きかけです。</Warn>
-      ) : null}
+
       <article className="p-3 md:p-5">
+        {node.frontmatter?.status === "draft" ? (
+          <Warn>この記事は書きかけです。</Warn>
+        ) : null}
         <MDXProvider components={blogArticleComponents}>
           <MDXRenderer>{post.node.body}</MDXRenderer>
         </MDXProvider>

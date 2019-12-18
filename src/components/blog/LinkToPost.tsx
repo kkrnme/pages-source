@@ -1,18 +1,22 @@
 import React from "react"
 import { Link } from "gatsby"
-import { InterpolationWithTheme } from "@emotion/core"
+import { InterpolationWithTheme, css } from "@emotion/core"
 import GeoPattern from "geopattern"
+import tw from "tailwind.macro"
 
 export default ({ to, title, excerpt, status }: LinkToPostProps) => {
   const pattern = GeoPattern.generate(title)
   return (
-    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full bg-monochrome-c">
+    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full bg-gray-800">
       <Link
         to={to}
-        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1 shadow transition text-fluentGray-10"
-        css={{
-          backgroundImage: pattern.toDataUrl(),
-        }}
+        className="block no-underline flex-wrap border-l-4 border-yellow-400 p-1 shadow transition bg-red-400"
+        css={css`
+          background-image: ${pattern.toDataUrl()};
+          background-blend-mode: luminosity;
+          background-size: contain;
+          background-attachment: fixed;
+        `}
       >
         <h2 className="text-lg">
           <span className="text-shadow">{title}</span>
@@ -21,7 +25,7 @@ export default ({ to, title, excerpt, status }: LinkToPostProps) => {
           ) : null}
         </h2>
       </Link>
-      <p className="text-left p-2 text-monochrome-4 ">{excerpt}</p>
+      <p className="text-left p-2 text-gray-200 ">{excerpt}</p>
     </div>
   )
 }

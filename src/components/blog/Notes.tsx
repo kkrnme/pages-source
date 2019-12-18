@@ -23,7 +23,7 @@ export const Note: FC<NoteProps> = ({ color, icon, children }) => (
   </div>
 )
 export const Warn: FC<{}> = ({ children }) => (
-  <Note color="bg-orange text-monochrome-2" icon={faExclamationTriangle}>
+  <Note color="bg-orange-500 text-gray-900" icon={faExclamationTriangle}>
     {children}
   </Note>
 )

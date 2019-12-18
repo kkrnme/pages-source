@@ -49,8 +49,8 @@ module.exports = {
       options: {
         content: [
           require("path").join(
-            process.cwd(),
-            "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"
+            process.cwd()
+            //"src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"
           ),
         ],
         printRejected: true, // Print removed selectors and processed file names

@@ -1,7 +1,7 @@
 import React from "react"
 import GeoPattern from "geopattern"
 
-export default () => {
+export const Geo = () => {
   const [date, setDate] = React.useState(GeoPattern.generate(String(90)))
   const onc = () => {
     setDate(GeoPattern.generate(String(Date.now())))
@@ -26,3 +26,4 @@ export default () => {
     </div>
   )
 }
+export default Geo

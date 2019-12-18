@@ -1,10 +1,8 @@
+import { Components } from "@mdx-js/react"
 import React from "react"
-import { css, keyframes } from "@emotion/core"
-import { Info } from "../Notes"
-import tw from "tailwind.macro"
 import SwipingAnchor from "./SwipingAnchor"
 
-const components = {
+const components: Components = {
   h1: (props: any) => (
     <h1 className="border-b border-fluentGray-70 text-150 mt-4" {...props}></h1>
   ),

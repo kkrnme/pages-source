@@ -15,7 +15,7 @@ export const SwipingAnchor: React.FC<GatsbyLinkProps<unknown>> = props => (
           display: block;
           content: "";
           height: 100%;
-          ${tw`bg-blue`};
+          ${tw`bg-blue-400`};
           position: absolute;
           transition: all 0.4s ease-in-out;
           top: 0;

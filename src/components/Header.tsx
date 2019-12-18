@@ -9,7 +9,7 @@ import {
 import Logo from "../resources/meyend.svg"
 
 export default () => (
-  <header className="bg-monochrome-1 border-b border-monochrome-5 px-4 shadow-md">
+  <header className="bg-gray-900 border-b border-gray-600 px-4 shadow-md">
     <div
       className="
     flex items-center 
