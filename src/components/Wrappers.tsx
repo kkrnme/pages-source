@@ -4,6 +4,7 @@ import { Stylable } from "./Components"
 import SiteFooter from "./Footer"
 import SiteHeader from "./Header"
 import Helmet from "react-helmet"
+import "../styles/tailwind.css"
 
 export interface Meta {
   description: string
