@@ -114,7 +114,15 @@ module.exports = {
         ".text-shadow": {
           textShadow: `#0008 2px 2px 3px`,
         },
-      })
+        ".text-shadow-none": {
+          textShadow: `none`
+        },
+        ".drop-shadow": {
+          filter: `drop-shadow(#0008 2px 2px 3px)`,
+        },".drop-shadow-none": {
+          filter: `none`,
+        },
+      },{variants: ['responsive', 'hover'],})
     },
   ],
 }
