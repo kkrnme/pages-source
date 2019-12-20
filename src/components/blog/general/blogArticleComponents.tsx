@@ -1,5 +1,10 @@
 import { Components } from "@mdx-js/react"
-import React from "react"
+import React, {
+  AllHTMLAttributes,
+  Attributes,
+  OlHTMLAttributes,
+  AnchorHTMLAttributes,
+} from "react"
 import SwipingAnchor from "./SwipingAnchor"
 
 const components: Components = {
@@ -15,6 +20,9 @@ const components: Components = {
   p: (props: any) => <p className="py-1 px-2" {...props} />,
   a: (props: any) => <SwipingAnchor to={props.href} {...props} />,
   ul: (props: any) => <ul className="list-disc py-1 px-2 pl-8" {...props} />,
+  ol: (props: any) => (
+    <ol className="list-decimal py-1 px-2 pl-8" {...props}></ol>
+  ),
 }
 
 export default components

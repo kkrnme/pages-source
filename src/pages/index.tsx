@@ -33,8 +33,6 @@ export default () => (
       <h1 className="text-400">KKRN.ME</h1>
       <Sect to="/blog/" icon={faFileAlt} title="Blog">
         脳のしわの奥底から発掘された怪文書。
-        <br />
-        共感性羞恥の既往歴がある人は読むべきでないかも。
       </Sect>
       <Sect to="https://twitter.com/MominisJ" icon={faTwitter} title="Twitter">
         暇あればTLを眺めてる。依存してる。
