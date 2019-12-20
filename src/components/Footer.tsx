@@ -1,24 +1,16 @@
 import React from "react"
+import SwipingAnchor from "./blog/general/SwipingAnchor"
 export default () => (
-  <footer className="text-fluentGray-120 text-center">
+  <footer className="text-center">
     <p>
       {"Hosted on "}
-      <Anchor href="https://github.com/kkrnme/kkrnme.github.io">
+      <SwipingAnchor to="https://github.com/kkrnme/kkrnme.github.io">
         GitHub Pages
-      </Anchor>
+      </SwipingAnchor>
       {", licensed under "}
-      <Anchor href="https://github.com/kkrnme/pages-source">
+      <SwipingAnchor to="https://github.com/kkrnme/pages-source">
         the MIT License.
-      </Anchor>
+      </SwipingAnchor>
     </p>
   </footer>
-)
-
-const Anchor: React.FC<{ href?: string }> = props => (
-  <a
-    href={props.href}
-    className="transition hover:underline hover:text-fluentRed-10"
-  >
-    {props.children}
-  </a>
 )
