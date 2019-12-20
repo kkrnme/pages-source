@@ -75,54 +75,58 @@ module.exports = {
           },
         },
       })
-      addUtilities({
-        ".emoji": {
-          display: "inline",
-          verticalAlign: "baseline",
-          height: "1.2em",
-          transform: "translateY(0.2em)",
-        },
-        ".label-adoc": {
-          backgroundColor: `#d13438`,
-          color: "white",
-        },
-        ".label-mdx": {
-          backgroundColor: `#ffaa44`,
-          color: "black",
-        },
-        ".transition": {
-          transition: `150ms all ease-in`,
-        },
-        ".underline-anchor": {
-          textDecoration: `underline theme("colors.blue.400")`,
-          textDecorationThickness: "2px",
-        },
-        ".selection-green": {
-          "::selection": {
-            backgroundColor: "#00ad5670",
+      addUtilities(
+        {
+          ".emoji": {
+            display: "inline",
+            verticalAlign: "baseline",
+            height: "1.2em",
+            transform: "translateY(0.2em)",
+          },
+          ".label-adoc": {
+            backgroundColor: `#d13438`,
+            color: "white",
+          },
+          ".label-mdx": {
+            backgroundColor: `#ffaa44`,
+            color: "black",
+          },
+          ".transition": {
+            transition: `150ms all ease-in`,
+          },
+          ".underline-anchor": {
+            textDecoration: `underline theme("colors.blue.400")`,
+            textDecorationThickness: "2px",
+          },
+          ".selection-green": {
+            "::selection": {
+              backgroundColor: "#00ad5670",
+            },
+          },
+          ".backdrop-blur": {
+            backdropFilter: `blur(1px)`,
+          },
+          ".backdrop-blur-xl": {
+            backdropFilter: `blur(100%)`,
+          },
+          ".hyphens": {
+            hyphens: `auto`,
+          },
+          ".text-shadow": {
+            textShadow: `#0008 2px 2px 3px`,
+          },
+          ".text-shadow-none": {
+            textShadow: `none`,
+          },
+          ".drop-shadow": {
+            filter: `drop-shadow(#0008 2px 2px 3px)`,
+          },
+          ".drop-shadow-none": {
+            filter: `none`,
           },
         },
-        ".backdrop-blur": {
-          backdropFilter: `blur(1px)`,
-        },
-        ".backdrop-blur-xl": {
-          backdropFilter: `blur(100%)`,
-        },
-        ".hyphens": {
-          hyphens: `auto`,
-        },
-        ".text-shadow": {
-          textShadow: `#0008 2px 2px 3px`,
-        },
-        ".text-shadow-none": {
-          textShadow: `none`
-        },
-        ".drop-shadow": {
-          filter: `drop-shadow(#0008 2px 2px 3px)`,
-        },".drop-shadow-none": {
-          filter: `none`,
-        },
-      },{variants: ['responsive', 'hover'],})
+        { variants: ["responsive", "hover"] }
+      )
     },
   ],
 }
