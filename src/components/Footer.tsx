@@ -1,5 +1,4 @@
 import React from "react"
-import { ScreenSize } from "./blog/ippatsuya/ScreenSize"
 export default () => (
   <footer className="text-fluentGray-120 text-center">
     <p>
@@ -12,7 +11,6 @@ export default () => (
         the MIT License.
       </Anchor>
     </p>
-    <ScreenSize />
   </footer>
 )
 
