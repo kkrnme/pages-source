@@ -34,6 +34,12 @@ module.exports = {
               maxWidth: 800,
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `header-autolink`
+            }
+          }
         ],
       },
     },
@@ -69,5 +75,6 @@ module.exports = {
         display: `swap`,
       },
     },
+    `gatsby-plugin-catch-links`
   ],
 }

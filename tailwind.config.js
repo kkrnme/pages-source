@@ -36,6 +36,7 @@ module.exports = {
         },
       },
       maxWidth: {
+        "768px": "768px",
         "1000px": "1000px",
       },
       opacity: {

@@ -6,6 +6,7 @@ import React, {
   AnchorHTMLAttributes,
 } from "react"
 import SwipingAnchor from "./SwipingAnchor"
+import { css } from "@emotion/core"
 
 const components: Components = {
   h1: (props: any) => (
@@ -18,7 +19,22 @@ const components: Components = {
     />
   ),
   p: (props: any) => <p className="py-1 px-2" {...props} />,
-  a: (props: any) => <SwipingAnchor to={props.href} {...props} />,
+  a: (props: any) => {
+    console.log(props)
+    return props.className?.includes(`header-autolink`) ? (
+      <a
+        {...props}
+        className="bg-monochrome-e rounded-full hover:bg-blue-400 transition mr-1"
+        css={css`
+          svg {
+            display: inline;
+          }
+        `}
+      />
+    ) : (
+      <SwipingAnchor to={props.href} {...props} />
+    )
+  },
   ul: (props: any) => <ul className="list-disc py-1 px-2 pl-8" {...props} />,
   ol: (props: any) => (
     <ol className="list-decimal py-1 px-2 pl-8" {...props}></ol>

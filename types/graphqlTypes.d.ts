@@ -594,9 +594,9 @@ export type FileFieldsEnum =
   'childMdx___frontmatter___title' |
   'childMdx___frontmatter___path' |
   'childMdx___frontmatter___date' |
+  'childMdx___frontmatter___status' |
   'childMdx___frontmatter___description' |
   'childMdx___frontmatter___tags' |
-  'childMdx___frontmatter___status' |
   'childMdx___body' |
   'childMdx___excerpt' |
   'childMdx___headings' |
@@ -832,9 +832,9 @@ export type MdxFieldsEnum =
   'frontmatter___title' |
   'frontmatter___path' |
   'frontmatter___date' |
+  'frontmatter___status' |
   'frontmatter___description' |
   'frontmatter___tags' |
-  'frontmatter___status' |
   'body' |
   'excerpt' |
   'headings' |
@@ -956,9 +956,9 @@ export type MdxFrontmatter = {
   title: Scalars['String'],
   path?: Maybe<Scalars['String']>,
   date?: Maybe<Scalars['Date']>,
+  status?: Maybe<Scalars['String']>,
   description?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
-  status?: Maybe<Scalars['String']>,
 };
 
 
@@ -973,9 +973,9 @@ export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
+  status?: Maybe<StringQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
-  status?: Maybe<StringQueryOperatorInput>,
 };
 
 export type MdxGroupConnection = {
@@ -1503,6 +1503,7 @@ export type SitePageContextPostNextFrontmatterFilterInput = {
 
 export type SitePageContextPostNode = {
   id?: Maybe<Scalars['String']>,
+  tableOfContents?: Maybe<SitePageContextPostNodeTableOfContents>,
   body?: Maybe<Scalars['String']>,
   excerpt?: Maybe<Scalars['String']>,
   frontmatter?: Maybe<SitePageContextPostNodeFrontmatter>,
@@ -1510,6 +1511,7 @@ export type SitePageContextPostNode = {
 
 export type SitePageContextPostNodeFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
+  tableOfContents?: Maybe<SitePageContextPostNodeTableOfContentsFilterInput>,
   body?: Maybe<StringQueryOperatorInput>,
   excerpt?: Maybe<StringQueryOperatorInput>,
   frontmatter?: Maybe<SitePageContextPostNodeFrontmatterFilterInput>,
@@ -1531,6 +1533,44 @@ export type SitePageContextPostNodeFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
   date?: Maybe<DateQueryOperatorInput>,
   description?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPostNodeTableOfContents = {
+  items?: Maybe<Array<Maybe<SitePageContextPostNodeTableOfContentsItems>>>,
+};
+
+export type SitePageContextPostNodeTableOfContentsFilterInput = {
+  items?: Maybe<SitePageContextPostNodeTableOfContentsItemsFilterListInput>,
+};
+
+export type SitePageContextPostNodeTableOfContentsItems = {
+  url?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+  items?: Maybe<Array<Maybe<SitePageContextPostNodeTableOfContentsItemsItems>>>,
+};
+
+export type SitePageContextPostNodeTableOfContentsItemsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  items?: Maybe<SitePageContextPostNodeTableOfContentsItemsItemsFilterListInput>,
+};
+
+export type SitePageContextPostNodeTableOfContentsItemsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostNodeTableOfContentsItemsFilterInput>,
+};
+
+export type SitePageContextPostNodeTableOfContentsItemsItems = {
+  url?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPostNodeTableOfContentsItemsItemsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPostNodeTableOfContentsItemsItemsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostNodeTableOfContentsItemsItemsFilterInput>,
 };
 
 export type SitePageContextPostPrevious = {
@@ -1912,6 +1952,7 @@ export type SitePluginFieldsEnum =
   'pluginOptions___gatsbyRemarkPlugins___options___loading' |
   'pluginOptions___gatsbyRemarkPlugins___options___disableBgImageOnAlpha' |
   'pluginOptions___gatsbyRemarkPlugins___options___disableBgImage' |
+  'pluginOptions___gatsbyRemarkPlugins___options___className' |
   'pluginOptions___fileName' |
   'pluginOptions___content' |
   'pluginOptions___printRejected' |
@@ -2093,6 +2134,7 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptions = {
   loading?: Maybe<Scalars['String']>,
   disableBgImageOnAlpha?: Maybe<Scalars['Boolean']>,
   disableBgImage?: Maybe<Scalars['Boolean']>,
+  className?: Maybe<Scalars['String']>,
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
@@ -2108,6 +2150,7 @@ export type SitePluginPluginOptionsGatsbyRemarkPluginsOptionsFilterInput = {
   loading?: Maybe<StringQueryOperatorInput>,
   disableBgImageOnAlpha?: Maybe<BooleanQueryOperatorInput>,
   disableBgImage?: Maybe<BooleanQueryOperatorInput>,
+  className?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginSortInput = {

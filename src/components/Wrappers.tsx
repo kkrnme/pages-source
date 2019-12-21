@@ -5,6 +5,8 @@ import SiteFooter from "./Footer"
 import SiteHeader from "./Header"
 import Helmet from "react-helmet"
 import "../styles/tailwind.css"
+import { TableOfContents, TOC } from "./blog/general/TableOfContents"
+import { prependOnceListener } from "cluster"
 
 export interface Meta {
   description: string
@@ -58,11 +60,12 @@ export const BlogMain: React.FC<WrapperProps> = ({ children, className }) => (
   </main>
 )
 
-export const BlogLikeWrapper: React.FC<WrapperProps & Meta> = ({
+export const BlogLikeWrapper: React.FC<WrapperProps & Meta & { TOC?: TOC }> = ({
   children,
   className,
   description,
   title,
+  TOC,
 }) => (
   <Background
     description={description}
@@ -70,7 +73,10 @@ export const BlogLikeWrapper: React.FC<WrapperProps & Meta> = ({
     className="bg-gray-900 text-gray-300"
   >
     <SiteHeader />
-    <BlogMain className={className}>{children}</BlogMain>
+    <div className="block md:flex">
+      <BlogMain className={"max-w-768px " + className}>{children}</BlogMain>
+      {TOC && <TableOfContents TOC={TOC} />}
+    </div>
     <SiteFooter />
   </Background>
 )
