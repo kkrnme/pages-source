@@ -15,7 +15,7 @@ export interface Meta {
  * @param props
  */
 export const Background: React.FC<Stylable & Meta> = props => (
-  <Twemoji>
+  <Twemoji noWrapper>
     <div
       className={"min-h-screen h-full w-full " + (props.className ?? "")}
       css={props.css}
