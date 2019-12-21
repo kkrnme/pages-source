@@ -22,7 +22,7 @@ export const BlogPostHead: React.FC<ArticleHeadProps> = ({ post }) => (
         {post.node.frontmatter?.date}
       </span>
     </h1>
-    <PrevNextLink post={post} type="top" />
+    <PrevNextLink post={post} />
   </div>
 )
 

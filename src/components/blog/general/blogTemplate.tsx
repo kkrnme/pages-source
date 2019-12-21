@@ -31,7 +31,7 @@ export const BlogTemplate = ({
           <MDXRenderer>{post.node.body}</MDXRenderer>
         </MDXProvider>
       </article>
-      <PrevNextLink post={post} type="bottom" />
+      <PrevNextLink post={post} />
     </BlogLikeWrapper>
   )
 }
