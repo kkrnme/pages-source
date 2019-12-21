@@ -51,6 +51,7 @@
     "gatsby-source-filesystem": "^2.1.42",
     "geopattern": "^1.2.3",
     "lodash": "^4.17.15",
+    "postcss": "^7.0.25",
     "postcss-scss": "^2.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
