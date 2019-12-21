@@ -62,5 +62,15 @@ module.exports = {
       },
     },
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [
+          `Roboto:400,700`,
+          `Noto Sans JP:400,700`
+        ],
+        display: `swap`
+      }
+    }
   ],
 }
