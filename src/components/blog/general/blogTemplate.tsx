@@ -1,13 +1,13 @@
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
-import React, { useState, useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { MdxEdge } from "../../../../types/graphqlTypes"
 import { BlogLikeWrapper } from "../../Wrappers"
 import BlogPostHead from "../BlogPostHead"
 import { Warn } from "../Notes"
 import PrevNextLink from "../PrevNextLink"
 import blogArticleComponents from "./blogArticleComponents"
-import { TOC, TableOfContents } from "./TableOfContents"
+import { TableOfContents, TOC } from "./TableOfContents"
 
 export const BlogTemplate = ({
   pageContext,
@@ -18,18 +18,19 @@ export const BlogTemplate = ({
     node = post.node,
     TOC: TOC = node.tableOfContents
   const [isSmallerThanMd, setISTM] = useState(
-    matchMedia("(max-width: 768px)").matches
+    matchMedia("(max-width: 1024px)").matches
   )
   useEffect(() =>
     addEventListener("resize", () =>
-      setISTM(matchMedia("(max-width: 768px)").matches)
+      setISTM(matchMedia("(max-width: 1024px)").matches)
     )
   )
   return (
     <BlogLikeWrapper
       title={`${node.frontmatter?.title} - KKRN.ME`}
       description={node.frontmatter?.description ?? node.excerpt}
-      TOC={TOC}
+      TOC={isSmallerThanMd ? undefined : TOC}
+      ISTM={isSmallerThanMd}
     >
       <BlogPostHead post={post} />
 

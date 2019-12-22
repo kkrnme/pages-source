@@ -1,10 +1,20 @@
+import { InterpolationWithTheme } from "@emotion/core"
 import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
 
-export const TableOfContents: React.FC<{ TOC: TOC }> = ({ TOC }) => (
-  <nav className="bg-monochrome-2 border border-gray-600 rounded">
-    <ul className="list-disc py-1 px-2 pl-8">
-      {TOC.items.map(v => (
+export const TableOfContents: React.FC<{
+  TOC: TOC
+  className?: string
+  css?: InterpolationWithTheme<any>
+}> = props => (
+  <nav
+    className={
+      "text-90 bg-monochrome-2 border border-gray-600 rounded p-2  " +
+        props.className ?? ""
+    }
+  >
+    <ul className="">
+      {props.TOC.items.map(v => (
         <li key={v.title}>
           <SwipingAnchor to={v.url}>{v.title}</SwipingAnchor>
         </li>
