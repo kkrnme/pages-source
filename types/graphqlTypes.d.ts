@@ -1195,8 +1195,6 @@ export type QuerySiteArgs = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>
@@ -1266,8 +1264,6 @@ export type Site = Node & {
   children: Array<Node>,
   internal: Internal,
   siteMetadata?: Maybe<SiteSiteMetadata>,
-  port?: Maybe<Scalars['Int']>,
-  host?: Maybe<Scalars['String']>,
   polyfill?: Maybe<Scalars['Boolean']>,
   pathPrefix?: Maybe<Scalars['String']>,
   buildTime?: Maybe<Scalars['Date']>,
@@ -1395,9 +1391,15 @@ export type SiteFieldsEnum =
   'internal___mediaType' |
   'internal___owner' |
   'internal___type' |
+  'siteMetadata___title' |
+  'siteMetadata___shortName' |
+  'siteMetadata___description' |
+  'siteMetadata___url' |
+  'siteMetadata___siteUrl' |
   'siteMetadata___siteLanguages' |
-  'port' |
-  'host' |
+  'siteMetadata___backgroundColor' |
+  'siteMetadata___themeColor' |
+  'siteMetadata___favicon' |
   'polyfill' |
   'pathPrefix' |
   'buildTime';
@@ -1408,8 +1410,6 @@ export type SiteFilterInput = {
   children?: Maybe<NodeFilterListInput>,
   internal?: Maybe<InternalFilterInput>,
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>,
-  port?: Maybe<IntQueryOperatorInput>,
-  host?: Maybe<StringQueryOperatorInput>,
   polyfill?: Maybe<BooleanQueryOperatorInput>,
   pathPrefix?: Maybe<StringQueryOperatorInput>,
   buildTime?: Maybe<DateQueryOperatorInput>,
@@ -1749,6 +1749,12 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___fonts' |
   'pluginCreator___pluginOptions___display' |
   'pluginCreator___pluginOptions___pathCheck' |
+  'pluginCreator___pluginOptions___short_name' |
+  'pluginCreator___pluginOptions___description' |
+  'pluginCreator___pluginOptions___start_url' |
+  'pluginCreator___pluginOptions___background_color' |
+  'pluginCreator___pluginOptions___theme_color' |
+  'pluginCreator___pluginOptions___icon' |
   'pluginCreator___nodeAPIs' |
   'pluginCreator___browserAPIs' |
   'pluginCreator___ssrAPIs' |
@@ -1962,6 +1968,12 @@ export type SitePluginFieldsEnum =
   'pluginOptions___fonts' |
   'pluginOptions___display' |
   'pluginOptions___pathCheck' |
+  'pluginOptions___short_name' |
+  'pluginOptions___description' |
+  'pluginOptions___start_url' |
+  'pluginOptions___background_color' |
+  'pluginOptions___theme_color' |
+  'pluginOptions___icon' |
   'nodeAPIs' |
   'browserAPIs' |
   'ssrAPIs' |
@@ -2088,6 +2100,12 @@ export type SitePluginPluginOptions = {
   fonts?: Maybe<Array<Maybe<Scalars['String']>>>,
   display?: Maybe<Scalars['String']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
+  short_name?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  start_url?: Maybe<Scalars['String']>,
+  background_color?: Maybe<Scalars['String']>,
+  theme_color?: Maybe<Scalars['String']>,
+  icon?: Maybe<Scalars['String']>,
 };
 
 export type SitePluginPluginOptionsFilterInput = {
@@ -2105,6 +2123,12 @@ export type SitePluginPluginOptionsFilterInput = {
   fonts?: Maybe<StringQueryOperatorInput>,
   display?: Maybe<StringQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
+  short_name?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  start_url?: Maybe<StringQueryOperatorInput>,
+  background_color?: Maybe<StringQueryOperatorInput>,
+  theme_color?: Maybe<StringQueryOperatorInput>,
+  icon?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SitePluginPluginOptionsGatsbyRemarkPlugins = {
@@ -2159,11 +2183,27 @@ export type SitePluginSortInput = {
 };
 
 export type SiteSiteMetadata = {
+  title?: Maybe<Scalars['String']>,
+  shortName?: Maybe<Scalars['String']>,
+  description?: Maybe<Scalars['String']>,
+  url?: Maybe<Scalars['String']>,
+  siteUrl?: Maybe<Scalars['String']>,
   siteLanguages?: Maybe<Scalars['String']>,
+  backgroundColor?: Maybe<Scalars['String']>,
+  themeColor?: Maybe<Scalars['String']>,
+  favicon?: Maybe<Scalars['String']>,
 };
 
 export type SiteSiteMetadataFilterInput = {
+  title?: Maybe<StringQueryOperatorInput>,
+  shortName?: Maybe<StringQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+  url?: Maybe<StringQueryOperatorInput>,
+  siteUrl?: Maybe<StringQueryOperatorInput>,
   siteLanguages?: Maybe<StringQueryOperatorInput>,
+  backgroundColor?: Maybe<StringQueryOperatorInput>,
+  themeColor?: Maybe<StringQueryOperatorInput>,
+  favicon?: Maybe<StringQueryOperatorInput>,
 };
 
 export type SiteSortInput = {

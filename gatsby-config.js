@@ -4,9 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+ const config = require("./config/site") 
+
 module.exports = {
   /* Your site config here */
-  siteMetadata: require("./config/site"),
+  siteMetadata: { ...config},
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
@@ -37,9 +39,9 @@ module.exports = {
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
-              className: `header-autolink`
-            }
-          }
+              className: `header-autolink`,
+            },
+          },
         ],
       },
     },
@@ -75,6 +77,21 @@ module.exports = {
         display: `swap`,
       },
     },
-    `gatsby-plugin-catch-links`
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.title,
+        short_name: config.shortName,
+        description: config.description,
+        start_url: "/",
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: "standalone",
+        icon: config.favicon,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 }
