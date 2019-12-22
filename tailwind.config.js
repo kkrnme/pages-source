@@ -71,7 +71,7 @@ module.exports = {
       addBase({
         ":root": {
           fontSize: "inherit",
-          scrollbarColor: "#00ad56 #f3f2f1",
+          scrollbarColor: `theme("colors.red.400") theme("colors.gray.900")`,
           "@media (min-width: 640px)": {
             //sm
             fontSize: "20px",
