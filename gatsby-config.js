@@ -4,11 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
- const config = require("./config/site") 
+const config = require("./config/site")
 
 module.exports = {
   /* Your site config here */
-  siteMetadata: { ...config},
+  siteMetadata: { ...config },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
