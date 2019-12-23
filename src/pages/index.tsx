@@ -10,7 +10,7 @@ import { FontAwesomeIcon as _FAICON } from "@fortawesome/react-fontawesome"
 import React from "react"
 import SwipingAnchor from "../components/blog/general/SwipingAnchor"
 import bg from "../components/images/tobe.png"
-import { Background } from "../components/Wrappers"
+import { PrimitiveBackground } from "../components/Wrappers"
 import "../styles/tailwind.css"
 
 const FontAwesomeIcon = (props: Parameters<typeof _FAICON>[0]) => (
@@ -18,7 +18,7 @@ const FontAwesomeIcon = (props: Parameters<typeof _FAICON>[0]) => (
 )
 
 export default () => (
-  <Background
+  <PrimitiveBackground
     className="selection-green text-monochrome-e text-center transition font-light"
     css={css`
       background-image: url(${bg});
@@ -52,7 +52,7 @@ export default () => (
         なんか作ったら載せます。
       </Sect>
     </main>
-  </Background>
+  </PrimitiveBackground>
 )
 
 const Sect: React.FC<{ to: string; icon: IconProp; title: string }> = props => (

@@ -57,12 +57,12 @@ module.exports = {
       options: {
         content: [
           require("path").join(
-            process.cwd()
-            //"src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"
+            process.cwd(),
+            "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"
           ),
         ],
         printRejected: true, // Print removed selectors and processed file names
-        develop: true, // Enable while using `gatsby develop`
+        develop: false, // Enable while using `gatsby develop`
         tailwind: true, // Enable tailwindcss support
         whitelist: ["emoji"], // Don't remove this selector
         // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders

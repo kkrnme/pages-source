@@ -1,5 +1,5 @@
 import React from "react"
-import { BlogLikeWrapper } from "../../components/Wrappers"
+import { BlogPageWithoutTOC } from "../../components/Wrappers"
 import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
@@ -7,7 +7,7 @@ import { BlogIndexQuery } from "../../../types/graphqlTypes"
 const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
   const posts = data.allMdx.edges
   return (
-    <BlogLikeWrapper
+    <BlogPageWithoutTOC
       title="BLOG"
       description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
     >
@@ -29,14 +29,14 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
           ))}
         </ul>
       </article>
-    </BlogLikeWrapper>
+    </BlogPageWithoutTOC>
   )
 }
 const err = `Recieved null/undefined in ${__filename}`
 
 export const pageQuery = graphql`
   query BlogIndex {
-    allMdx(sort: { order: ASC, fields: frontmatter___date }) {
+    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
       edges {
         node {
           excerpt

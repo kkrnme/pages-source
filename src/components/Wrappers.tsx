@@ -1,5 +1,5 @@
 import { css } from "@emotion/core"
-import React from "react"
+import React, { PropsWithChildren, ReactNode, ReactElement } from "react"
 import Helmet from "react-helmet"
 import Twemoji from "react-twemoji"
 import "../styles/tailwind.css"
@@ -12,11 +12,8 @@ export interface Meta {
   description: string
   title: string
 }
-/**
- * Background
- * @param props
- */
-export const Background: React.FC<Stylable & Meta> = props => (
+
+export const PrimitiveBackground: React.FC<BackgroundProps> = props => (
   <Twemoji noWrapper>
     <div
       className={"min-h-screen h-full w-full " + (props.className ?? "")}
@@ -32,10 +29,21 @@ export const Background: React.FC<Stylable & Meta> = props => (
 )
 
 /**
+ * Background
+ * @param props
+ */
+export const GrayBackground: React.FC<Meta> = props => (
+  <PrimitiveBackground
+    {...props}
+    className="bg-gray-900 text-gray-300"
+  ></PrimitiveBackground>
+)
+
+/**
  * Centerd empty container.
  * @param props
  */
-export const Container = (props: Stylable) => (
+export const Container: React.FC<Stylable> = props => (
   <main
     className={
       "container mx-auto overflow-hidden selection-green " +
@@ -60,41 +68,51 @@ export const BlogMain: React.FC<WrapperProps> = ({ children, className }) => (
   </main>
 )
 
-export const BlogLikeWrapper: React.FC<WrapperProps &
-  Meta & { TOC?: TOC; ISTM?: Boolean }> = ({
-  children,
-  className,
-  description,
-  title,
-  TOC,
-}) => {
-  return (
-    <Background
-      description={description}
-      title={title}
-      className="bg-gray-900 text-gray-300"
-    >
-      <SiteHeader />
+export const BlogPageWithoutTOC: React.FC<Meta> = props => (
+  <BlogPage
+    {...props}
+    BlogWrapper={({ children }) => (
+      <BlogMain className="mx-auto sm:my-2 my-0">{children}</BlogMain>
+    )}
+  ></BlogPage>
+)
+
+export const BlogPageWithTOC: React.FC<Meta & {
+  TOC: TOC
+  visible: boolean
+}> = props => (
+  <BlogPage
+    {...props}
+    BlogWrapper={({ children }) => (
       <div className="block md:flex sm:my-2 my-0 justify-between">
-        <BlogMain className={"lg:ml-auto lg:mr-2 lg:max-w-768px " + className}>
+        <BlogMain className={"lg:ml-auto lg:mr-2 lg:max-w-768px"}>
           {children}
         </BlogMain>
-        {TOC && (
+        {!props.visible ? (
           <TableOfContents
-            TOC={TOC}
-            className="mx-auto lg:mr-auto ml-2 h-full max-w-255px sticky"
+            TOC={props.TOC}
+            className="mx-auto lg:mr-auto ml-2 h-full max-w-235px sticky"
             css={css`
               top: 0.5rem;
             `}
           />
-        )}
+        ) : null}
       </div>
-      <SiteFooter />
-    </Background>
-  )
-}
+    )}
+  ></BlogPage>
+)
+
+export const BlogPage: React.FC<BlogPageProps> = props => (
+  <GrayBackground description={props.description} title={props.title}>
+    <SiteHeader />
+    <props.BlogWrapper children={props.children} />
+
+    <SiteFooter />
+  </GrayBackground>
+)
+export type BlogPageProps = { BlogWrapper: React.FC } & Meta
+export type BackgroundProps = Stylable & Meta
 
 export interface WrapperProps {
-  children: React.ReactNode
   className?: string
 }
