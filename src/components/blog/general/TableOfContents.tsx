@@ -12,7 +12,9 @@ export const TableOfContents: React.FC<{
       "text-90 bg-monochrome-2 border border-gray-600 rounded p-2  " +
         props.className ?? ""
     }
-    css={css`width:235px;`}
+    css={css`
+      width: 235px;
+    `}
   >
     <ul className="">
       {props.TOC.items.map(v => (
