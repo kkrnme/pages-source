@@ -20,7 +20,6 @@ const components: Components = {
   ),
   p: (props: any) => <p className="py-1 px-2" {...props} />,
   a: (props: any) => {
-    console.log(props)
     return props.className?.includes(`header-autolink`) ? (
       <a
         {...props}
