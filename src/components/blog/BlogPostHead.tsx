@@ -7,13 +7,13 @@ import tw from "tailwind.macro"
 
 export const BlogPostHead: React.FC<ArticleHeadProps> = ({ post }) => (
   <div
-    className="bg-red-400 bg-fixed"
+    className="bg-fixed"
     css={css`
       background-image: ${GeoPattern.generate(
         post.node.frontmatter?.title!
       ).toDataUrl()};
       background-size: contain;
-      background-blend-mode: luminosity;
+      filter: saturate(180%);
     `}
   >
     <h1 className="flex justify-between w-full flex-wrap text-white px-2 py-1 text-shadow">
