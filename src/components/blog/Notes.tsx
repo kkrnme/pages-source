@@ -22,13 +22,22 @@ export const Note: FC<NoteProps> = ({ color, icon, children }) => (
     {children}
   </div>
 )
-export const Warn: FC<{}> = ({ children }) => (
-  <Note color="bg-orange-500 text-gray-900" icon={faExclamationTriangle}>
-    {children}
-  </Note>
-)
-export const Info: FC<{}> = ({ children }) => (
-  <Note color="bg-fluentBlue-10" icon={faInfo}>
-    {children}
-  </Note>
-)
+
+/**
+ * Note継承を新しく作る高階コンポーネント。
+ * iconとcolorのtailwind stringを渡してみよう。
+ */
+export const NoteFactory: (args: {
+  icon: IconDefinition
+  color: string
+}) => FC = args => props => <Note {...args} {...props} />
+
+export const Warn = NoteFactory({
+  icon: faExclamationTriangle,
+  color: "bg-orange-400 text-gray-900",
+})
+
+export const Info = NoteFactory({
+  icon: faInfo,
+  color: "bg-fluentBlue-10",
+})
