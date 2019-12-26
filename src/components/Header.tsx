@@ -10,7 +10,7 @@ import Logo from "../resources/meyend.svg"
 
 export const SiteHeader = () => {
   return (
-    <header className="bg-gray-900 border-b border-gray-600 px-4 shadow-md">
+    <header className="bg-gray-900 border-b border-gray-700 px-4 shadow-md">
       <div
         className="
     flex items-center 

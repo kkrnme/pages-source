@@ -9,7 +9,7 @@ export const TableOfContents: React.FC<{
 }> = props => (
   <nav
     className={
-      "text-90 bg-monochrome-2 border border-gray-600 rounded p-2  " +
+      "text-90 bg-monochrome-2 border border-gray-700 rounded p-2  " +
         props.className ?? ""
     }
     css={css`
