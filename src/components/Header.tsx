@@ -8,7 +8,7 @@ import { Link } from "gatsby"
 import React, { ReactNode } from "react"
 import Logo from "../resources/meyend.svg"
 
-export const Header = () => {
+export const SiteHeader = () => {
   return (
     <header className="bg-gray-900 border-b border-gray-600 px-4 shadow-md">
       <div
@@ -52,4 +52,4 @@ const ListLink = ({
   </li>
 )
 
-export default Header
+export default SiteHeader

@@ -1,6 +1,6 @@
 import React from "react"
 import SwipingAnchor from "./blog/general/SwipingAnchor"
-export default () => (
+export const SiteFooter = () => (
   <footer className="text-center">
     <p>
       {"Hosted on "}
@@ -14,3 +14,4 @@ export default () => (
     </p>
   </footer>
 )
+export default SiteFooter

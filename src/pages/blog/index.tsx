@@ -1,8 +1,8 @@
 import React from "react"
-import { BlogPageWithoutTOC } from "../../components/Wrappers"
 import { graphql } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
+import { BlogPageWithoutTOC } from "../../components/templates/BlogPageWithoutTOC"
 
 const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
   const posts = data.allMdx.edges

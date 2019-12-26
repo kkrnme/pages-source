@@ -10,8 +10,8 @@ import { FontAwesomeIcon as _FAICON } from "@fortawesome/react-fontawesome"
 import React from "react"
 import SwipingAnchor from "../components/blog/general/SwipingAnchor"
 import bg from "../components/images/tobe.png"
-import { PrimitiveBackground } from "../components/Wrappers"
 import "../styles/tailwind.css"
+import { PrimitiveBackground } from "../components/templates/PrimitiveBackground"
 
 const FontAwesomeIcon = (props: Parameters<typeof _FAICON>[0]) => (
   <_FAICON {...props} className={"mx-1 " + props.className ?? ""} />
