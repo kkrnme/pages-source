@@ -1,21 +1,28 @@
-import React from "react"
+import { css, InterpolationWithTheme } from "@emotion/core"
 import { Link } from "gatsby"
-import { InterpolationWithTheme, css } from "@emotion/core"
 import GeoPattern from "geopattern"
-import tw from "tailwind.macro"
+import React from "react"
 
 export default ({ to, title, excerpt, status }: LinkToPostProps) => {
   const pattern = GeoPattern.generate(title)
   return (
-    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full bg-gray-800">
-      <Link
-        to={to}
-        className="block no-underline flex-wrap border-l-4 border-yellow-400 p-1 shadow transition bg-red-400"
+    <Link
+      to={to}
+      className="block shadow-md rounded rounded-tl-none overflow-hidden h-full bg-gray-800"
+      css={css`
+        transition: 150ms filter ease-in-out;
+        &:hover {
+          filter: brightness(1.1);
+        }
+      `}
+    >
+      <div
+        className="no-underline flex-wrap border-l-4 border-yellow-400 p-1 shadow transition text-gray-200"
         css={css`
           background-image: ${pattern.toDataUrl()};
-          background-blend-mode: luminosity;
           background-size: contain;
           background-attachment: fixed;
+          filter: saturate(180%);
         `}
       >
         <h2 className="text-lg">
@@ -24,9 +31,9 @@ export default ({ to, title, excerpt, status }: LinkToPostProps) => {
             <TagLabel className="inline bg-pink">draft</TagLabel>
           ) : null}
         </h2>
-      </Link>
-      <p className="text-left p-2 text-gray-200 ">{excerpt}</p>
-    </div>
+      </div>
+      <p className="text-left p-2 text-gray-500 ">{excerpt}</p>
+    </Link>
   )
 }
 
