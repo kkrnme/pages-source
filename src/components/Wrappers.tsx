@@ -20,6 +20,7 @@ export const PrimitiveBackground: React.FC<BackgroundProps> = props => (
       css={props.css}
     >
       <Helmet>
+        <html lang="ja" />
         <meta name="description" content={props.description} />
         <title>{props.title}</title>
       </Helmet>
