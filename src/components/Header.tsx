@@ -6,7 +6,6 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import React, { ReactNode } from "react"
-import Logo from "../resources/meyend.svg"
 
 export const SiteHeader = () => {
   return (
@@ -17,9 +16,6 @@ export const SiteHeader = () => {
     mx-auto w-full sm:w-10/12  px-2
      transition"
       >
-        <Link to="/" className="w-10">
-          <img src={Logo} alt="KKRN.ME" />
-        </Link>
         <ul className="list-none flex p-0 self-start ">
           <ListLink to="/" icon={faHome}>
             HOME
