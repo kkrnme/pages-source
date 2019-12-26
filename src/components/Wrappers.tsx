@@ -1,5 +1,5 @@
 import { css } from "@emotion/core"
-import React, { PropsWithChildren, ReactNode, ReactElement } from "react"
+import React from "react"
 import Helmet from "react-helmet"
 import Twemoji from "react-twemoji"
 import "../styles/tailwind.css"
@@ -36,7 +36,7 @@ export const PrimitiveBackground: React.FC<BackgroundProps> = props => (
 export const GrayBackground: React.FC<Meta> = props => (
   <PrimitiveBackground
     {...props}
-    className="bg-gray-900 text-gray-300"
+    className="bg-gray-900 text-gray-400"
   ></PrimitiveBackground>
 )
 
