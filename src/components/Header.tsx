@@ -1,35 +1,33 @@
-import React, { ReactNode } from "react"
-import { Link } from "gatsby"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  faHome,
   faBlog,
+  faHome,
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons"
-import Logo from "../resources/meyend.svg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "gatsby"
+import React, { ReactNode } from "react"
 
-export default () => (
-  <header className="bg-fluentRed-10 px-4 shadow-md">
-    <div
-      className="
+export const SiteHeader = () => {
+  return (
+    <header className="bg-gray-900 border-b border-gray-700 px-4 shadow-md">
+      <div
+        className="
     flex items-center 
     mx-auto w-full sm:w-10/12  px-2
      transition"
-    >
-      <Link to="/" className="w-10">
-        <img src={Logo} alt="KKRN.ME" />
-      </Link>
-      <ul className="list-none flex p-0 self-start ">
-        <ListLink to="/" icon={faHome}>
-          HOME
-        </ListLink>
-        <ListLink to="/blog/" icon={faBlog}>
-          BLOG
-        </ListLink>
-      </ul>
-    </div>
-  </header>
-)
+      >
+        <ul className="list-none flex p-0 self-start ">
+          <ListLink to="/" icon={faHome}>
+            HOME
+          </ListLink>
+          <ListLink to="/blog/" icon={faBlog}>
+            BLOG
+          </ListLink>
+        </ul>
+      </div>
+    </header>
+  )
+}
 
 const ListLink = ({
   children,
@@ -49,3 +47,5 @@ const ListLink = ({
     </Link>
   </li>
 )
+
+export default SiteHeader

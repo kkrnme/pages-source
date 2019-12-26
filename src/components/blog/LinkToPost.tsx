@@ -1,39 +1,39 @@
-import React from "react"
+import { css, InterpolationWithTheme } from "@emotion/core"
 import { Link } from "gatsby"
-import { InterpolationWithTheme } from "@emotion/core"
-import Post from "../../utils/PostType"
 import GeoPattern from "geopattern"
+import React from "react"
 
-export default ({ to, title, excerpt, status, type }: LinkToPostProps) => {
+export default ({ to, title, excerpt, status }: LinkToPostProps) => {
   const pattern = GeoPattern.generate(title)
   return (
-    <div className="shadow-md rounded rounded-tl-none overflow-hidden h-full">
-      <Link
-        to={to}
-        className="block no-underline flex-wrap border-l-4 border-fluentGray-160 p-1  shadow transition text-fluentGray-10"
-        css={{
-          backgroundImage: pattern.toDataUrl(),
-        }}
+    <Link
+      to={to}
+      className="block shadow-md rounded rounded-tl-none overflow-hidden h-full bg-gray-800"
+      css={css`
+        transition: 150ms filter ease-in-out;
+        &:hover {
+          filter: brightness(1.1);
+        }
+      `}
+    >
+      <div
+        className="no-underline flex-wrap border-l-4 border-yellow-400 p-1 shadow transition text-gray-200"
+        css={css`
+          background-image: ${pattern.toDataUrl()};
+          background-size: contain;
+          background-attachment: fixed;
+          filter: saturate(180%);
+        `}
       >
-        <h2 className="font-bold text-lg">
-          {title}
+        <h2 className="text-lg">
+          <span className="text-shadow">{title}</span>
           {status === "draft" ? (
-            <TagLabel className="inline bg-pink-500">draft</TagLabel>
+            <TagLabel className="inline bg-pink">draft</TagLabel>
           ) : null}
-          <TagLabel className={`label-${type}`}>{type.toUpperCase()}</TagLabel>
         </h2>
-      </Link>
-      <p
-        className="text-left p-2 text-fluentGray-120 "
-        css={{
-          background: "linear-gradient(#323130, #0000)",
-          backgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-        }}
-      >
-        {excerpt}
-      </p>
-    </div>
+      </div>
+      <p className="text-left p-2 text-gray-500 ">{excerpt}</p>
+    </Link>
   )
 }
 
@@ -42,7 +42,6 @@ interface LinkToPostProps {
   title: string
   excerpt: string
   status: string
-  type: Post["type"]
   css?: InterpolationWithTheme<any>
 }
 

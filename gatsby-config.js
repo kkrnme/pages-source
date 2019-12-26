@@ -4,12 +4,11 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+const config = require("./config/site")
+
 module.exports = {
   /* Your site config here */
-  siteMetadata: {
-    title: `kkrn.me`,
-    discription: `page of Mominis`,
-  },
+  siteMetadata: { ...config },
   plugins: [
     `gatsby-plugin-sharp`,
     `gatsby-plugin-emotion`,
@@ -37,6 +36,12 @@ module.exports = {
               maxWidth: 800,
             },
           },
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: `header-autolink`,
+            },
+          },
         ],
       },
     },
@@ -48,8 +53,51 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-transformer-asciidoc`,
-      options: {},
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        content: [
+          require("path").join(
+            process.cwd(),
+            "src/**/!(*.d).{ts,js,jsx,tsx,md,mdx}"
+          ),
+        ],
+        printRejected: true, // Print removed selectors and processed file names
+        develop: false, // Enable while using `gatsby develop`
+        tailwind: true, // Enable tailwindcss support
+        whitelist: ["emoji"], // Don't remove this selector
+        // ignore: ['/ignored.css', 'prismjs/', 'docsearch.js/'], // Ignore files/folders
+        // purgeOnly : ['components/', '/main.css', 'bootstrap/'], // Purge only these files/folders
+      },
+    },
+    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Roboto:400,700`, `Noto Sans JP:400,700`],
+        display: `swap`,
+      },
+    },
+    `gatsby-plugin-catch-links`,
+    `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.title,
+        short_name: config.shortName,
+        description: config.description,
+        start_url: "/",
+        background_color: config.backgroundColor,
+        theme_color: config.themeColor,
+        display: "standalone",
+        icon: config.favicon,
+      },
+    },
+    `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyzer",
+      options: {
+        openAnalyzer: false,
+      },
     },
   ],
 }

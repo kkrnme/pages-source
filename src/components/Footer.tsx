@@ -1,26 +1,17 @@
 import React from "react"
-import { ScreenSize } from "./blog/ippatsuya/ScreenSize"
-export default () => (
-  <footer className="text-fluentGray-120 text-center">
+import SwipingAnchor from "./blog/general/SwipingAnchor"
+export const SiteFooter = () => (
+  <footer className="text-center">
     <p>
       {"Hosted on "}
-      <Anchor href="https://github.com/kkrnme/kkrnme.github.io">
+      <SwipingAnchor to="https://github.com/kkrnme/kkrnme.github.io">
         GitHub Pages
-      </Anchor>
+      </SwipingAnchor>
       {", licensed under "}
-      <Anchor href="https://github.com/kkrnme/pages-source">
+      <SwipingAnchor to="https://github.com/kkrnme/pages-source">
         the MIT License.
-      </Anchor>
+      </SwipingAnchor>
     </p>
-    <ScreenSize />
   </footer>
 )
-
-const Anchor: React.FC<{ href?: string }> = props => (
-  <a
-    href={props.href}
-    className="transition hover:underline hover:text-fluentRed-10"
-  >
-    {props.children}
-  </a>
-)
+export default SiteFooter
