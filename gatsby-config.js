@@ -93,6 +93,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
-    "gatsby-plugin-webpack-bundle-analyzer",
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyzer",
+      options: {
+        openAnalyzer: false,
+      },
+    },
   ],
 }
