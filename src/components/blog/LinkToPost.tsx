@@ -36,9 +36,6 @@ export default (props: LinkToPostProps) => {
       >
         <h2 className="text-lg">
           <span className="text-shadow">{title}</span>
-          {status === "draft" ? (
-            <TagComponent className="inline bg-pink">draft</TagComponent>
-          ) : null}
         </h2>
       </div>
       <p className="text-left p-2 text-gray-500 ">{excerpt}</p>
