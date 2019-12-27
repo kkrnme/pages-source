@@ -2,6 +2,7 @@ import React from "react"
 import SwipingAnchor from "./blog/general/SwipingAnchor"
 export const SiteFooter = () => (
   <footer className="text-center">
+    <p>KKRN.ME version 19.12.2</p>
     <p>
       {"Hosted on "}
       <SwipingAnchor to="https://github.com/kkrnme/kkrnme.github.io">
