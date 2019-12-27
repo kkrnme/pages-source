@@ -2,6 +2,7 @@ import { css, InterpolationWithTheme } from "@emotion/core"
 import { Link } from "gatsby"
 import GeoPattern from "geopattern"
 import React from "react"
+import { TagComponent } from "./tags/TagComponent"
 
 export default ({ to, title, excerpt, status }: LinkToPostProps) => {
   const pattern = GeoPattern.generate(title)
@@ -28,7 +29,7 @@ export default ({ to, title, excerpt, status }: LinkToPostProps) => {
         <h2 className="text-lg">
           <span className="text-shadow">{title}</span>
           {status === "draft" ? (
-            <TagLabel className="inline bg-pink">draft</TagLabel>
+            <TagComponent className="inline bg-pink">draft</TagComponent>
           ) : null}
         </h2>
       </div>
@@ -43,15 +44,4 @@ interface LinkToPostProps {
   excerpt: string
   status: string
   css?: InterpolationWithTheme<any>
-}
-
-const TagLabel: React.FC<TagLabelProps> = props => (
-  <label
-    className={`ml-2 px-2 rounded font-semibold tracking-none ${props.className}`}
-  >
-    {props.children}
-  </label>
-)
-interface TagLabelProps {
-  className?: string
 }

@@ -33,7 +33,7 @@ export const BlogTemplate = ({
       visible={isSmallerThanMd}
     >
       <BlogPostHead post={post} />
-
+      <PrevNextLink post={post} />
       <article className="p-3 md:p-5">
         {node.frontmatter?.status === "draft" ? (
           <Warn>この記事は書きかけです。</Warn>

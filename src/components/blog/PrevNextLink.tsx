@@ -50,10 +50,10 @@ type PrevNextLinkButtonProps =
 export const PrevNextLinkButton: React.FC<PrevNextLinkButtonProps> = props => {
   return (
     <div
-      className={`transition w-1/2 backdrop-blur ${
+      className={`transition w-1/2 backdrop-blur text-90 ${
         props.enabled
-          ? "bg-transparentBlack-8 hover:bg-blue-400 text-gray-300  hover:text-gray-900"
-          : "bg-transparentBlack-8 text-gray-400"
+          ? "bg-blue-900 hover:bg-blue-400 text-gray-300  hover:text-gray-900"
+          : "bg-gray-800 text-gray-400"
       }`}
       css={css`
         &:nth-of-type(odd) * div {

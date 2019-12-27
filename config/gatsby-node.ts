@@ -20,7 +20,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         edges {
           node {
             id
-            tableOfContents
+            tableOfContents(maxDepth:10)
             body
             excerpt
             frontmatter {
