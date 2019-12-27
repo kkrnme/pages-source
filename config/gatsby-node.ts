@@ -84,7 +84,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   })
 
   Object.keys(classfiedPosts).forEach(tag => {
-    console.log(tag)
     return createPage({
       path: "/blog/tags/" + tag + "/",
       component: Path.resolve(`./src/components/blog/tags/TagPage.tsx`),

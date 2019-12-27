@@ -41,7 +41,6 @@ export const TagsIndex = ({
       </p>
       <article className="p-1">
         {Object.keys(classfiedPosts).map(tag => {
-          console.log({ tag, classfiedPosts })
           return (
             <section key={tag}>
               <BlogArticleComponents.h1>
@@ -55,13 +54,6 @@ export const TagsIndex = ({
     </BlogPageWithoutTOC>
   )
 }
-
-const withEffect: (f: Function) => <T>(v: T) => T = f => v => {
-  f()
-  return v
-}
-
-const log = withEffect(console.log)
 
 export default TagsIndex
 
