@@ -34,7 +34,8 @@ export const BlogPostHead: React.FC<ArticleHeadProps> = ({ post }) => (
     </div>
     {post.node.frontmatter?.tags?.map(v => (
       <TagComponent
-        children={v}
+        key={v!}
+        children={v!}
         css={css`
           background-color: ${TagsDefinition[v!]};
         `}

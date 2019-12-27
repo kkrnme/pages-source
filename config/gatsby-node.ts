@@ -1,6 +1,6 @@
 import { GatsbyNode } from "gatsby"
 import Path from "path"
-import { MdxConnection, MdxEdge } from "../types/graphqlTypes"
+import { MdxConnection, MdxEdge, Mdx } from "../types/graphqlTypes"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -20,7 +20,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         edges {
           node {
             id
-            tableOfContents(maxDepth:10)
+            tableOfContents(maxDepth: 10)
             body
             excerpt
             frontmatter {
@@ -54,9 +54,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   if (!result.data) return
-  const data = result.data
+  const { edges: posts } = result.data.allMdx
 
-  data.allMdx.edges.forEach(post => {
+  const classfiedPosts: { [index: string]: MdxEdge[] } = {}
+
+  posts.forEach(post => {
     if (post.node.frontmatter == null) {
       throw new Error("frontmatter is null")
     }
@@ -64,10 +66,35 @@ export const createPages: GatsbyNode["createPages"] = async ({
     if (post.node.frontmatter.path == null) {
       throw new Error("path is null")
     }
+    if (post.node.frontmatter.tags) {
+      post.node.frontmatter.tags.forEach(tag => {
+        if (tag) {
+          if(!classfiedPosts[tag]) {
+            classfiedPosts[tag] = []
+          }
+          classfiedPosts[tag].push(post)
+        }else{}
+      })
+    }
     createPage({
       path: "/blog/" + post.node.frontmatter.path,
       component: Path.resolve(`./src/components/blog/general/blogTemplate.tsx`),
       context: { post, id: post.node.id },
     })
+  })
+
+  Object.keys(classfiedPosts).forEach(tag => {
+    console.log(tag)
+    return createPage({
+      path: "/blog/tags/" + tag + "/",
+      component: Path.resolve(`./src/components/blog/tags/TagPage.tsx`),
+      context: { posts: classfiedPosts[tag], tag },
+    })
+  })
+
+  createPage({
+    path: "/blog/tags/",
+    component: Path.resolve(`./src/components/blog/tags/TagsIndex.tsx`),
+    context: { classfiedPosts },
   })
 }

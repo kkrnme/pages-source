@@ -1472,11 +1472,203 @@ export type SitePageConnectionGroupArgs = {
 export type SitePageContext = {
   post?: Maybe<SitePageContextPost>,
   id?: Maybe<Scalars['String']>,
+  posts?: Maybe<Array<Maybe<SitePageContextPosts>>>,
+  tag?: Maybe<Scalars['String']>,
+  classfiedPosts?: Maybe<SitePageContextClassfiedPosts>,
+};
+
+export type SitePageContextClassfiedPosts = {
+  _xxx?: Maybe<Array<Maybe<SitePageContextClassfiedPosts_Xxx>>>,
+  kkrn_me?: Maybe<Array<Maybe<SitePageContextClassfiedPostsKkrn_Me>>>,
+};
+
+export type SitePageContextClassfiedPosts_Xxx = {
+  node?: Maybe<SitePageContextClassfiedPosts_XxxNode>,
+  next?: Maybe<SitePageContextClassfiedPosts_XxxNext>,
+};
+
+export type SitePageContextClassfiedPosts_XxxFilterInput = {
+  node?: Maybe<SitePageContextClassfiedPosts_XxxNodeFilterInput>,
+  next?: Maybe<SitePageContextClassfiedPosts_XxxNextFilterInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxFilterListInput = {
+  elemMatch?: Maybe<SitePageContextClassfiedPosts_XxxFilterInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNext = {
+  frontmatter?: Maybe<SitePageContextClassfiedPosts_XxxNextFrontmatter>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNextFilterInput = {
+  frontmatter?: Maybe<SitePageContextClassfiedPosts_XxxNextFrontmatterFilterInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNextFrontmatter = {
+  path?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNextFrontmatterFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNode = {
+  id?: Maybe<Scalars['String']>,
+  tableOfContents?: Maybe<SitePageContextClassfiedPosts_XxxNodeTableOfContents>,
+  body?: Maybe<Scalars['String']>,
+  excerpt?: Maybe<Scalars['String']>,
+  frontmatter?: Maybe<SitePageContextClassfiedPosts_XxxNodeFrontmatter>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  tableOfContents?: Maybe<SitePageContextClassfiedPosts_XxxNodeTableOfContentsFilterInput>,
+  body?: Maybe<StringQueryOperatorInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<SitePageContextClassfiedPosts_XxxNodeFrontmatterFilterInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeFrontmatter = {
+  path?: Maybe<Scalars['String']>,
+  status?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+  description?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeFrontmatterFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  status?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeTableOfContents = {
+  items?: Maybe<Array<Maybe<SitePageContextClassfiedPosts_XxxNodeTableOfContentsItems>>>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeTableOfContentsFilterInput = {
+  items?: Maybe<SitePageContextClassfiedPosts_XxxNodeTableOfContentsItemsFilterListInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeTableOfContentsItems = {
+  url?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeTableOfContentsItemsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextClassfiedPosts_XxxNodeTableOfContentsItemsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextClassfiedPosts_XxxNodeTableOfContentsItemsFilterInput>,
+};
+
+export type SitePageContextClassfiedPostsFilterInput = {
+  _xxx?: Maybe<SitePageContextClassfiedPosts_XxxFilterListInput>,
+  kkrn_me?: Maybe<SitePageContextClassfiedPostsKkrn_MeFilterListInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_Me = {
+  node?: Maybe<SitePageContextClassfiedPostsKkrn_MeNode>,
+  next?: Maybe<SitePageContextClassfiedPostsKkrn_MeNext>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeFilterInput = {
+  node?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeFilterInput>,
+  next?: Maybe<SitePageContextClassfiedPostsKkrn_MeNextFilterInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeFilterListInput = {
+  elemMatch?: Maybe<SitePageContextClassfiedPostsKkrn_MeFilterInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNext = {
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNextFrontmatter>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNextFilterInput = {
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNextFrontmatterFilterInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNextFrontmatter = {
+  path?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNextFrontmatterFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNode = {
+  id?: Maybe<Scalars['String']>,
+  tableOfContents?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContents>,
+  body?: Maybe<Scalars['String']>,
+  excerpt?: Maybe<Scalars['String']>,
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeFrontmatter>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  tableOfContents?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsFilterInput>,
+  body?: Maybe<StringQueryOperatorInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeFrontmatterFilterInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeFrontmatter = {
+  path?: Maybe<Scalars['String']>,
+  status?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+  description?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeFrontmatterFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  status?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContents = {
+  items?: Maybe<Array<Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItems>>>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsFilterInput = {
+  items?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterListInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItems = {
+  url?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterInput>,
 };
 
 export type SitePageContextFilterInput = {
   post?: Maybe<SitePageContextPostFilterInput>,
   id?: Maybe<StringQueryOperatorInput>,
+  posts?: Maybe<SitePageContextPostsFilterListInput>,
+  tag?: Maybe<StringQueryOperatorInput>,
+  classfiedPosts?: Maybe<SitePageContextClassfiedPostsFilterInput>,
 };
 
 export type SitePageContextPost = {
@@ -1599,6 +1791,94 @@ export type SitePageContextPostPreviousFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>,
 };
 
+export type SitePageContextPosts = {
+  node?: Maybe<SitePageContextPostsNode>,
+  next?: Maybe<SitePageContextPostsNext>,
+};
+
+export type SitePageContextPostsFilterInput = {
+  node?: Maybe<SitePageContextPostsNodeFilterInput>,
+  next?: Maybe<SitePageContextPostsNextFilterInput>,
+};
+
+export type SitePageContextPostsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsFilterInput>,
+};
+
+export type SitePageContextPostsNext = {
+  frontmatter?: Maybe<SitePageContextPostsNextFrontmatter>,
+};
+
+export type SitePageContextPostsNextFilterInput = {
+  frontmatter?: Maybe<SitePageContextPostsNextFrontmatterFilterInput>,
+};
+
+export type SitePageContextPostsNextFrontmatter = {
+  path?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPostsNextFrontmatterFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPostsNode = {
+  id?: Maybe<Scalars['String']>,
+  tableOfContents?: Maybe<SitePageContextPostsNodeTableOfContents>,
+  body?: Maybe<Scalars['String']>,
+  excerpt?: Maybe<Scalars['String']>,
+  frontmatter?: Maybe<SitePageContextPostsNodeFrontmatter>,
+};
+
+export type SitePageContextPostsNodeFilterInput = {
+  id?: Maybe<StringQueryOperatorInput>,
+  tableOfContents?: Maybe<SitePageContextPostsNodeTableOfContentsFilterInput>,
+  body?: Maybe<StringQueryOperatorInput>,
+  excerpt?: Maybe<StringQueryOperatorInput>,
+  frontmatter?: Maybe<SitePageContextPostsNodeFrontmatterFilterInput>,
+};
+
+export type SitePageContextPostsNodeFrontmatter = {
+  path?: Maybe<Scalars['String']>,
+  status?: Maybe<Scalars['String']>,
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>,
+  title?: Maybe<Scalars['String']>,
+  date?: Maybe<Scalars['Date']>,
+  description?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPostsNodeFrontmatterFilterInput = {
+  path?: Maybe<StringQueryOperatorInput>,
+  status?: Maybe<StringQueryOperatorInput>,
+  tags?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+  date?: Maybe<DateQueryOperatorInput>,
+  description?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPostsNodeTableOfContents = {
+  items?: Maybe<Array<Maybe<SitePageContextPostsNodeTableOfContentsItems>>>,
+};
+
+export type SitePageContextPostsNodeTableOfContentsFilterInput = {
+  items?: Maybe<SitePageContextPostsNodeTableOfContentsItemsFilterListInput>,
+};
+
+export type SitePageContextPostsNodeTableOfContentsItems = {
+  url?: Maybe<Scalars['String']>,
+  title?: Maybe<Scalars['String']>,
+};
+
+export type SitePageContextPostsNodeTableOfContentsItemsFilterInput = {
+  url?: Maybe<StringQueryOperatorInput>,
+  title?: Maybe<StringQueryOperatorInput>,
+};
+
+export type SitePageContextPostsNodeTableOfContentsItemsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextPostsNodeTableOfContentsItemsFilterInput>,
+};
+
 export type SitePageEdge = {
   next?: Maybe<SitePage>,
   node: SitePage,
@@ -1701,6 +1981,13 @@ export type SitePageFieldsEnum =
   'context___post___node___body' |
   'context___post___node___excerpt' |
   'context___id' |
+  'context___posts' |
+  'context___posts___node___id' |
+  'context___posts___node___body' |
+  'context___posts___node___excerpt' |
+  'context___tag' |
+  'context___classfiedPosts____xxx' |
+  'context___classfiedPosts___kkrn_me' |
   'pluginCreator___id' |
   'pluginCreator___parent___id' |
   'pluginCreator___parent___parent___id' |

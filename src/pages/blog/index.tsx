@@ -1,33 +1,36 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import LinkToPost from "../../components/blog/LinkToPost"
 import { BlogIndexQuery } from "../../../types/graphqlTypes"
 import { BlogPageWithoutTOC } from "../../components/templates/BlogPageWithoutTOC"
+import PostList from "../../components/templates/blog/PostList"
+import SwipingAnchor from "../../components/blog/general/SwipingAnchor"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faTags,
+  faArrowRight,
+  faCalendarDay,
+} from "@fortawesome/free-solid-svg-icons"
 
 const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
-  const posts = data.allMdx.edges
+  const edges = data.allMdx.edges
   return (
     <BlogPageWithoutTOC
       title="BLOG"
       description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
     >
       <h1 className="text-center text-200 font-bold">kkrnme-blog</h1>
+      <p className="text-center">
+        <SwipingAnchor to="/blog/tags">
+          日付順
+          <FontAwesomeIcon icon={faCalendarDay} />{" "}
+          <FontAwesomeIcon icon={faArrowRight} />{" "}
+          <FontAwesomeIcon icon={faTags} />
+          タグ一覧
+        </SwipingAnchor>
+      </p>
       <article className="p-1">
-        <ul className="list-none p-0 sm:flex-wrap sm:flex ">
-          {posts.map(({ node: post }) => (
-            <li
-              className="w-full sm:w-1/2 lg:w-1/3 p-1"
-              key={post.id ?? undefined}
-            >
-              <LinkToPost
-                to={"/blog/" + post.frontmatter?.path ?? err}
-                title={post.frontmatter?.title ?? err}
-                excerpt={post.excerpt ?? err}
-                status={post.frontmatter?.status ?? err}
-              />
-            </li>
-          ))}
-        </ul>
+        <PostList edges={edges} />
       </article>
     </BlogPageWithoutTOC>
   )
