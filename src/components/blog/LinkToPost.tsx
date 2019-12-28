@@ -1,8 +1,7 @@
-import { css, InterpolationWithTheme } from "@emotion/core"
+import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import GeoPattern from "geopattern"
 import React from "react"
-import { TagComponent } from "./tags/TagComponent"
 import { Stylable } from "../Components"
 
 export default (props: LinkToPostProps) => {

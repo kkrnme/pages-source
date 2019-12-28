@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
+
 export const PrevNextLink = ({ post }: { post: MdxEdge }) => {
   const previous = post.previous,
     next = post.next
