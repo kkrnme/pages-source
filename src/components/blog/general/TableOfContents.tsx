@@ -16,14 +16,21 @@ export const TableOfContents: React.FC<{
       width: 235px;
     `}
   >
-    <ul className="">
-      {props.TOC.items.map(v => (
-        <li key={v.title}>
-          <SwipingAnchor to={v.url}>{v.title}</SwipingAnchor>
-        </li>
-      ))}
-    </ul>
+    <TOCItemConponent items={props.TOC.items} />
   </nav>
 )
 
-export type TOC = { items: { url: string; title: string }[] }
+const TOCItemConponent: React.FC<{ items: TOCItem[] }> = ({ items }) => (
+  <ul>
+    {items.map(i => (
+      <li key={i.title} className="ml-1">
+        <SwipingAnchor to={i.url}>{i.title}</SwipingAnchor>
+        {i.items ? <TOCItemConponent items={i.items} /> : null}
+      </li>
+    ))}
+  </ul>
+)
+
+export type TOC = { items: TOCItem[] }
+
+export type TOCItem = { url: string; title: string; items?: TOCItem[] }
