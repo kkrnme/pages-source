@@ -69,11 +69,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
     if (post.node.frontmatter.tags) {
       post.node.frontmatter.tags.forEach(tag => {
         if (tag) {
-          if(!classfiedPosts[tag]) {
+          if (!classfiedPosts[tag]) {
             classfiedPosts[tag] = []
           }
           classfiedPosts[tag].push(post)
-        }else{}
+        } else {
+        }
       })
     }
     createPage({
