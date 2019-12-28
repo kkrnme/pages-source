@@ -1,20 +1,16 @@
-import React from "react"
-import { Mdx, MdxEdge } from "../../../../types/graphqlTypes"
-import { BlogPageWithoutTOC } from "../../templates/BlogPageWithoutTOC"
-import LinkToPost from "../LinkToPost"
-import BlogArticleComponents from "../general/blogArticleComponents"
-import PostList from "../../templates/blog/PostList"
-import { Link } from "gatsby"
-import SwipingAnchor from "../general/SwipingAnchor"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
-  faCalendar,
-  faCalendarAlt,
-  faCalendarDay,
-  faArrowRight,
-  faTags,
   faArrowLeft,
+  faCalendarDay,
+  faTag,
+  faTags,
 } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from "react"
+import { MdxEdge } from "../../../../types/graphqlTypes"
+import PostList from "../../templates/blog/PostList"
+import { BlogPageWithoutTOC } from "../../templates/BlogPageWithoutTOC"
+import BlogArticleComponents from "../general/blogArticleComponents"
+import SwipingAnchor from "../general/SwipingAnchor"
 
 export const TagsIndex = ({
   pageContext,
@@ -44,7 +40,10 @@ export const TagsIndex = ({
           return (
             <section key={tag}>
               <BlogArticleComponents.h1>
-                <Link to={`/blog/tags/${tag}`}>{tag}</Link>
+                <SwipingAnchor to={`/blog/tags/${tag}`}>
+                  <FontAwesomeIcon icon={faTag} />
+                  {tag}
+                </SwipingAnchor>
               </BlogArticleComponents.h1>
               <PostList edges={classfiedPosts[tag]} />
             </section>
