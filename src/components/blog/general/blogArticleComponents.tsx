@@ -38,6 +38,9 @@ export const BlogArticleComponents /*: Required<Components>*/ = {
       <SwipingAnchor to={props.href!} {...props} />
     )
   },
+  strong: (props: JSX.IntrinsicElements["strong"]) => (
+    <strong className="text-gray-300" {...props}/>
+  ),
   ul: (props: any) => <ul className="list-disc py-1 px-2 pl-8" {...props} />,
   ol: (props: any) => (
     <ol className="list-decimal py-1 px-2 pl-8" {...props}></ol>
