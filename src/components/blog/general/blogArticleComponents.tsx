@@ -5,7 +5,7 @@ import SwipingAnchor from "./SwipingAnchor"
 
 export const BlogArticleComponents /*: Required<Components>*/ = {
   h1: (props: JSX.IntrinsicElements["h1"]) => (
-    <h1 className="border-b border-fluentGray-70 text-150 mt-4" {...props}></h1>
+    <h1 className="border-b border-fluentGray-70 text-150 mt-4 mb-2" {...props}></h1>
   ),
   h2: (props: JSX.IntrinsicElements["h2"]) => (
     <h2
