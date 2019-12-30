@@ -5,6 +5,7 @@ import { MdxEdge } from "../../../../types/graphqlTypes"
 import { BlogPageWithoutTOC } from "../../templates/BlogPageWithoutTOC"
 import SwipingAnchor from "../general/SwipingAnchor"
 import LinkToPost from "../LinkToPost"
+import PostList from "../../templates/blog/PostList"
 
 export const TagPage = ({
   pageContext,
@@ -31,18 +32,7 @@ export const TagPage = ({
         </SwipingAnchor>
       </p>
       <article className="p-1">
-        {pageContext.posts.map(edge => {
-          const node = edge.node
-          return (
-            <LinkToPost
-              key={node.id}
-              to={"/blog/" + node.frontmatter?.path!}
-              title={node.frontmatter?.title!}
-              excerpt={node.excerpt}
-              status={node.frontmatter?.status!}
-            />
-          )
-        })}
+        <PostList edges={pageContext.posts} />
       </article>
     </BlogPageWithoutTOC>
   )
