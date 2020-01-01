@@ -3,27 +3,28 @@ import { Components } from "@mdx-js/react"
 import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
 
+type Elm = JSX.IntrinsicElements
+
 export const BlogArticleComponents /*: Required<Components>*/ = {
-  h1: (props: JSX.IntrinsicElements["h1"]) => (
-    <h1 className="border-b border-fluentGray-70 text-150 mt-4 mb-2" {...props}></h1>
+  h1: (props: Elm["h1"]) => (
+    <h1
+      className="border-b border-fluentGray-70 text-150 mt-4 mb-2"
+      {...props}
+    ></h1>
   ),
-  h2: (props: JSX.IntrinsicElements["h2"]) => (
+  h2: (props: Elm["h2"]) => (
     <h2
       className="border-b border-fluentGray-70 font-medium text-120 px-1 pt-2"
       {...props}
     />
   ),
-  h3: (props: JSX.IntrinsicElements["h3"]) => <h3 {...props} />,
-  h4: (props: JSX.IntrinsicElements["h4"]) => <h4 {...props} />,
-  h5: (props: JSX.IntrinsicElements["h5"]) => <h5 {...props} />,
-  h6: (props: JSX.IntrinsicElements["h6"]) => <h6 {...props} />,
-  blockquote: (props: JSX.IntrinsicElements["blockquote"]) => (
-    <blockquote {...props} />
-  ),
-  p: (props: JSX.IntrinsicElements["p"]) => (
-    <p className="py-1 px-2" {...props} />
-  ),
-  a: (props: JSX.IntrinsicElements["a"]) => {
+  h3: (props: Elm["h3"]) => <h3 {...props} />,
+  h4: (props: Elm["h4"]) => <h4 {...props} />,
+  h5: (props: Elm["h5"]) => <h5 {...props} />,
+  h6: (props: Elm["h6"]) => <h6 {...props} />,
+  blockquote: (props: Elm["blockquote"]) => <blockquote {...props} />,
+  p: (props: Elm["p"]) => <p className="py-1 px-2" {...props} />,
+  a: (props: Elm["a"]) => {
     return props.className?.includes(`header-autolink`) ? (
       <a
         {...props}
@@ -38,13 +39,20 @@ export const BlogArticleComponents /*: Required<Components>*/ = {
       <SwipingAnchor to={props.href!} {...props} />
     )
   },
-  strong: (props: JSX.IntrinsicElements["strong"]) => (
-    <strong className="text-gray-300" {...props}/>
+  strong: (props: Elm["strong"]) => (
+    <strong className="text-gray-300" {...props} />
   ),
-  ul: (props: any) => <ul className="list-disc py-1 px-2 pl-8" {...props} />,
-  ol: (props: any) => (
+  ul: (props: Elm["ul"]) => (
+    <ul className="list-disc py-1 px-2 pl-8" {...props} />
+  ),
+  ol: (props: Elm["ol"]) => (
     <ol className="list-decimal py-1 px-2 pl-8" {...props}></ol>
   ),
+  code: (props: Elm["code"]) => <code {...props}></code>,
+  delete: (props: Elm["del"]) => <del {...props} />,
+  em: (props: Elm["em"]) => <em {...props} />,
+  hr: (props: Elm["hr"]) => <hr className="my-3 border-gray-600" {...props} />,
+  img: (props: Elm["img"]) => <img {...props} />,
 }
 
 export default BlogArticleComponents
