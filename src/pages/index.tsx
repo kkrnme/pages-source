@@ -46,16 +46,36 @@ export default () => (
         <br />
         Twitterを上回るくらいどうでもいいことをしゃべる。
       </Sect>
+      <Sect
+        to="https://don.nzws.me/@mmns"
+        icon={faMastodon}
+        title="don.nzws.me"
+      >
+        Mastodonサーバー。アカウントの運用方法は未知数。
+      </Sect>
       <Sect to="https://github.com/kkrnme" icon={faGithub} title="GitHub">
-        いまのところ主要な成果物はこのサイト。
+        いまのところ主要な成果物はブログ作っただけ。
         <br />
         なんか作ったら載せます。
       </Sect>
     </main>
+    <a
+      rel="me"
+      href="https://don.nzws.me/@mmns"
+      css={css`
+        display: none;
+      `}
+    >
+      Mastodon
+    </a>
   </PrimitiveBackground>
 )
 
-const Sect: React.FC<{ to: string; icon: IconProp; title: string }> = props => (
+const Sect: React.FC<{
+  to: string
+  icon: IconProp
+  title: string
+}> = props => (
   <section
     css={css`
       &:nth-of-type(odd) {
