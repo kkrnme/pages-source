@@ -8,13 +8,13 @@ type Elm = JSX.IntrinsicElements
 export const BlogArticleComponents /*: Required<Components>*/ = {
   h1: (props: Elm["h1"]) => (
     <h1
-      className="border-b border-fluentGray-70 text-150 mt-4 mb-2"
+      className="border-b border-gray-600 text-150 mt-4 mb-2"
       {...props}
     ></h1>
   ),
   h2: (props: Elm["h2"]) => (
     <h2
-      className="border-b border-fluentGray-70 font-medium text-120 px-1 pt-2"
+      className="border-b border-gray-600 font-medium text-120 px-1 pt-2 mt-2 mb-2"
       {...props}
     />
   ),
