@@ -1,6 +1,6 @@
 import React from "react"
 import LinkToPost from "../../blog/LinkToPost"
-import { Mdx } from "../../../../types/graphqlTypes"
+import { Mdx, MdxEdge } from "../../../../types/graphqlTypes"
 
 export const PostList = ({ edges: posts }: PostListProps) => (
   <ul className="list-none p-0 sm:flex-wrap sm:flex ">
@@ -19,18 +19,8 @@ export const PostList = ({ edges: posts }: PostListProps) => (
 
 export type PostListProps = {
   edges: {
-    node: {
-      frontmatter?: Nully<{
-        path: string
-        title: string
-        status: string
-      }> | null
-      excerpt: string
-      id: string
-    }
+    node: Pick<Mdx, "excerpt" | "id" | "frontmatter">
   }[]
 }
-
-type Nully<T> = { [P in keyof T]?: T[P] | undefined | null }
 
 export default PostList
