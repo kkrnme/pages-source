@@ -17,7 +17,7 @@
     "open": "gatsby serve -p 8000 -o --host 0.0.0.0",
     "start": "npm run develop",
     "serve": "gatsby serve -p 8000 --host 0.0.0.0",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "jest"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
@@ -69,6 +69,8 @@
     "typescript": "^3.7.4"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/react-test-renderer": "^16.9.1",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.26",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
