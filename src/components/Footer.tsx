@@ -3,7 +3,7 @@ import SwipingAnchor from "./blog/general/SwipingAnchor"
 
 export const SiteFooter = () => (
   <footer className="text-center">
-    <p>KKRN.ME version 19.12.3</p>
+    <p>KKRN.ME version 20.01.1</p>
     <p>
       {"Hosted on "}
       <SwipingAnchor to="https://github.com/kkrnme/kkrnme.github.io">
