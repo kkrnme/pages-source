@@ -17,7 +17,7 @@
     "open": "gatsby serve -p 8000 -o --host 0.0.0.0",
     "start": "npm run develop",
     "serve": "gatsby serve -p 8000 --host 0.0.0.0",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
+    "test": "jest"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",
@@ -30,10 +30,10 @@
     "@fortawesome/react-fontawesome": "^0.1.8",
     "@mdx-js/mdx": "^1.5.3",
     "@mdx-js/react": "^1.5.3",
-    "@types/node": "^13.1.2",
+    "@types/node": "^13.1.4",
     "@types/react": "^16.9.17",
     "@types/react-dom": "^16.9.4",
-    "@types/react-helmet": "^5.0.14",
+    "@types/react-helmet": "^5.0.15",
     "@types/twemoji": "^12.1.0",
     "csstype": "^2.6.8",
     "gatsby": "^2.18.17",
@@ -69,11 +69,18 @@
     "typescript": "^3.7.4"
   },
   "devDependencies": {
+    "@types/jest": "^24.0.25",
+    "@types/react-test-renderer": "^16.9.1",
+    "babel-jest": "^24.9.0",
+    "babel-preset-gatsby": "^0.2.26",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gh-pages": "^2.1.1",
     "graphql": "^14.5.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.9.0",
     "onchange": "^6.1.0",
     "prettier": "^1.19.1",
+    "react-test-renderer": "^16.12.0",
     "typescript-styled-plugin": "^0.15.0"
   }
 }
