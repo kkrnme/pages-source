@@ -51,6 +51,12 @@ module.exports = {
       resolve: `gatsby-plugin-graphql-codegen`,
       options: {
         fileName: `types/graphqlTypes.d.ts`,
+        codegen: false,
+        documentPaths: [
+          //"./src/**/*.{ts,tsx}",
+          //"./.cache/fragments/*.js",
+          //"./node_modules/gatsby-*/**/*.js",
+        ],
       },
     },
     {
