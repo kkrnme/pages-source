@@ -3,6 +3,9 @@ import SwipingAnchor from "./blog/general/SwipingAnchor"
 
 export const SiteFooter = () => (
   <footer className="text-center">
+    {
+      //FIXME バージョンを変えとく
+    }
     <p>KKRN.ME version 20.01.1</p>
     <p>
       {"Hosted on "}
