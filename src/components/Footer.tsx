@@ -6,7 +6,7 @@ export const SiteFooter = () => (
     {
       //FIXME バージョンを変えとく
     }
-    <p>KKRN.ME version 20.01.1</p>
+    <p>CHIRAURA.KKRN.ME version 20.01.1</p>
     <p>
       {"Hosted on "}
       <SwipingAnchor to="https://github.com/kkrnme/kkrnme.github.io">
