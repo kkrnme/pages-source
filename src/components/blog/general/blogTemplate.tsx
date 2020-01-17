@@ -27,7 +27,7 @@ export const BlogTemplate = ({
   })
   return (
     <BlogPageWithTOC
-      title={`${node.frontmatter?.title} - KKRN.ME`}
+      title={`${node.frontmatter?.title}`}
       description={node.frontmatter?.description ?? node.excerpt}
       TOC={TOC}
       visible={isSmallerThanMd}

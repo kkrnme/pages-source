@@ -22,10 +22,10 @@ export const TagsIndex = ({
   const { classfiedPosts } = pageContext
   return (
     <BlogPageWithoutTOC
-      title="Tags - KKRN.ME"
+      title="Tags"
       description="エンジニア系高校生ブログ。タグのリスト"
     >
-      <h1 className="text-center text-200 font-bold">kkrnme-blog</h1>
+      <h1 className="text-center text-200 font-bold">CHIR.KKRN.ME</h1>
       <p className="text-center">
         <SwipingAnchor to="/blog">
           日付順

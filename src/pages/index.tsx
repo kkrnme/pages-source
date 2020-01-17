@@ -27,7 +27,7 @@ export default () => (
       filter: saturate(0.9);
     `}
     description="KKRN.ME, もみにすのサイトです。プログラミングしたりしなかったり。"
-    title="HOME - KKRN.ME"
+    title="HOME"
   >
     <main className="md:mx-auto md:w-3/4 max-w-2xl">
       <h1 className="text-400">KKRN.ME</h1>
