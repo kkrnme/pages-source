@@ -19,7 +19,7 @@ const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
       title="BLOG"
       description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
     >
-      <h1 className="text-center text-200 font-bold">CHIRAURA.KKRN.ME</h1>
+      <h1 className="text-center text-200 font-bold">CHIR.KKRN.ME</h1>
       <p className="text-center">
         <SwipingAnchor to="/blog/tags">
           日付順
