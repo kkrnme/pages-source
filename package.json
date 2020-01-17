@@ -74,11 +74,8 @@
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.26",
     "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
-    "gh-pages": "^2.2.0",
-    "graphql": "^14.5.8",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "onchange": "^6.1.0",
     "prettier": "^1.19.1",
     "react-test-renderer": "^16.12.0",
     "typescript-styled-plugin": "^0.15.0"
