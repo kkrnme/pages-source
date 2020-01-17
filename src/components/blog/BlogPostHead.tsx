@@ -4,7 +4,7 @@ import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
 import { TagComponent, TagLink } from "./tags/TagComponent"
 
-export const BlogPostHead: React.FC<ArticleHeadProps> = ({ post }) => (
+export const BlogPostHead: React.FC<BlogPostHeadProps> = ({ post }) => (
   <div>
     <div
       css={css`
@@ -34,7 +34,7 @@ export const BlogPostHead: React.FC<ArticleHeadProps> = ({ post }) => (
   </div>
 )
 
-export interface ArticleHeadProps {
+export type BlogPostHeadProps = {
   post: MdxEdge
 }
 
