@@ -5,7 +5,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
-import React, { ReactNode } from "react"
+import React, { ReactChild } from "react"
+
+const HeaderButtonList: HeaderButtonProps[] = [
+  { to: "/", icon: faHome, children: "HOME" },
+  { to: "/blog/", icon: faBlog, children: "BLOG" },
+]
 
 export const SiteHeader = () => {
   return (
@@ -17,35 +22,30 @@ export const SiteHeader = () => {
      transition"
       >
         <ul className="list-none flex p-0 self-start ">
-          <ListLink to="/" icon={faHome}>
-            HOME
-          </ListLink>
-          <ListLink to="/blog/" icon={faBlog}>
-            BLOG
-          </ListLink>
+          {HeaderButtonList.map(p => (
+            <li key={p.children.toString()} className="m-1 block">
+              <HeaderButton {...p} />
+            </li>
+          ))}
         </ul>
       </div>
     </header>
   )
 }
 
-const ListLink = ({
-  children,
-  to,
-  icon,
-}: {
-  children: ReactNode
+const HeaderButton: React.FC<HeaderButtonProps> = ({ to, icon, children }) => (
+  <Link to={to} className="no-underline text-gray-300">
+    <span>
+      <FontAwesomeIcon icon={icon} className="text-150" />
+      <span>{children}</span>
+    </span>
+  </Link>
+)
+
+type HeaderButtonProps = {
+  children: ReactChild
   to: string
   icon: IconDefinition
-}) => (
-  <li className="m-1 block">
-    <Link to={to} className="no-underline text-white">
-      <span className="">
-        <FontAwesomeIcon icon={icon} className="text-150" />
-        <span>{children}</span>
-      </span>
-    </Link>
-  </li>
-)
+}
 
 export default SiteHeader

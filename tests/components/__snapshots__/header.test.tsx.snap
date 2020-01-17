@@ -15,15 +15,13 @@ exports[`Header renders correctly 1`] = `
       >
         <a
           aria-current="page"
-          className="no-underline text-white"
+          className="no-underline text-gray-300"
           href="/"
           onClick={[Function]}
           onMouseEnter={[Function]}
           style={Object {}}
         >
-          <span
-            className=""
-          >
+          <span>
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-home fa-w-18 text-150"
@@ -51,14 +49,12 @@ exports[`Header renders correctly 1`] = `
         className="m-1 block"
       >
         <a
-          className="no-underline text-white"
+          className="no-underline text-gray-300"
           href="/blog/"
           onClick={[Function]}
           onMouseEnter={[Function]}
         >
-          <span
-            className=""
-          >
+          <span>
             <svg
               aria-hidden="true"
               className="svg-inline--fa fa-blog fa-w-16 text-150"
