@@ -3011,12 +3011,6 @@ export type SitePageFieldsEnum =
   'pluginCreator___pluginOptions___whitelist' |
   'pluginCreator___pluginOptions___fonts' |
   'pluginCreator___pluginOptions___display' |
-  'pluginCreator___pluginOptions___short_name' |
-  'pluginCreator___pluginOptions___description' |
-  'pluginCreator___pluginOptions___start_url' |
-  'pluginCreator___pluginOptions___background_color' |
-  'pluginCreator___pluginOptions___theme_color' |
-  'pluginCreator___pluginOptions___icon' |
   'pluginCreator___pluginOptions___openAnalyzer' |
   'pluginCreator___pluginOptions___pathCheck' |
   'pluginCreator___nodeAPIs' |
@@ -3233,12 +3227,6 @@ export type SitePluginFieldsEnum =
   'pluginOptions___whitelist' |
   'pluginOptions___fonts' |
   'pluginOptions___display' |
-  'pluginOptions___short_name' |
-  'pluginOptions___description' |
-  'pluginOptions___start_url' |
-  'pluginOptions___background_color' |
-  'pluginOptions___theme_color' |
-  'pluginOptions___icon' |
   'pluginOptions___openAnalyzer' |
   'pluginOptions___pathCheck' |
   'nodeAPIs' |
@@ -3370,12 +3358,6 @@ export type SitePluginPluginOptions = {
   whitelist?: Maybe<Array<Maybe<Scalars['String']>>>,
   fonts?: Maybe<Array<Maybe<Scalars['String']>>>,
   display?: Maybe<Scalars['String']>,
-  short_name?: Maybe<Scalars['String']>,
-  description?: Maybe<Scalars['String']>,
-  start_url?: Maybe<Scalars['String']>,
-  background_color?: Maybe<Scalars['String']>,
-  theme_color?: Maybe<Scalars['String']>,
-  icon?: Maybe<Scalars['String']>,
   openAnalyzer?: Maybe<Scalars['Boolean']>,
   pathCheck?: Maybe<Scalars['Boolean']>,
 };
@@ -3395,12 +3377,6 @@ export type SitePluginPluginOptionsFilterInput = {
   whitelist?: Maybe<StringQueryOperatorInput>,
   fonts?: Maybe<StringQueryOperatorInput>,
   display?: Maybe<StringQueryOperatorInput>,
-  short_name?: Maybe<StringQueryOperatorInput>,
-  description?: Maybe<StringQueryOperatorInput>,
-  start_url?: Maybe<StringQueryOperatorInput>,
-  background_color?: Maybe<StringQueryOperatorInput>,
-  theme_color?: Maybe<StringQueryOperatorInput>,
-  icon?: Maybe<StringQueryOperatorInput>,
   openAnalyzer?: Maybe<BooleanQueryOperatorInput>,
   pathCheck?: Maybe<BooleanQueryOperatorInput>,
 };
