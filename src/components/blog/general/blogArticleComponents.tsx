@@ -5,7 +5,7 @@ import SwipingAnchor from "./SwipingAnchor"
 
 type Elm = JSX.IntrinsicElements
 
-export const BlogArticleComponents /*: Required<Components>*/ = {
+export const BlogArticleComponents: Required<Components> = {
   h1: (props: Elm["h1"]) => (
     <h1 className="border-b border-gray-600 text-150 mt-4 mb-2" {...props}></h1>
   ),
@@ -50,6 +50,13 @@ export const BlogArticleComponents /*: Required<Components>*/ = {
   em: (props: Elm["em"]) => <em {...props} />,
   hr: (props: Elm["hr"]) => <hr className="my-3 border-gray-600" {...props} />,
   img: (props: Elm["img"]) => <img {...props} />,
+  inlineCode: (props: Elm["code"]) => <code {...props} />,
+  li: (props: Elm["li"]) => <li {...props} />,
+  pre: (props: Elm["pre"]) => <pre {...props} />,
+  thematicBreak: (props: Elm["br"]) => <br />,
+  tr: (props: Elm["tr"]) => <tr {...props} />,
+  table: (props: Elm["table"]) => <table {...props} />,
+  td: (props: Elm["td"]) => <td {...props} />,
 }
 
 export default BlogArticleComponents
