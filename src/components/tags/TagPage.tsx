@@ -22,7 +22,7 @@ export const TagPage = ({
         {pageContext.tag}
       </h1>
       <p className="text-center">
-        <SwipingAnchor to="/blog">
+        <SwipingAnchor to="/">
           日付順
           <FontAwesomeIcon icon={faCalendarDay} />
         </SwipingAnchor>{" "}

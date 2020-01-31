@@ -27,7 +27,7 @@ export const TagsIndex = ({
     >
       <h1 className="text-center text-200 font-bold">CHIR.KKRN.ME</h1>
       <p className="text-center">
-        <SwipingAnchor to="/blog">
+        <SwipingAnchor to="/">
           日付順
           <FontAwesomeIcon icon={faCalendarDay} />{" "}
           <FontAwesomeIcon icon={faArrowLeft} />{" "}
