@@ -16,7 +16,7 @@ export const PrevNextLink = ({ post }: { post: MdxEdge }) => {
       {previous != undefined ? (
         <PrevNextLinkButton
           enabled
-          to={"/blog/" + previous.frontmatter?.path ?? "path-not-found"}
+          to={previous.frontmatter?.path ?? "path-not-found"}
         >
           {previous.frontmatter?.title}
         </PrevNextLinkButton>
@@ -27,10 +27,7 @@ export const PrevNextLink = ({ post }: { post: MdxEdge }) => {
       )}
 
       {next != null ? (
-        <PrevNextLinkButton
-          enabled
-          to={"/blog/" + next.frontmatter?.path ?? "/"}
-        >
+        <PrevNextLinkButton enabled to={next.frontmatter?.path ?? "/"}>
           {next.frontmatter?.title}
         </PrevNextLinkButton>
       ) : (

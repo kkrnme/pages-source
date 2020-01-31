@@ -79,7 +79,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     }
     createPage({
       path: post.node.frontmatter.path,
-      component: Path.resolve(`./src/components/blog/general/blogTemplate.tsx`),
+      component: Path.resolve(`./src/components/general/BlogTemplate.tsx`),
       context: { post, id: post.node.id },
     })
   })
@@ -87,14 +87,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
   Object.keys(classfiedPosts).forEach(tag => {
     return createPage({
       path: `/tags/${tag}/`,
-      component: Path.resolve(`./src/components/blog/tags/TagPage.tsx`),
+      component: Path.resolve(`./src/components/tags/TagPage.tsx`),
       context: { posts: classfiedPosts[tag], tag },
     })
   })
 
   createPage({
     path: "/tags/",
-    component: Path.resolve(`./src/components/blog/tags/TagsIndex.tsx`),
+    component: Path.resolve(`./src/components/tags/TagsIndex.tsx`),
     context: { classfiedPosts },
   })
 }

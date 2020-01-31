@@ -1,8 +1,13 @@
 import React from "react"
 import SwipingAnchor from "./general/SwipingAnchor"
+import { css } from "@emotion/core"
 
 export const SiteFooter = () => (
-  <footer className="text-center">
+  <footer
+    css={css`
+      text-align: center;
+    `}
+  >
     {
       //FIXME バージョンを変えとく
     }

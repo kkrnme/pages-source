@@ -31,7 +31,7 @@ export default () => (
   >
     <main className="md:mx-auto md:w-3/4 max-w-2xl">
       <h1 className="text-400">KKRN.ME</h1>
-      <Sect to="/blog/" icon={faFileAlt} title="Blog">
+      <Sect to="/" icon={faFileAlt} title="Blog">
         脳のしわの奥底から発掘された怪文書。
       </Sect>
       <Sect to="https://twitter.com/MominisJ" icon={faTwitter} title="Twitter">

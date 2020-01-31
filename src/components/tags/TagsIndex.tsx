@@ -40,7 +40,7 @@ export const TagsIndex = ({
           return (
             <section key={tag}>
               <BlogArticleComponents.h1>
-                <SwipingAnchor to={`/blog/tags/${tag}`}>
+                <SwipingAnchor to={`tags/${tag}`}>
                   <FontAwesomeIcon icon={faTag} />
                   {tag}
                 </SwipingAnchor>
@@ -55,12 +55,3 @@ export const TagsIndex = ({
 }
 
 export default TagsIndex
-
-/**Object.keys(pageContext).map(tag => pageContext.classfiedPosts[tag]).map(post => (
-          <LinkToPost
-            to={post.frontmatter?.path!}
-            title={post.frontmatter?.path!}
-            excerpt={post.excerpt}
-            status={post.frontmatter?.status!}
-          />
-        )) */

@@ -26,7 +26,7 @@ export const TagPage = ({
           日付順
           <FontAwesomeIcon icon={faCalendarDay} />
         </SwipingAnchor>{" "}
-        <SwipingAnchor to={"/blog/tags"}>
+        <SwipingAnchor to={"/tags"}>
           <FontAwesomeIcon icon={faTags} />
           タグ一覧
         </SwipingAnchor>

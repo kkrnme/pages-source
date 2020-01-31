@@ -12,7 +12,7 @@ import {
   faCalendarDay,
 } from "@fortawesome/free-solid-svg-icons"
 
-const BlogIndex = ({ data }: { data: BlogIndexQuery }) => {
+const Index = ({ data }: { data: BlogIndexQuery }) => {
   const edges = data.allMdx.edges
   return (
     <BlogPageWithoutTOC
@@ -57,4 +57,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default BlogIndex
+export default Index
