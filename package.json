@@ -64,6 +64,7 @@
     "react-twemoji": "^0.2.3",
     "tailwind.macro": "^1.0.0-alpha.10",
     "tailwindcss": "^1.1.4",
+    "ts-essentials": "^5.0.0",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.4"
   },
