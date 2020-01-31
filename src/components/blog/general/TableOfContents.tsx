@@ -1,18 +1,13 @@
 import { InterpolationWithTheme, css } from "@emotion/core"
 import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
+import { DeepReadonly } from "ts-essentials"
 
-export const TableOfContents: React.FC<{
-  TOC: TOC
-  className?: string
-  css?: InterpolationWithTheme<any>
-}> = props => (
+export const TableOfContents: React.FC<TOCComponentProps> = props => (
   <nav
-    className={
-      "text-90 bg-monochrome-2 border border-gray-700 rounded p-2  " +
-        props.className ?? ""
-    }
+    className="text-90 bg-monochrome-2 border border-gray-700 rounded p-2  "
     css={css`
+      font-size: 0.9rem;
       width: 235px;
     `}
   >
@@ -20,7 +15,7 @@ export const TableOfContents: React.FC<{
   </nav>
 )
 
-const TOCItemConponent: React.FC<{ items: TOCItem[] }> = ({ items }) => (
+const TOCItemConponent: React.FC<TOC> = ({ items }) => (
   <ul>
     {items.map(i => (
       <li key={i.title} className="ml-1">
@@ -31,6 +26,16 @@ const TOCItemConponent: React.FC<{ items: TOCItem[] }> = ({ items }) => (
   </ul>
 )
 
-export type TOC = { items: TOCItem[] }
+export type TOCComponentProps = DeepReadonly<{
+  TOC: TOC
+  className?: string
+  css?: InterpolationWithTheme<any>
+}>
 
-export type TOCItem = { url: string; title: string; items?: TOCItem[] }
+export type TOC = DeepReadonly<{ items: TOCItems }>
+
+export type TOCItems = {
+  url: string
+  title: string
+  items?: TOCItems
+}[]

@@ -2,10 +2,11 @@ import { css } from "@emotion/core"
 import { Components } from "@mdx-js/react"
 import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
+import { DeepReadonly } from "ts-essentials"
 
 type Elm = JSX.IntrinsicElements
 
-export const BlogArticleComponents: Required<Components> = {
+export const BlogArticleComponents: DeepReadonly<Required<Components>> = {
   h1: (props: Elm["h1"]) => (
     <h1 className="border-b border-gray-600 text-150 mt-4 mb-2" {...props}></h1>
   ),
