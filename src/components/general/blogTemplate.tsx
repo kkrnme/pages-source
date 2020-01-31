@@ -1,14 +1,14 @@
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useState } from "react"
-import { MdxEdge } from "../../../../types/graphqlTypes"
-import BlogPostHead from "../BlogPostHead"
-import { Warn } from "../Notes"
-import PrevNextLink from "../PrevNextLink"
+import { MdxEdge } from "../../../types/graphqlTypes"
+import BlogPostHead from "./BlogPostHead"
+import { Warn } from "./Notes"
+import PrevNextLink from "./PrevNextLink"
 import blogArticleComponents from "./blogArticleComponents"
 import { TableOfContents, TOC } from "./TableOfContents"
-import { onFirstRender } from "../../../hooks/onFirstRender"
-import { BlogPageWithTOC } from "../../templates/BlogPageWithTOC"
+import { onFirstRender } from "../../hooks/onFirstRender"
+import { BlogPageWithTOC } from "../templates/BlogPageWithTOC"
 
 export const BlogTemplate = ({
   pageContext,

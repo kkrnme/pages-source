@@ -2,7 +2,7 @@ import { css } from "@emotion/core"
 import GeoPattern from "geopattern"
 import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
-import { TagComponent, TagLink } from "./tags/TagComponent"
+import { TagComponent, TagLink } from "../tags/TagComponent"
 
 export const BlogPostHead: React.FC<BlogPostHeadProps> = ({ post }) => (
   <div>

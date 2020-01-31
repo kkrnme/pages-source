@@ -1,11 +1,11 @@
 import { faCalendarDay, faTag, faTags } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
-import { MdxEdge } from "../../../../types/graphqlTypes"
-import { BlogPageWithoutTOC } from "../../templates/BlogPageWithoutTOC"
+import { MdxEdge } from "../../../types/graphqlTypes"
+import { BlogPageWithoutTOC } from "../templates/BlogPageWithoutTOC"
 import SwipingAnchor from "../general/SwipingAnchor"
-import LinkToPost from "../LinkToPost"
-import PostList from "../../templates/blog/PostList"
+import LinkToPost from "../general/LinkToPost"
+import PostList from "../templates/blog/PostList"
 
 export const TagPage = ({
   pageContext,

@@ -6,9 +6,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
-import { MdxEdge } from "../../../../types/graphqlTypes"
-import PostList from "../../templates/blog/PostList"
-import { BlogPageWithoutTOC } from "../../templates/BlogPageWithoutTOC"
+import { MdxEdge } from "../../../types/graphqlTypes"
+import PostList from "../templates/blog/PostList"
+import { BlogPageWithoutTOC } from "../templates/BlogPageWithoutTOC"
 import BlogArticleComponents from "../general/blogArticleComponents"
 import SwipingAnchor from "../general/SwipingAnchor"
 

@@ -1,5 +1,5 @@
 import { Meta } from "./templates"
-import { TOC, TableOfContents } from "../blog/general/TableOfContents"
+import { TOC, TableOfContents } from "../general/TableOfContents"
 import React from "react"
 import { BlogMain } from "./BlogMain"
 import { css } from "@emotion/core"

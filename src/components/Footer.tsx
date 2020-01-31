@@ -1,5 +1,5 @@
 import React from "react"
-import SwipingAnchor from "./blog/general/SwipingAnchor"
+import SwipingAnchor from "./general/SwipingAnchor"
 
 export const SiteFooter = () => (
   <footer className="text-center">

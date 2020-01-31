@@ -1,5 +1,5 @@
 import React, { ReactChild } from "react"
-import { Stylable } from "../../Components"
+import { Stylable } from "../Components"
 import { Link } from "gatsby"
 
 export const TagComponent: React.FC<TagComponentProps> = props => (

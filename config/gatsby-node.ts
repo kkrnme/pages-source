@@ -8,7 +8,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   reporter,
 }) => {
   type Data = {
-    allMdx: MdxConnection
+    allMdx: Pick<MdxConnection, "edges">
   }
   const { createPage } = actions
   const result = await graphql<Data>(`
@@ -78,7 +78,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
       })
     }
     createPage({
-      path: "/blog/" + post.node.frontmatter.path,
+      path: post.node.frontmatter.path,
       component: Path.resolve(`./src/components/blog/general/blogTemplate.tsx`),
       context: { post, id: post.node.id },
     })
@@ -86,14 +86,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
 
   Object.keys(classfiedPosts).forEach(tag => {
     return createPage({
-      path: "/blog/tags/" + tag + "/",
+      path: `/tags/${tag}/`,
       component: Path.resolve(`./src/components/blog/tags/TagPage.tsx`),
       context: { posts: classfiedPosts[tag], tag },
     })
   })
 
   createPage({
-    path: "/blog/tags/",
+    path: "/tags/",
     component: Path.resolve(`./src/components/blog/tags/TagsIndex.tsx`),
     context: { classfiedPosts },
   })
