@@ -2225,6 +2225,20 @@
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
 
+"@welldone-software/why-did-you-render@^3.5.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@welldone-software/why-did-you-render/-/why-did-you-render-3.6.0.tgz#cdbf1bbfd7b5ebf9f89a895c1764cb0430a4f392"
+  integrity sha512-UQEfDlsAm2xgPObUvlBdqp0lph+at1Z+KPYtl33gPGKZx/yPFQEZVgpycRAhNyQjmaFbqhIqub7X/y5v/vAlmw==
+  dependencies:
+    lodash "^4"
+
+"@welldone-software/why-did-you-render@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@welldone-software/why-did-you-render/-/why-did-you-render-4.0.0.tgz#cc98c996f5a06ea55bd07dc99ba4b4d68af93332"
+  integrity sha512-PjqriZ8Ak9biP2+kOcIrg+NwsFwWVhGV03Hm+ns84YBCArn+hWBKM9rMBEU6e62I1qyrYF2/G9yktNpEmfWfJA==
+  dependencies:
+    lodash "^4"
+
 "@wry/equality@^0.1.2":
   version "0.1.9"
   resolved "https://registry.yarnpkg.com/@wry/equality/-/equality-0.1.9.tgz#b13e18b7a8053c6858aa6c85b54911fb31e3a909"
@@ -6720,6 +6734,13 @@ gatsby-plugin-webpack-bundle-analyzer@^1.0.5:
   dependencies:
     webpack-bundle-analyzer "^3.3.2"
 
+gatsby-plugin-why-did-you-render@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-why-did-you-render/-/gatsby-plugin-why-did-you-render-1.0.1.tgz#dcf5b3664650b64c6fa26b12ea333ba9e9040382"
+  integrity sha512-jvtK7bQk/dchyzi8i8Y2Gj0fjD+LjmP5YbN0RQo/jbc+MBatpCWoCfCTuJbK8IET4bVcpcl4/hHcuyR5YxbFJg==
+  dependencies:
+    "@welldone-software/why-did-you-render" "^3.5.0"
+
 gatsby-react-router-scroll@^2.1.20:
   version "2.1.20"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.1.20.tgz#bd208ae384597a6a9af8f6ef50c9c90f44965d48"
@@ -9596,7 +9617,7 @@ lodash.uniq@4.5.0, lodash.uniq@^4.5.0:
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@4.17.15, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
+lodash@4.17.15, lodash@^4, lodash@^4.11.1, lodash@^4.15.0, lodash@^4.17.11, lodash@^4.17.13, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.3.0:
   version "4.17.15"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
   integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==

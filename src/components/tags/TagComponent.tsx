@@ -12,7 +12,7 @@ export const TagComponent: React.FC<TagComponentProps> = props => (
 
 export const TagLink: React.FC<TagLinkProps> = props => (
   <TagComponent className="bg-yellow-500">
-    <Link to={"tags/" + props.children}>{props.children}</Link>
+    <Link to={`/tags/${props.children}/`}>{props.children}</Link>
   </TagComponent>
 )
 

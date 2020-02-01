@@ -73,7 +73,7 @@ export const SiteHeader = styled(Component)`
 `
 
 const HeaderButton: React.FC<HeaderButtonProps> = ({ to, icon, children }) => (
-  <Link to={`/${to}/`} className="no-underline text-gray-300">
+  <Link to={`${to}`} className="no-underline text-gray-300">
     <span>
       <FontAwesomeIcon icon={icon} className="text-150" />
       <span>{children}</span>

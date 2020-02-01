@@ -4,13 +4,9 @@ import Twemoji from "react-twemoji"
 import Helmet from "react-helmet"
 import "../../styles/tailwind.css"
 import styled from "@emotion/styled"
+import { PlainComponent } from "../../utils/PlainComponent"
 
-/**
- *
- * あらゆるページはこれをルートに持つ。
- * @param props titleには自動的に`"- CHIR.KKRN.ME"が追加される。`
- */
-const Component: React.FC<BackgroundProps> = props => (
+const Component: PlainComponent<BackgroundProps> = props => (
   <Twemoji noWrapper>
     <div className={props.className}>
       <Helmet>
@@ -23,6 +19,11 @@ const Component: React.FC<BackgroundProps> = props => (
   </Twemoji>
 )
 
+/**
+ *
+ * あらゆるページはこれをルートに持つ。
+ * @param props titleには自動的に`"- CHIR.KKRN.ME"が追加される。`
+ */
 export const StyledComponent = styled(Component)`
   min-height: 100vh;
   height: 100%;

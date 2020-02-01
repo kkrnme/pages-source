@@ -2,29 +2,8 @@ import { InterpolationWithTheme, css } from "@emotion/core"
 import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
 import { DeepReadonly } from "ts-essentials"
-
-export const TableOfContents: React.FC<TOCComponentProps> = props => (
-  <nav
-    className="text-90 bg-monochrome-2 border border-gray-700 rounded p-2  "
-    css={css`
-      font-size: 0.9rem;
-      width: 235px;
-    `}
-  >
-    <TOCItemConponent items={props.TOC.items} />
-  </nav>
-)
-
-const TOCItemConponent: React.FC<TOC> = ({ items }) => (
-  <ul>
-    {items.map(i => (
-      <li key={i.title} className="ml-1">
-        <SwipingAnchor to={i.url}>{i.title}</SwipingAnchor>
-        {i.items ? <TOCItemConponent items={i.items} /> : null}
-      </li>
-    ))}
-  </ul>
-)
+import styled from "@emotion/styled"
+import { scheme } from "../../colors/colors"
 
 export type TOCComponentProps = DeepReadonly<{
   TOC: TOC
@@ -39,3 +18,30 @@ export type TOCItems = {
   title: string
   items?: TOCItems
 }[]
+
+const TOCItemComponent: React.FC<TOC> = ({ items }) => (
+  <ul>
+    {items.map(i => (
+      <li key={i.title} className="ml-1">
+        <SwipingAnchor to={i.url}>{i.title}</SwipingAnchor>
+        {i.items ? <TOCItemComponent items={i.items} /> : null}
+      </li>
+    ))}
+  </ul>
+)
+
+export const Component: React.FC<TOCComponentProps> = ({ className, TOC }) => (
+  <nav className={className}>
+    <TOCItemComponent items={TOC.items} />
+  </nav>
+)
+
+export const StyledComponent = styled(Component)`
+  font-size: 0.9rem;
+  background-color: #222;
+  border: 1px solid ${scheme.border};
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+`
+
+export { StyledComponent as TableOfContents }

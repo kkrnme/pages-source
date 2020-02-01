@@ -79,7 +79,7 @@ export const PrevNextLinkButton: React.FC<PrevNextLinkButtonProps> = props => {
 
 const LinkOrSpan: React.FC<PrevNextLinkButtonProps> = props => {
   return props.enabled ? (
-    <Link className="block py-2 px-3 h-full" to={props.to}>
+    <Link className="block py-2 px-3 h-full" to={`/${props.to}/`}>
       {props.children}
     </Link>
   ) : (
