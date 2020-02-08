@@ -1,53 +1,63 @@
 import { MDXProvider } from "@mdx-js/react"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import React, { useState } from "react"
-import { MdxEdge } from "../../../types/graphqlTypes"
-import BlogPostHead from "../organisms/BlogPostHead"
+import { MdxEdge, Mdx, MdxFrontmatter } from "../../../types/graphqlTypes"
+import BlogPostHead, { BlogPostHeadProps } from "../organisms/BlogPostHead"
 import { Warn } from "../molecules/Notes"
-import PrevNextLink from "../organisms/PrevNextLink"
+import PrevNextLink, { PrevNextLinkProps } from "../organisms/PrevNextLink"
 import blogArticleComponents from "../general/MDXComponents"
 import { TableOfContents, TOC } from "../organisms/TableOfContents"
 import { onFirstRender } from "../../hooks/onFirstRender"
-import { BlogPageWithTOC } from "./BlogPageWithTOC"
+import { BlogPage } from "./BlogPage"
+import { DeepReadonly } from "ts-essentials"
+
+type BlogTemplateProps = DeepReadonly<{
+  pageContext: {
+    post: {
+      node: {
+        body: string
+        excerpt: string
+        tableOfContents: TOC
+        frontmatter?: { description?: string; path?: string; status?: string }
+      }
+    } & PrevNextLinkProps["post"] &
+      BlogPostHeadProps["post"]
+  }
+}>
 
 export const BlogTemplate = ({
-  pageContext,
-}: {
-  pageContext: { post: MdxEdge }
-}) => {
-  const { post } = pageContext,
-    node = post.node,
-    TOC: TOC = node.tableOfContents
-  const [isSmallerThanMd, setISTM] = useState(false)
-  onFirstRender(() => {
-    setISTM(matchMedia("(max-width: 1023px)").matches)
-    addEventListener("resize", () =>
-      setISTM(matchMedia("(max-width: 1023px)").matches)
-    )
-  })
-  return (
-    <BlogPageWithTOC
-      title={`${node.frontmatter?.title}`}
-      description={node.frontmatter?.description ?? node.excerpt}
-      TOC={TOC}
-      visible={isSmallerThanMd}
-    >
-      <BlogPostHead post={post} />
-      <PrevNextLink post={post} />
-      <article className="p-3 md:p-5">
-        {node.frontmatter?.status === "draft" ? (
-          <Warn>この記事は書きかけです。</Warn>
-        ) : null}
-        {isSmallerThanMd ? (
-          <TableOfContents TOC={TOC} className="my-1" />
-        ) : null}
-        <MDXProvider components={blogArticleComponents}>
-          <MDXRenderer>{post.node.body}</MDXRenderer>
-        </MDXProvider>
-      </article>
-      <PrevNextLink post={post} />
-    </BlogPageWithTOC>
-  )
-}
+  pageContext: {
+    post,
+    post: {
+      node: {
+        body,
+        excerpt,
+        frontmatter: { title, description = excerpt, status } = {
+          title: "",
+          description: excerpt,
+          date: "",
+          tags: [],
+          path: "404",
+          status: "private",
+        },
+        tableOfContents: TOC,
+      },
+    },
+  },
+}: BlogTemplateProps) => (
+  <BlogPage title={`${title}`} description={description}>
+    <BlogPostHead post={post} />
+    <PrevNextLink post={post} />
+    <article className="p-3 md:p-5">
+      {status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
+
+      <TableOfContents TOC={TOC} className="my-1" />
+      <MDXProvider components={blogArticleComponents}>
+        <MDXRenderer>{body}</MDXRenderer>
+      </MDXProvider>
+    </article>
+    <PrevNextLink post={post} />
+  </BlogPage>
+)
 
 export default BlogTemplate

@@ -53,9 +53,6 @@ export const ss: DeepReadonly<{ [index in stylekeys]: SerializedStyles }> = {
     ${mq[2]} {
       max-width: 1024px;
     }
-    ${mq[3]} {
-      max-width: 1280px;
-    }
   `,
   centered: css`
     ${ds.marx("auto")}

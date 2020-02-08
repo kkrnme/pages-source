@@ -36,8 +36,8 @@ export const MDXComponents: DeepReadonly<Required<Components>> = {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
   `,
-  a: (props: Elm["a"]) => {
-    return props.className?.includes(`header-autolink`) ? (
+  a: (props: Elm["a"]) =>
+    props.className?.includes(`header-autolink`) ? (
       <a
         {...props}
         className="bg-monochrome-e rounded-full hover:bg-blue-400 transition mr-1"
@@ -49,8 +49,7 @@ export const MDXComponents: DeepReadonly<Required<Components>> = {
       />
     ) : (
       <SwipingAnchor to={props.href!} {...props} />
-    )
-  },
+    ),
   strong: styled.strong``,
   ul: (props: Elm["ul"]) => (
     <ul className="list-disc py-1 px-2 pl-8" {...props} />

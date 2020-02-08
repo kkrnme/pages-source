@@ -2,7 +2,7 @@ import { faCalendarDay, faTag, faTags } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
-import { BlogPageWithoutTOC } from "./BlogPageWithoutTOC"
+import { BlogPage } from "./BlogPage"
 import SwipingAnchor from "../atoms/SwipingAnchor"
 import LinkToPost from "../molecules/LinkToPost"
 import PostList from "./blog/PostList"
@@ -13,7 +13,7 @@ export const TagPage = ({
   pageContext: { posts: MdxEdge[]; tag: string }
 }) => {
   return (
-    <BlogPageWithoutTOC
+    <BlogPage
       description="エンジニア系高校生のグダいブログ。タグ別目次。"
       title={"List of" + pageContext.tag}
     >
@@ -34,7 +34,7 @@ export const TagPage = ({
       <article className="p-1">
         <PostList edges={pageContext.posts} />
       </article>
-    </BlogPageWithoutTOC>
+    </BlogPage>
   )
 }
 

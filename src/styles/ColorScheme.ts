@@ -17,6 +17,6 @@ export const cs: DeepReadonly<
   cardBackground: "#303030",
   primaryAccent: "#63b3ed",
   secondaryAccent: "#f6e05e",
-  text: "#e2e8f0",
+  text: "#d0d0d0",
   border: "#404040",
 }

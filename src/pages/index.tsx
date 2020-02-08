@@ -7,7 +7,7 @@ import {
   MdxEdge,
   Mdx,
 } from "../../types/graphqlTypes"
-import { BlogPageWithoutTOC } from "../components/templates/BlogPageWithoutTOC"
+import { BlogPage } from "../components/templates/BlogPage"
 import PostList from "../components/templates/blog/PostList"
 import SwipingAnchor from "../components/atoms/SwipingAnchor"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -32,13 +32,15 @@ const Plain: PlainComponent<{ data: Data }> = ({
   data: {
     allMdx: { edges },
   },
+  className,
 }) => (
-  <BlogPageWithoutTOC
+  <BlogPage
     title="BLOG"
     description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
+    className={className}
   >
-    <h1 className="text-center text-200 font-bold">CHIR.KKRN.ME</h1>
-    <p className="text-center">
+    <h1>CHIR.KKRN.ME</h1>
+    <p>
       <SwipingAnchor to="/tags">
         日付順
         <FontAwesomeIcon icon={faCalendarDay} />{" "}
@@ -47,10 +49,10 @@ const Plain: PlainComponent<{ data: Data }> = ({
         タグ一覧
       </SwipingAnchor>
     </p>
-    <article className="p-1">
+    <article>
       <PostList edges={edges} />
     </article>
-  </BlogPageWithoutTOC>
+  </BlogPage>
 )
 
 const Styled = styled(Plain)`
@@ -67,29 +69,6 @@ const Styled = styled(Plain)`
   }
 `
 
-const Index = ({ data }: { data: BlogIndexQuery }) => {
-  const edges = data.allMdx.edges
-  return (
-    <BlogPageWithoutTOC
-      title="BLOG"
-      description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
-    >
-      <h1 className="text-center text-200 font-bold">CHIR.KKRN.ME</h1>
-      <p className="text-center">
-        <SwipingAnchor to="/tags">
-          日付順
-          <FontAwesomeIcon icon={faCalendarDay} />{" "}
-          <FontAwesomeIcon icon={faArrowRight} />{" "}
-          <FontAwesomeIcon icon={faTags} />
-          タグ一覧
-        </SwipingAnchor>
-      </p>
-      <article className="p-1">
-        <PostList edges={edges} />
-      </article>
-    </BlogPageWithoutTOC>
-  )
-}
 const err = `Recieved null/undefined in ${__filename}`
 
 export const pageQuery = graphql`
@@ -112,4 +91,4 @@ export const pageQuery = graphql`
   }
 `
 
-export default Index
+export default Styled

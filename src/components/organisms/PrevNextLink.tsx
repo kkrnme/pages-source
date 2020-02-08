@@ -6,38 +6,50 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import React from "react"
-import { MdxEdge } from "../../../types/graphqlTypes"
+import { MdxEdge, MdxFrontmatter } from "../../../types/graphqlTypes"
+import { DeepReadonly } from "ts-essentials"
 
-export const PrevNextLink = ({ post }: { post: MdxEdge }) => {
-  const previous = post.previous,
-    next = post.next
-  return (
-    <div className={`flex justify-between`} css={{}}>
-      {previous != undefined ? (
-        <PrevNextLinkButton
-          enabled
-          to={previous.frontmatter?.path ?? "path-not-found"}
-        >
-          {previous.frontmatter?.title}
-        </PrevNextLinkButton>
-      ) : (
-        <PrevNextLinkButton enabled={false}>
-          ＊これ以上前の記録は見つからない。
-        </PrevNextLinkButton>
-      )}
-
-      {next != null ? (
-        <PrevNextLinkButton enabled to={next.frontmatter?.path ?? "/"}>
-          {next.frontmatter?.title}
-        </PrevNextLinkButton>
-      ) : (
-        <PrevNextLinkButton enabled={false}>
-          ＊記録はここで途切れている。
-        </PrevNextLinkButton>
-      )}
-    </div>
-  )
+type adjoining = {
+  frontmatter: Pick<MdxFrontmatter, "path" | "title">
 }
+
+type PostForPrevNextLink = {
+  previous: adjoining
+  next: adjoining
+}
+
+export type PrevNextLinkProps = DeepReadonly<{
+  post: PostForPrevNextLink
+}>
+
+export const PrevNextLink = ({
+  post: { previous, next },
+}: PrevNextLinkProps) => (
+  <div className={`flex justify-between`} css={{}}>
+    {previous != undefined ? (
+      <PrevNextLinkButton
+        enabled
+        to={previous.frontmatter?.path ?? "path-not-found"}
+      >
+        {previous.frontmatter?.title}
+      </PrevNextLinkButton>
+    ) : (
+      <PrevNextLinkButton enabled={false}>
+        ＊これ以上前の記録は見つからない。
+      </PrevNextLinkButton>
+    )}
+
+    {next != null ? (
+      <PrevNextLinkButton enabled to={next.frontmatter?.path ?? "/"}>
+        {next.frontmatter?.title}
+      </PrevNextLinkButton>
+    ) : (
+      <PrevNextLinkButton enabled={false}>
+        ＊記録はここで途切れている。
+      </PrevNextLinkButton>
+    )}
+  </div>
+)
 
 export default PrevNextLink
 

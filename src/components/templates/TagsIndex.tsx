@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
 import PostList from "./blog/PostList"
-import { BlogPageWithoutTOC } from "./BlogPageWithoutTOC"
+import { BlogPage } from "./BlogPage"
 import MDXComponents from "../general/MDXComponents"
 import SwipingAnchor from "../atoms/SwipingAnchor"
 
@@ -21,10 +21,7 @@ export const TagsIndex = ({
 }) => {
   const { classfiedPosts } = pageContext
   return (
-    <BlogPageWithoutTOC
-      title="Tags"
-      description="エンジニア系高校生ブログ。タグのリスト"
-    >
+    <BlogPage title="Tags" description="エンジニア系高校生ブログ。タグのリスト">
       <h1 className="text-center text-200 font-bold">CHIR.KKRN.ME</h1>
       <p className="text-center">
         <SwipingAnchor to="/">
@@ -50,7 +47,7 @@ export const TagsIndex = ({
           )
         })}
       </article>
-    </BlogPageWithoutTOC>
+    </BlogPage>
   )
 }
 

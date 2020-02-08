@@ -11,14 +11,14 @@ import React from "react"
 import SwipingAnchor from "../components/atoms/SwipingAnchor"
 import bg from "../images/tobe.png"
 import "../styles/tailwind.css"
-import { PrimitiveBackground } from "../components/templates/PrimitiveBackground"
+import { Background } from "../components/templates/Background"
 
 const FontAwesomeIcon = (props: Parameters<typeof _FAICON>[0]) => (
   <_FAICON {...props} className={"mx-1 " + props.className ?? ""} />
 )
 
 export default () => (
-  <PrimitiveBackground
+  <Background
     className="selection-green text-monochrome-e text-center transition font-light"
     css={css`
       background-image: url(${bg});
@@ -68,7 +68,7 @@ export default () => (
     >
       Mastodon
     </a>
-  </PrimitiveBackground>
+  </Background>
 )
 
 const Sect: React.FC<{

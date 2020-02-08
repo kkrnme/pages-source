@@ -8,7 +8,7 @@ import { PlainComponent } from "../../utils/PlainComponent"
 import { css, Global } from "@emotion/core"
 import { cs, mq } from "../../styles"
 
-const Component: PlainComponent<BackgroundProps> = props => (
+const Plain: PlainComponent<BackgroundProps> = props => (
   <Twemoji noWrapper>
     <div className={props.className}>
       <Helmet>
@@ -37,10 +37,12 @@ const Component: PlainComponent<BackgroundProps> = props => (
  * あらゆるページはこれをルートに持つ。
  * @param props titleには自動的に`"- CHIR.KKRN.ME"が追加される。`
  */
-export const StyledComponent = styled(Component)`
+const Styled = styled(Plain)`
   min-height: 100vh;
   height: 100%;
   width: 100%;
+  background-color: ${cs.background};
+  color: ${cs.text};
 `
 
-export { StyledComponent as PrimitiveBackground }
+export { Styled as Background }

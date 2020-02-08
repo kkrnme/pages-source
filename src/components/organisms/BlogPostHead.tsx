@@ -6,10 +6,19 @@ import { TagComponent, TagLink } from "../atoms/TagComponent"
 import { PlainComponent } from "../../utils/PlainComponent"
 import styled from "@emotion/styled"
 import { ds, ss } from "../../styles"
+import { DeepReadonly } from "ts-essentials"
 
-export type BlogPostHeadProps = {
-  post: MdxEdge
-}
+export type BlogPostHeadProps = DeepReadonly<{
+  post: {
+    node: {
+      frontmatter?: {
+        title: string
+        tags: string[]
+        date: any
+      }
+    }
+  }
+}>
 
 export const Plain: PlainComponent<BlogPostHeadProps> = ({
   post,
