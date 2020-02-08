@@ -1,7 +1,7 @@
 import React from "react"
 import renderer from "react-test-renderer"
 
-import { AnchorOrLink } from "../../src/components/AnchorOrLink"
+import { AnchorOrLink } from "../../../src/components/atoms/AnchorOrLink"
 
 describe("AnchorOrLink", () => {
   it("renders correctly", () => {

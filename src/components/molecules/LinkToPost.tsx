@@ -2,7 +2,7 @@ import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import GeoPattern from "geopattern"
 import React from "react"
-import { Stylable } from "../Components"
+import { Stylable } from "../../utils/Components"
 import { cs, ss } from "../../styles"
 import styled from "@emotion/styled"
 

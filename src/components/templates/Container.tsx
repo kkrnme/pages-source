@@ -1,4 +1,4 @@
-import { Stylable } from "../Components"
+import { Stylable } from "../../utils/Components"
 import React from "react"
 
 /**

@@ -1,7 +1,7 @@
 import { css } from "@emotion/core"
 import React from "react"
 import tw from "tailwind.macro"
-import { AnchorOrLink } from "../AnchorOrLink"
+import { AnchorOrLink } from "./AnchorOrLink"
 import { GatsbyLinkProps } from "gatsby"
 
 export const SwipingAnchor: React.FC<GatsbyLinkProps<unknown>> = props => (

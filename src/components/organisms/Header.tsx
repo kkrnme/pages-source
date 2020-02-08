@@ -3,8 +3,8 @@ import { faHome, IconDefinition } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import React, { ReactChild } from "react"
-import { cs } from "../styles/"
-import { PlainComponent } from "../utils/PlainComponent"
+import { cs } from "../../styles"
+import { PlainComponent } from "../../utils/PlainComponent"
 
 type HeaderButtonProps = {
   children: ReactChild

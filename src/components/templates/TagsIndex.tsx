@@ -9,7 +9,7 @@ import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
 import PostList from "./blog/PostList"
 import { BlogPage } from "./BlogPage"
-import MDXComponents from "../general/MDXComponents"
+import MDXComponents from "../atoms/MDXComponents"
 import SwipingAnchor from "../atoms/SwipingAnchor"
 
 export const TagsIndex = ({

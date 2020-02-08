@@ -1,5 +1,5 @@
 import React, { ReactChild } from "react"
-import { Stylable } from "../Components"
+import { Stylable } from "../../utils/Components"
 import { Link } from "gatsby"
 import { PlainComponent } from "../../utils/PlainComponent"
 import styled from "@emotion/styled"

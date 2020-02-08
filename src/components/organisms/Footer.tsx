@@ -1,5 +1,5 @@
 import React from "react"
-import SwipingAnchor from "./atoms/SwipingAnchor"
+import SwipingAnchor from "../atoms/SwipingAnchor"
 import { css } from "@emotion/core"
 
 export const SiteFooter = () => (
