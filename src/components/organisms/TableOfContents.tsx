@@ -1,4 +1,4 @@
-import { InterpolationWithTheme, css } from "@emotion/core"
+import { InterpolationWithTheme } from "@emotion/core"
 import React from "react"
 import SwipingAnchor from "../atoms/SwipingAnchor"
 import { DeepReadonly } from "ts-essentials"

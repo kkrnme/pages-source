@@ -6,7 +6,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import React from "react"
-import { MdxEdge, MdxFrontmatter } from "../../../types/graphqlTypes"
+import { MdxFrontmatter } from "../../../types/graphqlTypes"
 import { DeepReadonly } from "ts-essentials"
 
 type adjoining = {

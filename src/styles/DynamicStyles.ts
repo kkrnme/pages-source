@@ -1,5 +1,5 @@
 import { DeepReadonly } from "ts-essentials"
-import { SerializedStyles, css, Interpolation } from "@emotion/core"
+import { SerializedStyles, css } from "@emotion/core"
 
 export const ds: DeepReadonly<{
   [index: string]: (value: string) => SerializedStyles

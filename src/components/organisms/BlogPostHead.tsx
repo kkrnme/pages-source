@@ -1,7 +1,5 @@
-import { css } from "@emotion/core"
 import GeoPattern from "geopattern"
 import React from "react"
-import { MdxEdge } from "../../../types/graphqlTypes"
 import { TagComponent, TagLink } from "../atoms/TagComponent"
 import { PlainComponent } from "../../utils/PlainComponent"
 import styled from "@emotion/styled"

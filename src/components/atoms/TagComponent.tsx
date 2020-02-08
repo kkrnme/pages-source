@@ -1,4 +1,4 @@
-import React, { ReactChild, FC } from "react"
+import React, { ReactChild } from "react"
 import { Stylable } from "../Components"
 import { Link } from "gatsby"
 import { PlainComponent } from "../../utils/PlainComponent"

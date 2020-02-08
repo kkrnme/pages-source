@@ -1,6 +1,6 @@
 import React from "react"
 import LinkToPost from "../../molecules/LinkToPost"
-import { Mdx, MdxEdge } from "../../../../types/graphqlTypes"
+import { Mdx } from "../../../../types/graphqlTypes"
 import { PlainComponent } from "../../../utils/PlainComponent"
 import styled from "@emotion/styled"
 import { DeepReadonly } from "ts-essentials"

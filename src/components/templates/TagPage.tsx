@@ -4,7 +4,6 @@ import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
 import { BlogPage } from "./BlogPage"
 import SwipingAnchor from "../atoms/SwipingAnchor"
-import LinkToPost from "../molecules/LinkToPost"
 import PostList from "./blog/PostList"
 
 export const TagPage = ({

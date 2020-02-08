@@ -1,12 +1,6 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
-import LinkToPost from "../components/molecules/LinkToPost"
-import {
-  BlogIndexQuery,
-  MdxConnection,
-  MdxEdge,
-  Mdx,
-} from "../../types/graphqlTypes"
+import { graphql } from "gatsby"
+import { Mdx } from "../../types/graphqlTypes"
 import { BlogPage } from "../components/templates/BlogPage"
 import PostList from "../components/templates/blog/PostList"
 import SwipingAnchor from "../components/atoms/SwipingAnchor"
@@ -68,8 +62,6 @@ const Styled = styled(Plain)`
     padding: 0.25rem;
   }
 `
-
-const err = `Recieved null/undefined in ${__filename}`
 
 export const pageQuery = graphql`
   query BlogIndex {
