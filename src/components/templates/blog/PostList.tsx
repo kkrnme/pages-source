@@ -1,14 +1,15 @@
 import React from "react"
-import LinkToPost from "../../general/LinkToPost"
+import LinkToPost from "../../molecules/LinkToPost"
 import { Mdx, MdxEdge } from "../../../../types/graphqlTypes"
 import { PlainComponent } from "../../../utils/PlainComponent"
 import styled from "@emotion/styled"
+import { DeepReadonly } from "ts-essentials"
 
-export type PostListProps = {
+export type PostListProps = DeepReadonly<{
   edges: {
     node: Pick<Mdx, "excerpt" | "id" | "frontmatter">
   }[]
-}
+}>
 
 export const Plain: PlainComponent<PostListProps> = ({
   edges: posts,

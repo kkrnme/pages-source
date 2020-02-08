@@ -7,10 +7,10 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
-import PostList from "../templates/blog/PostList"
-import { BlogPageWithoutTOC } from "../templates/BlogPageWithoutTOC"
+import PostList from "./blog/PostList"
+import { BlogPageWithoutTOC } from "./BlogPageWithoutTOC"
 import MDXComponents from "../general/MDXComponents"
-import SwipingAnchor from "../general/SwipingAnchor"
+import SwipingAnchor from "../atoms/SwipingAnchor"
 
 export const TagsIndex = ({
   pageContext,

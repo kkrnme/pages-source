@@ -3001,6 +3001,7 @@ export type SitePageFieldsEnum =
   'pluginCreator___version' |
   'pluginCreator___pluginOptions___isTSX' |
   'pluginCreator___pluginOptions___allExtensions' |
+  'pluginCreator___pluginOptions___strict' |
   'pluginCreator___pluginOptions___name' |
   'pluginCreator___pluginOptions___path' |
   'pluginCreator___pluginOptions___gatsbyRemarkPlugins' |
@@ -3205,6 +3206,7 @@ export type SitePluginFieldsEnum =
   'version' |
   'pluginOptions___isTSX' |
   'pluginOptions___allExtensions' |
+  'pluginOptions___strict' |
   'pluginOptions___name' |
   'pluginOptions___path' |
   'pluginOptions___gatsbyRemarkPlugins' |
@@ -3350,6 +3352,7 @@ export type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 export type SitePluginPluginOptions = {
   isTSX?: Maybe<Scalars['Boolean']>,
   allExtensions?: Maybe<Scalars['Boolean']>,
+  strict?: Maybe<Scalars['Boolean']>,
   name?: Maybe<Scalars['String']>,
   path?: Maybe<Scalars['String']>,
   gatsbyRemarkPlugins?: Maybe<Array<Maybe<SitePluginPluginOptionsGatsbyRemarkPlugins>>>,
@@ -3369,6 +3372,7 @@ export type SitePluginPluginOptions = {
 export type SitePluginPluginOptionsFilterInput = {
   isTSX?: Maybe<BooleanQueryOperatorInput>,
   allExtensions?: Maybe<BooleanQueryOperatorInput>,
+  strict?: Maybe<BooleanQueryOperatorInput>,
   name?: Maybe<StringQueryOperatorInput>,
   path?: Maybe<StringQueryOperatorInput>,
   gatsbyRemarkPlugins?: Maybe<SitePluginPluginOptionsGatsbyRemarkPluginsFilterListInput>,

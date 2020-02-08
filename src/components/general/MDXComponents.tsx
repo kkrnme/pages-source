@@ -1,7 +1,7 @@
 import { css } from "@emotion/core"
 import { Components } from "@mdx-js/react"
 import React from "react"
-import SwipingAnchor from "./SwipingAnchor"
+import SwipingAnchor from "../atoms/SwipingAnchor"
 import { DeepReadonly } from "ts-essentials"
 import styled from "@emotion/styled"
 import { cs } from "../../styles"

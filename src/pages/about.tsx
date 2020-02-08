@@ -8,8 +8,8 @@ import {
 import { faFileAlt } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon as _FAICON } from "@fortawesome/react-fontawesome"
 import React from "react"
-import SwipingAnchor from "../components/general/SwipingAnchor"
-import bg from "../components/images/tobe.png"
+import SwipingAnchor from "../components/atoms/SwipingAnchor"
+import bg from "../images/tobe.png"
 import "../styles/tailwind.css"
 import { PrimitiveBackground } from "../components/templates/PrimitiveBackground"
 
