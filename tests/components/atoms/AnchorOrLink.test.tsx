@@ -4,17 +4,31 @@ import renderer from "react-test-renderer"
 import { AnchorOrLink } from "../../../src/components/atoms/AnchorOrLink"
 
 describe("AnchorOrLink", () => {
-  it("renders correctly", () => {
-    const tree = renderer
-      .create(
-        <AnchorOrLink to="ddddddddddddddddddddddddddddddddddddd"></AnchorOrLink>
+  for (const i of [
+    "hoge",
+    "/hoge",
+    "hoge/",
+    "/hoge/",
+    "hoge/fuga",
+    "hoge/fuga/",
+    "/hoge/fuga/",
+    "google.com",
+    "google.com/",
+    "https://google.com",
+    "https://google.com/",
+  ]) {
+    it(`renders correctly: ${i}`, () => {
+      const tree = renderer
+        .create(<AnchorOrLink to={i}>{i}</AnchorOrLink>)
+        .toJSON()
+      console.log(
+        `${i} => ${
+          Object.keys(tree?.props!).includes("aria-current")
+            ? "Link - internal link"
+            : "a - external link"
+        }`
       )
-      .toJSON()
-    expect(tree).toMatchSnapshot()
-  })
-  it("renders correctly: https://google.com/", () => {
-    const tree = renderer.create(
-      <AnchorOrLink to="https://google.com/">Google!</AnchorOrLink>
-    )
-  })
+      expect(tree).toMatchSnapshot()
+    })
+  }
 })
