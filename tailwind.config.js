@@ -68,16 +68,6 @@ module.exports = {
   variants: {},
   plugins: [
     ({ addBase, addUtilities, config, theme }) => {
-      addBase({
-        ":root": {
-          fontSize: "inherit",
-          scrollbarColor: `theme("colors.red.400") theme("colors.gray.900")`,
-          "@media (min-width: 640px)": {
-            //sm
-            fontSize: "20px",
-          },
-        },
-      })
       addUtilities(
         {
           ".emoji": {

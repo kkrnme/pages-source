@@ -3,7 +3,8 @@ import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
 import { DeepReadonly } from "ts-essentials"
 import styled from "@emotion/styled"
-import { scheme } from "../../colors/colors"
+import { cs } from "../../styles"
+import { PlainComponent } from "../../utils/PlainComponent"
 
 export type TOCComponentProps = DeepReadonly<{
   TOC: TOC
@@ -30,18 +31,21 @@ const TOCItemComponent: React.FC<TOC> = ({ items }) => (
   </ul>
 )
 
-export const Component: React.FC<TOCComponentProps> = ({ className, TOC }) => (
+export const Plain: PlainComponent<TOCComponentProps> = ({
+  className,
+  TOC,
+}) => (
   <nav className={className}>
     <TOCItemComponent items={TOC.items} />
   </nav>
 )
 
-export const StyledComponent = styled(Component)`
+export const Styled = styled(Plain)`
   font-size: 0.9rem;
   background-color: #222;
-  border: 1px solid ${scheme.border};
+  border: 1px solid ${cs.border};
   border-radius: 0.25rem;
   padding: 0.5rem;
 `
 
-export { StyledComponent as TableOfContents }
+export { Styled as TableOfContents }

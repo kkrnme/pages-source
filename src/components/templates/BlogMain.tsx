@@ -1,18 +1,20 @@
 import React from "react"
+import styled from "@emotion/styled"
+import { ss, mq } from "../../styles"
 
-export const BlogMain: React.FC<{ className?: string }> = ({
-  children,
-  className,
-}) => (
-  <main
-    className={
-      "text-base tracking-09 rounded-none sm:rounded-lg \
-  container overflow-hidden \
-  mx-auto  \
-  transition selection-green border-0 sm:border border-gray-700 " +
-      (className ?? "")
-    }
-  >
-    {children}
-  </main>
-)
+export const BlogMain = styled.main`
+  ${ss.letterSpacing}
+  ${ss.container}
+  ${ss.hidden}
+  ${ss.centered}
+  border-radius: 0;
+  border: none;
+  ${ss.transition}
+  ${mq[0]}{
+    ${ss.rounded}
+    ${ss.border}
+  }
+  &::selection {
+    background-color: #00ad5670;
+  }
+`

@@ -1,3 +1,3 @@
-export type PlainComponent<T extends object> = React.FC<
-  { className: string } & T
->
+import { FC } from "react"
+
+export type PlainComponent<T extends object> = FC<{ className?: string } & T>

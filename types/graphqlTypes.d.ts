@@ -2117,7 +2117,7 @@ export type SitePageContext = {
 };
 
 export type SitePageContextClassfiedPosts = {
-  kkrn_me?: Maybe<Array<Maybe<SitePageContextClassfiedPostsKkrn_Me>>>,
+  kkrnme?: Maybe<Array<Maybe<SitePageContextClassfiedPostsKkrnme>>>,
   Gatsby?: Maybe<Array<Maybe<SitePageContextClassfiedPostsGatsby>>>,
   other?: Maybe<Array<Maybe<SitePageContextClassfiedPostsOther>>>,
   _xxxxxx?: Maybe<Array<Maybe<SitePageContextClassfiedPosts_Xxxxxx>>>,
@@ -2248,7 +2248,7 @@ export type SitePageContextClassfiedPosts_XxxxxxPreviousFrontmatterFilterInput =
 };
 
 export type SitePageContextClassfiedPostsFilterInput = {
-  kkrn_me?: Maybe<SitePageContextClassfiedPostsKkrn_MeFilterListInput>,
+  kkrnme?: Maybe<SitePageContextClassfiedPostsKkrnmeFilterListInput>,
   Gatsby?: Maybe<SitePageContextClassfiedPostsGatsbyFilterListInput>,
   other?: Maybe<SitePageContextClassfiedPostsOtherFilterListInput>,
   _xxxxxx?: Maybe<SitePageContextClassfiedPosts_XxxxxxFilterListInput>,
@@ -2362,57 +2362,57 @@ export type SitePageContextClassfiedPostsGatsbyPreviousFrontmatterFilterInput = 
   title?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_Me = {
-  node?: Maybe<SitePageContextClassfiedPostsKkrn_MeNode>,
-  next?: Maybe<SitePageContextClassfiedPostsKkrn_MeNext>,
-  previous?: Maybe<SitePageContextClassfiedPostsKkrn_MePrevious>,
+export type SitePageContextClassfiedPostsKkrnme = {
+  node?: Maybe<SitePageContextClassfiedPostsKkrnmeNode>,
+  next?: Maybe<SitePageContextClassfiedPostsKkrnmeNext>,
+  previous?: Maybe<SitePageContextClassfiedPostsKkrnmePrevious>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeFilterInput = {
-  node?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeFilterInput>,
-  next?: Maybe<SitePageContextClassfiedPostsKkrn_MeNextFilterInput>,
-  previous?: Maybe<SitePageContextClassfiedPostsKkrn_MePreviousFilterInput>,
+export type SitePageContextClassfiedPostsKkrnmeFilterInput = {
+  node?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeFilterInput>,
+  next?: Maybe<SitePageContextClassfiedPostsKkrnmeNextFilterInput>,
+  previous?: Maybe<SitePageContextClassfiedPostsKkrnmePreviousFilterInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeFilterListInput = {
-  elemMatch?: Maybe<SitePageContextClassfiedPostsKkrn_MeFilterInput>,
+export type SitePageContextClassfiedPostsKkrnmeFilterListInput = {
+  elemMatch?: Maybe<SitePageContextClassfiedPostsKkrnmeFilterInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNext = {
-  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNextFrontmatter>,
+export type SitePageContextClassfiedPostsKkrnmeNext = {
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrnmeNextFrontmatter>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNextFilterInput = {
-  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNextFrontmatterFilterInput>,
+export type SitePageContextClassfiedPostsKkrnmeNextFilterInput = {
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrnmeNextFrontmatterFilterInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNextFrontmatter = {
+export type SitePageContextClassfiedPostsKkrnmeNextFrontmatter = {
   path?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNextFrontmatterFilterInput = {
+export type SitePageContextClassfiedPostsKkrnmeNextFrontmatterFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNode = {
+export type SitePageContextClassfiedPostsKkrnmeNode = {
   id?: Maybe<Scalars['String']>,
-  tableOfContents?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContents>,
+  tableOfContents?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeTableOfContents>,
   body?: Maybe<Scalars['String']>,
   excerpt?: Maybe<Scalars['String']>,
-  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeFrontmatter>,
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeFrontmatter>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeFilterInput = {
+export type SitePageContextClassfiedPostsKkrnmeNodeFilterInput = {
   id?: Maybe<StringQueryOperatorInput>,
-  tableOfContents?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsFilterInput>,
+  tableOfContents?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsFilterInput>,
   body?: Maybe<StringQueryOperatorInput>,
   excerpt?: Maybe<StringQueryOperatorInput>,
-  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeFrontmatterFilterInput>,
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeFrontmatterFilterInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeFrontmatter = {
+export type SitePageContextClassfiedPostsKkrnmeNodeFrontmatter = {
   path?: Maybe<Scalars['String']>,
   status?: Maybe<Scalars['String']>,
   tags?: Maybe<Array<Maybe<Scalars['String']>>>,
@@ -2421,7 +2421,7 @@ export type SitePageContextClassfiedPostsKkrn_MeNodeFrontmatter = {
   description?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeFrontmatterFilterInput = {
+export type SitePageContextClassfiedPostsKkrnmeNodeFrontmatterFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   status?: Maybe<StringQueryOperatorInput>,
   tags?: Maybe<StringQueryOperatorInput>,
@@ -2430,42 +2430,42 @@ export type SitePageContextClassfiedPostsKkrn_MeNodeFrontmatterFilterInput = {
   description?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContents = {
-  items?: Maybe<Array<Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItems>>>,
+export type SitePageContextClassfiedPostsKkrnmeNodeTableOfContents = {
+  items?: Maybe<Array<Maybe<SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsItems>>>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsFilterInput = {
-  items?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterListInput>,
+export type SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsFilterInput = {
+  items?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsItemsFilterListInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItems = {
+export type SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsItems = {
   url?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterInput = {
+export type SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsItemsFilterInput = {
   url?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterListInput = {
-  elemMatch?: Maybe<SitePageContextClassfiedPostsKkrn_MeNodeTableOfContentsItemsFilterInput>,
+export type SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsItemsFilterListInput = {
+  elemMatch?: Maybe<SitePageContextClassfiedPostsKkrnmeNodeTableOfContentsItemsFilterInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MePrevious = {
-  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MePreviousFrontmatter>,
+export type SitePageContextClassfiedPostsKkrnmePrevious = {
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrnmePreviousFrontmatter>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MePreviousFilterInput = {
-  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrn_MePreviousFrontmatterFilterInput>,
+export type SitePageContextClassfiedPostsKkrnmePreviousFilterInput = {
+  frontmatter?: Maybe<SitePageContextClassfiedPostsKkrnmePreviousFrontmatterFilterInput>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MePreviousFrontmatter = {
+export type SitePageContextClassfiedPostsKkrnmePreviousFrontmatter = {
   path?: Maybe<Scalars['String']>,
   title?: Maybe<Scalars['String']>,
 };
 
-export type SitePageContextClassfiedPostsKkrn_MePreviousFrontmatterFilterInput = {
+export type SitePageContextClassfiedPostsKkrnmePreviousFrontmatterFilterInput = {
   path?: Maybe<StringQueryOperatorInput>,
   title?: Maybe<StringQueryOperatorInput>,
 };
@@ -2954,7 +2954,7 @@ export type SitePageFieldsEnum =
   'context___posts___node___body' |
   'context___posts___node___excerpt' |
   'context___tag' |
-  'context___classfiedPosts___kkrn_me' |
+  'context___classfiedPosts___kkrnme' |
   'context___classfiedPosts___Gatsby' |
   'context___classfiedPosts___other' |
   'context___classfiedPosts____xxxxxx' |

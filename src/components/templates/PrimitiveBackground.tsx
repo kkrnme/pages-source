@@ -5,6 +5,8 @@ import Helmet from "react-helmet"
 import "../../styles/tailwind.css"
 import styled from "@emotion/styled"
 import { PlainComponent } from "../../utils/PlainComponent"
+import { css, Global } from "@emotion/core"
+import { cs, mq } from "../../styles"
 
 const Component: PlainComponent<BackgroundProps> = props => (
   <Twemoji noWrapper>
@@ -14,6 +16,17 @@ const Component: PlainComponent<BackgroundProps> = props => (
         <meta name="description" content={props.description} />
         <title>{`${props.title} - CHIR.KKRN.ME`}</title>
       </Helmet>
+      <Global
+        styles={css`
+          :root {
+            font-size: inherit;
+            scrollbar-color: ${cs.border} ${cs.background};
+            ${mq[0]} {
+              font-size: 20px;
+            }
+          }
+        `}
+      />
       {props.children}
     </div>
   </Twemoji>

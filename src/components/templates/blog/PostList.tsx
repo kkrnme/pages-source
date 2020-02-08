@@ -1,11 +1,22 @@
 import React from "react"
 import LinkToPost from "../../general/LinkToPost"
 import { Mdx, MdxEdge } from "../../../../types/graphqlTypes"
+import { PlainComponent } from "../../../utils/PlainComponent"
+import styled from "@emotion/styled"
 
-export const PostList = ({ edges: posts }: PostListProps) => (
-  <ul className="list-none p-0 sm:flex-wrap sm:flex ">
+export type PostListProps = {
+  edges: {
+    node: Pick<Mdx, "excerpt" | "id" | "frontmatter">
+  }[]
+}
+
+export const Plain: PlainComponent<PostListProps> = ({
+  edges: posts,
+  className,
+}) => (
+  <ul className={className}>
     {posts.map(({ node }) => (
-      <li className="w-full sm:w-1/2 lg:w-1/3 p-1" key={node.id ?? undefined}>
+      <li key={node.id ?? undefined}>
         <LinkToPost
           to={`/${node.frontmatter?.path!}/`}
           title={node.frontmatter?.title!}
@@ -17,10 +28,23 @@ export const PostList = ({ edges: posts }: PostListProps) => (
   </ul>
 )
 
-export type PostListProps = {
-  edges: {
-    node: Pick<Mdx, "excerpt" | "id" | "frontmatter">
-  }[]
-}
+export const PostList = styled(Plain)`
+  list-style: none;
+  padding: 0;
+  @media (min-width: 640px) {
+    flex-wrap: wrap;
+    display: flex;
+  }
+  li {
+    width: 100%;
+    padding: 0.25rem;
+    @media (min-width: 640px) {
+      width: 50%;
+    }
+    @media (min-width: 1024px) {
+      width: 33.333333%;
+    }
+  }
+`
 
 export default PostList

@@ -9,7 +9,7 @@ import React from "react"
 import { MdxEdge } from "../../../types/graphqlTypes"
 import PostList from "../templates/blog/PostList"
 import { BlogPageWithoutTOC } from "../templates/BlogPageWithoutTOC"
-import BlogArticleComponents from "../general/blogArticleComponents"
+import MDXComponents from "../general/MDXComponents"
 import SwipingAnchor from "../general/SwipingAnchor"
 
 export const TagsIndex = ({
@@ -39,12 +39,12 @@ export const TagsIndex = ({
         {Object.keys(classfiedPosts).map(tag => {
           return (
             <section key={tag}>
-              <BlogArticleComponents.h1>
+              <MDXComponents.h1>
                 <SwipingAnchor to={`tags/${tag}`}>
                   <FontAwesomeIcon icon={faTag} />
                   {tag}
                 </SwipingAnchor>
-              </BlogArticleComponents.h1>
+              </MDXComponents.h1>
               <PostList edges={classfiedPosts[tag]} />
             </section>
           )

@@ -7,7 +7,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import React, { ReactChild } from "react"
-import { scheme } from "../colors/colors"
+import { cs } from "../styles/"
+import { PlainComponent } from "../utils/PlainComponent"
 
 type HeaderButtonProps = {
   children: ReactChild
@@ -18,7 +19,17 @@ type HeaderButtonProps = {
 const HeaderButtonList: HeaderButtonProps[] = [
   { to: "/", icon: faHome, children: "HOME" },
 ]
-const HeaderButtonsComponent: React.FC<{ className?: string }> = ({
+
+const HeaderButton: React.FC<HeaderButtonProps> = ({ to, icon, children }) => (
+  <Link to={`${to}`} className="no-underline text-gray-300">
+    <span>
+      <FontAwesomeIcon icon={icon} className="text-150" />
+      <span>{children}</span>
+    </span>
+  </Link>
+)
+
+const PlainHeaderButtons: React.FC<{ className?: string }> = ({
   className,
 }) => (
   <ul className={className}>
@@ -30,21 +41,21 @@ const HeaderButtonsComponent: React.FC<{ className?: string }> = ({
   </ul>
 )
 
-const StyledHeaderButtonsComponent = styled(HeaderButtonsComponent)``
+const StyledHeaderButtons = styled(PlainHeaderButtons)``
 
-const Component: React.FC<{ className?: string }> = ({ className }) => (
+const Plain: PlainComponent<{}> = ({ className }) => (
   <header className={className}>
     <div>
       <ul>
-        <StyledHeaderButtonsComponent />
+        <StyledHeaderButtons />
       </ul>
     </div>
   </header>
 )
 
-export const SiteHeader = styled(Component)`
-  background-color: ${scheme.background};
-  border-bottom: 1px solid ${scheme.border};
+export const SiteHeader = styled(Plain)`
+  background-color: ${cs.background};
+  border-bottom: 1px solid ${cs.border};
   padding-left: 1rem;
   padding-right: 1rem;
   div {
@@ -71,14 +82,5 @@ export const SiteHeader = styled(Component)`
     }
   }
 `
-
-const HeaderButton: React.FC<HeaderButtonProps> = ({ to, icon, children }) => (
-  <Link to={`${to}`} className="no-underline text-gray-300">
-    <span>
-      <FontAwesomeIcon icon={icon} className="text-150" />
-      <span>{children}</span>
-    </span>
-  </Link>
-)
 
 export default SiteHeader

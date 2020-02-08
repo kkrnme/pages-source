@@ -3,44 +3,8 @@ import { Link } from "gatsby"
 import GeoPattern from "geopattern"
 import React from "react"
 import { Stylable } from "../Components"
-
-export default (props: LinkToPostProps) => {
-  const { to, title, excerpt, status, className } = props,
-    pattern = GeoPattern.generate(title)
-  return (
-    <Link
-      to={to}
-      className={
-        "block shadow-md rounded rounded-tl-none overflow-hidden h-full bg-gray-800 " +
-        className
-      }
-      css={Object.assign(
-        css`
-          transition: 150ms filter ease-in-out;
-          &:hover {
-            filter: brightness(1.1);
-          }
-        `,
-        props.css
-      )}
-    >
-      <div
-        className="no-underline flex-wrap border-l-4 border-yellow-400 p-1 shadow transition text-gray-200"
-        css={css`
-          background-image: ${pattern.toDataUrl()};
-          background-size: contain;
-          background-attachment: fixed;
-          filter: saturate(180%);
-        `}
-      >
-        <h2 className="text-lg">
-          <span className="text-shadow">{title}</span>
-        </h2>
-      </div>
-      <p className="text-left p-2 text-gray-500 ">{excerpt}</p>
-    </Link>
-  )
-}
+import { cs, ss } from "../../styles"
+import styled from "@emotion/styled"
 
 type LinkToPostProps = {
   to: string
@@ -48,3 +12,73 @@ type LinkToPostProps = {
   excerpt: string
   status: string
 } & Stylable
+
+const Plain: React.FC<LinkToPostProps> = ({
+  to,
+  excerpt,
+  title,
+  className,
+}) => (
+  <Link to={to} className={className}>
+    <div>
+      <h2>
+        <span>{title}</span>
+      </h2>
+    </div>
+    <p>{excerpt}</p>
+  </Link>
+)
+
+const Styled = styled(Plain)`
+  display: block;
+  ${ss.boxShadowMedium};
+  ${ss.rounded};
+  border-top-left-radius: 0;
+  ${ss.hidden};
+  height: 100%;
+  background-color: ${cs.cardBackground};
+  transition: 150ms filter ease-in-out;
+  &:hover {
+    filter: brightness(1.1);
+  }
+  div {
+    text-decoration: none;
+    flex-wrap: wrap;
+    padding: 0.25rem;
+    ${ss.transition};
+    color: ${cs.border};
+
+    background-color: ${cs.primaryAccent};
+    background-size: contain;
+    background-attachment: fixed;
+    border-left: 1px solid ${cs.secondaryAccent};
+    border-left-width: 4px;
+    filter: saturate(180%);
+    h2 {
+      span {
+        ${ss.textShadow}
+        color: white;
+      }
+    }
+  }
+  p {
+    text-align: left;
+    padding: 0.5rem;
+  }
+`
+
+const Container: React.FC<LinkToPostProps> = props => {
+  const pattern = GeoPattern.generate(props.title)
+  return (
+    <Styled
+      {...props}
+      css={css`
+        div {
+          background-image: ${pattern.toDataUrl()};
+        }
+      `}
+    />
+  )
+}
+
+export default Container
