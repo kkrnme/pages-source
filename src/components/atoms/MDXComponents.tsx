@@ -4,7 +4,7 @@ import React from "react"
 import SwipingAnchor from "./SwipingAnchor"
 import { DeepReadonly } from "ts-essentials"
 import styled from "@emotion/styled"
-import { cs } from "../../styles"
+import { cs, ss } from "../../styles"
 
 type Elm = JSX.IntrinsicElements
 
@@ -40,13 +40,19 @@ export const MDXComponents: DeepReadonly<Required<Components>> = {
     props.className?.includes(`header-autolink`) ? (
       <a
         {...props}
-        className="bg-monochrome-e rounded-full hover:bg-blue-400 transition mr-1"
         css={css`
+          background-color: #eee;
+          ${ss.rounded}
+          ${ss.transition}
+          margin-right: .25rem;
+          &:hover {
+            background-color: ${cs.primaryAccent};
+          }
           svg {
             display: inline;
           }
         `}
-      />
+      ></a>
     ) : (
       <SwipingAnchor to={props.href!} {...props} />
     ),
