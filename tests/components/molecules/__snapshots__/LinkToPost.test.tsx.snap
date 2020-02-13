@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LinkToPost renders correctly [object Object] 1`] = `
+<a
+  aria-current="page"
+  className="css-342et8"
+  href="/"
+  onClick={[Function]}
+  onMouseEnter={[Function]}
+  style={Object {}}
+>
+  <div>
+    <h2>
+      <span>
+        今日の天気
+      </span>
+    </h2>
+  </div>
+  <p>
+    ああああああああああああああああああ
+  </p>
+</a>
+`;

@@ -8,30 +8,23 @@ import { Link } from "gatsby"
 import React from "react"
 import { MdxFrontmatter } from "../../../types/graphqlTypes"
 import { DeepReadonly } from "ts-essentials"
+import { Post } from "../../utils/Post"
 
-type adjoining = {
-  frontmatter: Pick<MdxFrontmatter, "path" | "title">
-}
-
-type PostForPrevNextLink = {
-  previous: adjoining
-  next: adjoining
-}
+type adjoining = Pick<Post, "path" | "title"> | null | undefined
 
 export type PrevNextLinkProps = DeepReadonly<{
-  post: PostForPrevNextLink
+  previous: adjoining
+  next: adjoining
 }>
 
-export const PrevNextLink = ({
-  post: { previous, next },
-}: PrevNextLinkProps) => (
+export const PrevNextLink: React.FC<PrevNextLinkProps> = ({
+  previous,
+  next,
+}) => (
   <div className={`flex justify-between`} css={{}}>
     {previous != undefined ? (
-      <PrevNextLinkButton
-        enabled
-        to={previous.frontmatter?.path ?? "path-not-found"}
-      >
-        {previous.frontmatter?.title}
+      <PrevNextLinkButton enabled to={previous.path ?? "path-not-found"}>
+        {previous.title}
       </PrevNextLinkButton>
     ) : (
       <PrevNextLinkButton enabled={false}>
@@ -40,8 +33,8 @@ export const PrevNextLink = ({
     )}
 
     {next != null ? (
-      <PrevNextLinkButton enabled to={next.frontmatter?.path ?? "/"}>
-        {next.frontmatter?.title}
+      <PrevNextLinkButton enabled to={next.path ?? "/"}>
+        {next.title}
       </PrevNextLinkButton>
     ) : (
       <PrevNextLinkButton enabled={false}>

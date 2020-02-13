@@ -53,7 +53,7 @@ module.exports = {
         fileName: `types/graphqlTypes.d.ts`,
         codegen: true,
         documentPaths: [
-          //"./src/**/*.{ts,tsx}",
+          "./src/**/*.{ts,tsx}",
           //"./.cache/fragments/*.js",
           //"./node_modules/gatsby-*/**/*.js",
         ],

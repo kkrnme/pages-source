@@ -8,44 +8,19 @@ import blogArticleComponents from "../atoms/MDXComponents"
 import { TableOfContents, TOC } from "../organisms/TableOfContents"
 import { BlogPage } from "./BlogPage"
 import { DeepReadonly } from "ts-essentials"
+import { Post } from "../../utils/Post"
 
 type BlogTemplateProps = DeepReadonly<{
-  pageContext: {
-    post: {
-      node: {
-        body: string
-        excerpt: string
-        tableOfContents: TOC
-        frontmatter?: { description?: string; path?: string; status?: string }
-      }
-    } & PrevNextLinkProps["post"] &
-      BlogPostHeadProps["post"]
-  }
+  pageContext: [Post, Post | null | undefined, Post | null | undefined]
 }>
 
-export const BlogTemplate = ({
-  pageContext: {
-    post,
-    post: {
-      node: {
-        body,
-        excerpt,
-        frontmatter: { title, description = excerpt, status } = {
-          title: "",
-          description: excerpt,
-          date: "",
-          tags: [],
-          path: "404",
-          status: "private",
-        },
-        tableOfContents: TOC,
-      },
-    },
-  },
-}: BlogTemplateProps) => (
+export const BlogTemplate: React.FC<BlogTemplateProps> = ({
+  pageContext: [post, previous, next],
+  pageContext: [{ body, title, description, tableOfContents: TOC }],
+}) => (
   <BlogPage title={`${title}`} description={description}>
     <BlogPostHead post={post} />
-    <PrevNextLink post={post} />
+    <PrevNextLink {...{ previous, next }} />
     <article className="p-3 md:p-5">
       {status === "draft" ? <Warn>この記事は書きかけです。</Warn> : null}
 
@@ -54,7 +29,7 @@ export const BlogTemplate = ({
         <MDXRenderer>{body}</MDXRenderer>
       </MDXProvider>
     </article>
-    <PrevNextLink post={post} />
+    <PrevNextLink {...{ previous, next }} />
   </BlogPage>
 )
 

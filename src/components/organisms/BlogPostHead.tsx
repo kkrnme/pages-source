@@ -5,33 +5,26 @@ import { PlainComponent } from "../../utils/PlainComponent"
 import styled from "@emotion/styled"
 import { ds, ss } from "../../styles"
 import { DeepReadonly } from "ts-essentials"
+import { Post } from "../../utils/Post"
 
 export type BlogPostHeadProps = DeepReadonly<{
-  post: {
-    node: {
-      frontmatter?: {
-        title: string
-        tags: string[]
-        date: any
-      }
-    }
-  }
+  post: Pick<Post, "tags" | "title" | "date">
 }>
 
 export const Plain: PlainComponent<BlogPostHeadProps> = ({
-  post,
+  post: { date, tags, title },
   className,
 }) => (
   <div className={className}>
     <div>
       <h1>
-        <span>{post.node.frontmatter?.title}</span>
+        <span>{title}</span>
       </h1>
     </div>
-    {post.node.frontmatter?.tags?.map(v => (
+    {tags.map(v => (
       <TagLink key={v!}>{v!}</TagLink>
     ))}
-    <TagComponent>{post.node.frontmatter?.date}</TagComponent>
+    <TagComponent>{date}</TagComponent>
   </div>
 )
 
@@ -39,8 +32,8 @@ const Styled = styled(Plain)`
   div {
     min-height: 7rem;
     z-index: 0;
-    background-image: ${(props: BlogPostHeadProps) =>
-      GeoPattern.generate(props.post.node.frontmatter?.title!).toDataUrl()};
+    background-image: ${({ post: { title } }: BlogPostHeadProps) =>
+      GeoPattern.generate(title).toDataUrl()};
     background-size: cover;
     filter: saturate(180%);
     content: "";

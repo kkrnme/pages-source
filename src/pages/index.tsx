@@ -13,6 +13,7 @@ import {
 import { PlainComponent } from "../utils/PlainComponent"
 import { DeepReadonly } from "ts-essentials"
 import styled from "@emotion/styled"
+import { toPostStrict, toPostPartial } from "../utils/Post"
 
 type Data = DeepReadonly<{
   allMdx: {
@@ -27,27 +28,32 @@ const Plain: PlainComponent<{ data: Data }> = ({
     allMdx: { edges },
   },
   className,
-}) => (
-  <BlogPage
-    title="BLOG"
-    description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
-    className={className}
-  >
-    <h1>CHIR.KKRN.ME</h1>
-    <p>
-      <SwipingAnchor to="/tags">
-        日付順
-        <FontAwesomeIcon icon={faCalendarDay} />{" "}
-        <FontAwesomeIcon icon={faArrowRight} />{" "}
-        <FontAwesomeIcon icon={faTags} />
-        タグ一覧
-      </SwipingAnchor>
-    </p>
-    <article>
-      <PostList edges={edges} />
-    </article>
-  </BlogPage>
-)
+}) => {
+  const posts = edges.map(({ node }) =>
+    toPostPartial<"excerpt" | "title" | "path" | "id">(node)
+  )
+  return (
+    <BlogPage
+      title="BLOG"
+      description="プログラミングそこそこ好き高校生、もみにすのブログです。45%手作り。"
+      className={className}
+    >
+      <h1>CHIR.KKRN.ME</h1>
+      <p>
+        <SwipingAnchor to="/tags">
+          日付順
+          <FontAwesomeIcon icon={faCalendarDay} />{" "}
+          <FontAwesomeIcon icon={faArrowRight} />{" "}
+          <FontAwesomeIcon icon={faTags} />
+          タグ一覧
+        </SwipingAnchor>
+      </p>
+      <article>
+        <PostList posts={posts} />
+      </article>
+    </BlogPage>
+  )
+}
 
 const Styled = styled(Plain)`
   & h1 {

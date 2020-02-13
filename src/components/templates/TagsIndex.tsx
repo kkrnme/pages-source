@@ -11,12 +11,13 @@ import PostList from "./blog/PostList"
 import { BlogPage } from "./BlogPage"
 import MDXComponents from "../atoms/MDXComponents"
 import SwipingAnchor from "../atoms/SwipingAnchor"
+import { Post } from "../../utils/Post"
 
 export const TagsIndex = ({
   pageContext,
 }: {
   pageContext: {
-    classfiedPosts: { [index: string]: MdxEdge[] }
+    classfiedPosts: { [index: string]: Post[] }
   }
 }) => {
   const { classfiedPosts } = pageContext
@@ -42,7 +43,7 @@ export const TagsIndex = ({
                   {tag}
                 </SwipingAnchor>
               </MDXComponents.h1>
-              <PostList edges={classfiedPosts[tag]} />
+              <PostList posts={classfiedPosts[tag]} />
             </section>
           )
         })}

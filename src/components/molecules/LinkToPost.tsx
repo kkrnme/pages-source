@@ -2,24 +2,21 @@ import { css } from "@emotion/core"
 import { Link } from "gatsby"
 import GeoPattern from "geopattern"
 import React from "react"
-import { Stylable } from "../../utils/Components"
 import { cs, ss } from "../../styles"
 import styled from "@emotion/styled"
+import { DeepReadonly } from "ts-essentials"
+import { Post } from "../../utils/Post"
+import { PlainComponent } from "../../utils/PlainComponent"
 
-type LinkToPostProps = {
-  to: string
-  title: string
-  excerpt: string
-  status: string
-} & Stylable
+export type LinkToPostProps = DeepReadonly<{
+  post: Pick<Post, "excerpt" | "path" | "title">
+}>
 
-const Plain: React.FC<LinkToPostProps> = ({
-  to,
-  excerpt,
-  title,
+const Plain: PlainComponent<LinkToPostProps> = ({
+  post: { excerpt, path, title },
   className,
 }) => (
-  <Link to={to} className={className}>
+  <Link to={`${path}`} className={className}>
     <div>
       <h2>
         <span>{title}</span>
@@ -67,18 +64,15 @@ const Styled = styled(Plain)`
   }
 `
 
-const Container: React.FC<LinkToPostProps> = props => {
-  const pattern = GeoPattern.generate(props.title)
-  return (
-    <Styled
-      {...props}
-      css={css`
-        div {
-          background-image: ${pattern.toDataUrl()};
-        }
-      `}
-    />
-  )
-}
+const Container: React.FC<LinkToPostProps> = props => (
+  <Styled
+    {...props}
+    css={css`
+      div {
+        background-image: ${GeoPattern.generate(props.post.title).toDataUrl()};
+      }
+    `}
+  />
+)
 
-export default Container
+export { Container as default, Container as LinkToPost }

@@ -5,11 +5,12 @@ import { MdxEdge } from "../../../types/graphqlTypes"
 import { BlogPage } from "./BlogPage"
 import SwipingAnchor from "../atoms/SwipingAnchor"
 import PostList from "./blog/PostList"
+import { Post } from "../../utils/Post"
 
 export const TagPage = ({
   pageContext,
 }: {
-  pageContext: { posts: MdxEdge[]; tag: string }
+  pageContext: { posts: Post[]; tag: string }
 }) => {
   return (
     <BlogPage
@@ -31,7 +32,7 @@ export const TagPage = ({
         </SwipingAnchor>
       </p>
       <article className="p-1">
-        <PostList edges={pageContext.posts} />
+        <PostList posts={pageContext.posts} />
       </article>
     </BlogPage>
   )

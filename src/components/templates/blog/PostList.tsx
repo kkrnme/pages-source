@@ -4,26 +4,17 @@ import { Mdx } from "../../../../types/graphqlTypes"
 import { PlainComponent } from "../../../utils/PlainComponent"
 import styled from "@emotion/styled"
 import { DeepReadonly } from "ts-essentials"
+import { Post } from "../../../utils/Post"
 
 export type PostListProps = DeepReadonly<{
-  edges: {
-    node: Pick<Mdx, "excerpt" | "id" | "frontmatter">
-  }[]
+  posts: Pick<Post, "excerpt" | "id" | "title" | "path">[]
 }>
 
-export const Plain: PlainComponent<PostListProps> = ({
-  edges: posts,
-  className,
-}) => (
+export const Plain: PlainComponent<PostListProps> = ({ posts, className }) => (
   <ul className={className}>
-    {posts.map(({ node }) => (
-      <li key={node.id ?? undefined}>
-        <LinkToPost
-          to={`/${node.frontmatter?.path!}/`}
-          title={node.frontmatter?.title!}
-          excerpt={node.excerpt}
-          status={node.frontmatter?.status!}
-        />
+    {posts.map(p => (
+      <li key={p.id ?? undefined}>
+        <LinkToPost post={{ ...p, path: `/${p.path}/` }} />
       </li>
     ))}
   </ul>

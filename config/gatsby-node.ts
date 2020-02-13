@@ -1,6 +1,7 @@
-import { GatsbyNode } from "gatsby"
+import { GatsbyNode, graphql } from "gatsby"
 import Path from "path"
-import { MdxConnection, MdxEdge, Mdx } from "../types/graphqlTypes"
+import { MdxConnection, MdxEdge } from "../types/graphqlTypes"
+import { Post, toPostStrict } from "../src/utils/Post"
 
 export const createPages: GatsbyNode["createPages"] = async ({
   graphql,
@@ -54,20 +55,21 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   if (!result.data) return
-  const { edges: posts } = result.data.allMdx
+  const { edges } = result.data.allMdx
 
-  const classfiedPosts: { [index: string]: MdxEdge[] } = {}
+  const classfiedPosts: { [index: string]: Post[] } = {}
 
-  posts.forEach(post => {
-    if (post.node.frontmatter == null) {
-      throw new Error("frontmatter is null")
-    }
+  edges.forEach(e => {
+    const { node, previous: pr, next: nx } = e
 
-    if (post.node.frontmatter.path == null) {
-      throw new Error("path is null")
-    }
-    if (post.node.frontmatter.tags) {
-      post.node.frontmatter.tags.forEach(tag => {
+    const [post, previous, next] = [
+      toPostStrict(node),
+      pr && toPostStrict(pr),
+      nx && toPostStrict(nx),
+    ]
+
+    if (post.tags) {
+      post.tags.forEach(tag => {
         if (tag) {
           if (!classfiedPosts[tag]) {
             classfiedPosts[tag] = []
@@ -77,10 +79,10 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       })
     }
-    createPage({
-      path: post.node.frontmatter.path,
+    createPage<[Post, Post | null | undefined, Post | null | undefined]>({
+      path: post.path,
       component: Path.resolve(`./src/components/templates/BlogTemplate.tsx`),
-      context: { post, id: post.node.id },
+      context: [post, previous, next],
     })
   })
 
