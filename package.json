@@ -11,7 +11,7 @@
     "extreme-deploy": "npm run format && npm run refresh  && npm run deploy",
     "extreme-develop": "npm run format && npm run refresh && npm run develop",
     "develop": "gatsby develop --host 0.0.0.0",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,pcss}\"",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,pcss}\"",
     "watch": "npm run format && onchange 'src/**/*.js' 'src/**/*.jsx' 'src/**/*.ts' 'src/**/*.tsx' 'src/**/*.pcss'  -- prettier --write {{changed}}",
     "clean": "gatsby clean",
     "open": "gatsby serve -p 8000 -o --host 0.0.0.0",
