@@ -71,7 +71,10 @@ const Styled = styled(Plain)`
 
 export const pageQuery = graphql`
   query BlogIndex {
-    allMdx(sort: { order: DESC, fields: frontmatter___date }) {
+    allMdx(
+      sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { status: { ne: "private" } } }
+    ) {
       edges {
         node {
           excerpt
