@@ -93,6 +93,5 @@ module.exports = {
         openAnalyzer: false,
       },
     },
-    `gatsby-plugin-why-did-you-render`,
   ],
 }
