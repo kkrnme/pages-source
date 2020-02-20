@@ -6,7 +6,7 @@ exports[`PostList renders correctly 1`] = `
 >
   <li>
     <a
-      className="css-342et8"
+      className="css-1yrbkum"
       href="/hoge/"
       onClick={[Function]}
       onMouseEnter={[Function]}

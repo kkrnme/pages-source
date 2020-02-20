@@ -43,6 +43,7 @@ const Styled = styled(Plain)`
   width: 100%;
   background-color: ${cs.background};
   color: ${cs.text};
+  font-weight: 400;
 `
 
 export { Styled as Background }

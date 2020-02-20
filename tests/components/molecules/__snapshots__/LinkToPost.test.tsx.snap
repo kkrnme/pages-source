@@ -3,7 +3,7 @@
 exports[`LinkToPost renders correctly [object Object] 1`] = `
 <a
   aria-current="page"
-  className="css-342et8"
+  className="css-1yrbkum"
   href="/"
   onClick={[Function]}
   onMouseEnter={[Function]}
